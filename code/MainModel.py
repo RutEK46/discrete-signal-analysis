@@ -43,37 +43,38 @@ class MainModel:
         "MACD": ["MACD", "Signal"],
         "Bollinger Bands": ["Upper Band", "Middle Band", "Lower Band"],
     }
+    input_signal_name = "Input"
 
     # Any transformation parameter other in than signal must be defined here
-    # Parameters are returned lambda function that takes signal as parameter,
+    # Parameters are returned by lambda function that takes signal as parameter,
     # what allows to adjust other parameters based on signal properties
     parameters = {
         "SMA": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal))
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2)
         ),
         "Variation": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)),
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2),
         ),
         "Standard deviation": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)),
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2),
         ),
         "Energy": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)),
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2),
         ),
         "Moment": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)),
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2),
             m=widgets.IntSlider(min=1, max=5, step=1, value=2),
         ),
         "Central moment": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)),
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2),
             m=widgets.IntSlider(min=1, max=5, step=1, value=2),
         ),
         "Standardized moment": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)),
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2),
             m=widgets.IntSlider(min=1, max=5, step=1, value=2),
         ),
         "Standardized central moment": lambda signal: dict(
-            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)),
+            span=widgets.IntSlider(min=1, max=len(signal), step=1, value=len(signal)/2),
             m=widgets.IntSlider(min=1, max=5, step=1, value=2),
         ),
         "MACD": lambda signal: dict(
@@ -87,7 +88,8 @@ class MainModel:
         ),
     }
 
-    colors = ['#0000FF', '#008b00', '#FF0000', "#222222"]
+    colors = ['#0000FF', '#008b00', '#FF0000']
+    input_signal_color = '#888888'
 
     def __init__(self):
         self.csv_file_path = None
@@ -119,24 +121,28 @@ class MainModel:
     def plot_input_signal(self, file_path, key):
         if file_path and key:
             trace = dict(visible=True,
-                         line=dict(color='#000000', width=1),
-                         name='Plot',
+                         line=dict(color=self.input_signal_color, width=1),
+                         name=self.input_signal_name,
                          y=list(self.read_csv_file(file_path)[key]))
 
             py.offline.iplot(dict(data=dict(data=[trace])))
         else:
             print("")
 
-    def plot_output_signal(self, file_path, key, transformation):
+    def plot_output_signal(self, file_path, key, transformation, ad_input_signal_to_plot):
         if file_path and key and transformation:
             try:
                 input_signal = [element for element in self.read_csv_file(file_path)[key]]
-
                 if self.parameters.get(transformation):
-                    widgets.interact(lambda **kwargs: self.__plot_output_signal(input_signal, transformation, **kwargs),
+                    widgets.interact(lambda **kwargs: self.__plot_output_signal(input_signal,
+                                                                                transformation,
+                                                                                file_path,
+                                                                                key,
+                                                                                ad_input_signal_to_plot,
+                                                                                kwargs),
                                      **self.parameters[transformation](input_signal))
                 else:
-                    self.__plot_output_signal(input_signal, transformation)
+                    self.__plot_output_signal(input_signal, transformation, file_path, key, ad_input_signal_to_plot)
 
             except Exception:
                 log.exception("")
@@ -148,13 +154,21 @@ class MainModel:
 
         return csv_file.keys() if csv_file is not None else []
 
-    def __plot_output_signal(self, input_signal, transformation, **kwargs):
+    def __plot_output_signal(self, input_signal, transformation, file_path, key, ad_input_signal_to_plot, kwargs={}):
         try:
             output = self.signal_transformations[transformation](input_signal, **kwargs)
 
+            input_trace = [dict(visible=True,
+                                line=dict(color=self.input_signal_color, width=1),
+                                name=self.input_signal_name,
+                                y=input_signal)]
+
             if isinstance(output, list):
                 if len(output) == 0:
-                    print("")
+                    if ad_input_signal_to_plot:
+                        self.plot_input_signal(file_path, key)
+                    else:
+                        print("")
                     return
                 elif isinstance(output[0], list) or isinstance(output[0], Iterable):
                     traces = [dict(visible=True,
@@ -175,11 +189,20 @@ class MainModel:
                                if self.output_signal_names.get(transformation) else transformation,
                                y=list(output))]
                 if len(traces) == 0:
-                    print("")
+                    if ad_input_signal_to_plot:
+                        self.plot_input_signal(file_path, key)
+                    else:
+                        print("")
                     return
             else:
-                print("")
+                if ad_input_signal_to_plot:
+                    self.plot_input_signal(file_path, key)
+                else:
+                    print("")
                 return
+
+            if ad_input_signal_to_plot:
+                traces += input_trace
 
             py.offline.iplot(dict(data=dict(data=traces)))
         except Exception:

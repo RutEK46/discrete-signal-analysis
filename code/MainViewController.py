@@ -15,7 +15,6 @@ class MainViewController:
 
         self.view.signal_file_menu.observe(self.on_signal_file_menu_change, 'value')
 
-        self.view.input_signal_printer = self.input_signal_printer
         self.view.input_signal_ploter = self.input_signal_ploter
         self.view.output_signal_ploter = self.output_signal_ploter
 
@@ -35,14 +34,11 @@ class MainViewController:
             self.view.signal_file_menu.options = self.file_names
             self.view.signal_key_menu.options = []
 
-    def input_signal_printer(self, signal_file, signal_key):
-        self.model.print_signal(self.get_file_path(signal_file), signal_key)
-
-    def input_signal_ploter(self, signal_file, signal_key):
+    def input_signal_ploter(self, signal_file, signal_key, one_plot):
         self.model.plot_input_signal(self.get_file_path(signal_file), signal_key)
 
-    def output_signal_ploter(self, signal_file, signal_key, transformation_name):
-        self.model.plot_output_signal(self.get_file_path(signal_file), signal_key, transformation_name)
+    def output_signal_ploter(self, signal_file, signal_key, transformation_name, one_plot):
+        self.model.plot_output_signal(self.get_file_path(signal_file), signal_key, transformation_name, one_plot)
 
     def get_file_path(self, file_name):
         return f"{self.folder_path}/{file_name}"
