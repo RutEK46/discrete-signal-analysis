@@ -38,19 +38,19 @@ class MainView:
             'transformation_name': self.transformation_menu,
         })
 
-        self.signal_accordion = widgets.Accordion(children=[self.input_signal])
-        self.signal_plot_accordion = widgets.Accordion(children=[self.input_signal_plot])
-        self.signal_output_plot_accordion = widgets.Accordion(children=[self.signal_output_plot])
+        layout = widgets.Layout(grid_template_columns='1fr 1fr')
+        plot_grid_box = widgets.GridBox(layout=layout, children=[
+            self.input_signal_plot,
+            self.signal_output_plot,
+        ])
 
-        self.signal_accordion.set_title(0, 'Signal')
-        self.signal_plot_accordion.set_title(0, 'Signal Plot')
-        self.signal_output_plot_accordion.set_title(0, 'Transformation Plot')
+        signal_accordion = widgets.Accordion(children=[self.input_signal])
+        signal_accordion.set_title(0, 'Signal')
 
         self.top_level = widgets.VBox([
             self.signal_file_menu,
             self.signal_key_menu,
             self.transformation_menu,
-            self.signal_accordion,
-            self.signal_plot_accordion,
-            self.signal_output_plot_accordion,
+            plot_grid_box,
+            signal_accordion,
         ])

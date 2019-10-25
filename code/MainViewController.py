@@ -16,6 +16,7 @@ class MainViewController:
         self.view.signal_file_menu.observe(self.on_signal_file_menu_change, 'value')
 
         self.view.input_signal_printer = self.input_signal_printer
+        self.view.input_signal_ploter = self.input_signal_ploter
         self.view.output_signal_ploter = self.output_signal_ploter
 
         self.view.signal_file_menu.options = self.file_names

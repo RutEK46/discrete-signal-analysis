@@ -14,11 +14,15 @@ def fast_fourier_transformation(signal):
         raise FastFourierTransformationError(
             f"Length of the signal must be the power of two! Given length of the signal: {len(signal)}"
         )
-        
+
+    return [abs(y) for y in __fast_fourier_transformation(signal)]
+
+
+def __fast_fourier_transformation(signal):
     if len(signal) == 1:
         return signal
     else:
-        signal = fast_fourier_transformation(signal[0::2]) + fast_fourier_transformation(signal[1::2])
+        signal = __fast_fourier_transformation(signal[0::2]) + __fast_fourier_transformation(signal[1::2])
         y1, y2 = [], []
         n = len(signal)
         for k, x in enumerate(signal[:int(n/2)]):
