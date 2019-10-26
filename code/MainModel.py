@@ -3,7 +3,6 @@ from pandas import read_csv
 from fast_fourier_transformation import fast_fourier_transformation
 from macd import macd
 from bollinger_bands import bollinger_bands
-from derivative import derivative
 import logging as log
 import plotly as py
 import base_operations
