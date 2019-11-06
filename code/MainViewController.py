@@ -1,6 +1,7 @@
 from MainView import MainView
 from DefaultViewController import DefaultViewController
 from InvestorViewController import InvestorViewController
+from AggregateIndicatorViewController import AggregateIndicatorViewController
 
 
 class MainViewController:
@@ -16,6 +17,10 @@ class MainViewController:
                 "Controller": InvestorViewController(folder_path=folder_path),
                 "Name": "Investor",
             },
+            {
+                "Controller": AggregateIndicatorViewController(folder_path=folder_path),
+                "Name": "Aggregate Indicator",
+            }
         ]
 
         self.view.signals_tab.children = [child["Controller"].view.top_level for child in self.children]
