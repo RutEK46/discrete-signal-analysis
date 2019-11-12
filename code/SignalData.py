@@ -1,6 +1,7 @@
 from fast_fourier_transformation import fast_fourier_transformation
 from macd import macd
 from bollinger_bands import bollinger_bands
+from stochastic_oscillator import stochastic_oscillator
 from derivative import derivative
 from pandas import read_csv
 import ipywidgets as widgets
@@ -27,6 +28,7 @@ class SignalData:
             "FFT": fast_fourier_transformation,
             "MACD": macd,
             "Bollinger Bands": bollinger_bands,
+            "Stochastic Oscillator": stochastic_oscillator,
         }
 
         self.signal_transformations_with_x_input = {
@@ -41,6 +43,7 @@ class SignalData:
         self.output_signal_names = {
             "MACD": ["MACD", "Signal"],
             "Bollinger Bands": ["Upper Band", "Middle Band", "Lower Band"],
+            "Stochastic Oscillator": ["line %K", "line %D"],
         }
         self.input_signal_name = "Input"
 
