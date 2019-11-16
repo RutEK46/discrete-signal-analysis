@@ -1,0 +1,91 @@
+\chapter{Analiza techniczna}
+$<<<$ todo: Wstêp o analizie technicznej? $>>>$ 
+\section{MACD}
+MACD sk³ada siê z dwóch linii - MACD i signal. MACD jest ró¿nic¹ dwóch œrednich EMA (najczêœciej o parametrach 26 i 12) sygna³u wejœciowego $X$, natomiast signal jest œredni¹ EMA sygna³u MACD z (najczêœciej) 9 ostatnich próbek.
+\begin{equation}
+\begin{array}{lll}
+MACD & = & EMA_{26}(X) - EMA_{12}(X) \\
+signal & = & EMA_{9}(MACD)
+\end{array}
+\end{equation}
+MACD interpretuje siê w nastêpuj¹cy sposób:
+\begin{itemize}
+    \item Sygna³ na kupno akcji - linia MACD jest nad lini¹ signal
+    \item Sygna³ na sprzeda¿ akcji - linia MACD jest pod lini¹ signal
+\end{itemize}
+Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika nie daje to ¿adnej gwarancji, ¿e zyskamy na kupnie/sprzeda¿y. $<<<$ Przerzuciæ do wprowadzenia? $>>>$
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+	\includegraphics{rysunki/Input}
+      \includegraphics{rysunki/MACD}
+    }
+    % opis obrazka
+    \caption[MACD]{Wykres po lewej przedstawia analizowany sygna³. Po prawej - wykres MACD wraz z signal. Na wykresie mo¿na wyraŸnie zobaczyæ momenty przecinania siê sygna³ów.}
+
+    % etykieta
+    \label{Wykres wstêg Bollingera}
+  \end{center}
+\end{figure*}
+\section{Wstêgi Bollingera}
+Wstêgi Bollintera sk³adaj¹ ciê w trzech wstêg - górnej wstêgi, œrodkowej wstêgi i dolnej wstêgi (ang. upper band, middle band, bottom band). Œrodkowa wstêga jest œredni¹ SMA z ostatnich $n$ próbek sygna³u $X$. Górna wstêga to suma œrodkowej wstêgi wraz z k-krotnoœci¹ odchylenia standardowego $\sigma^2$ z $n$ ostatnich próbek, natomiast dolna wstêga to ró¿nica œrodkowej wstêgi i k-krotnoœci odchylenia standardowego z $n$ ostatnich próbek. Najczêœciej stosowane parametry to $n=20$ oraz $k=2$.
+\begin{equation}
+\begin{array}{lll}
+upper \: band & = & SMA_{n}(X) + k*\sigma^2_{n}(X) \\
+middle \: band & = & SMA_{n}(X) \\
+bottom \: band & = & SMA_{n}(X) - k*\sigma^2_{n}(X)
+\end{array}
+\end{equation}
+Wstêgi Bollingera interpretuje siê w nastêpuj¹cy sposób:
+\begin{itemize}
+    \item Sygna³ na kupno akcji - sygna³ wejœciowy zbli¿a siê do dolnej wstêgi b¹dŸ jest pod ni¹ (wtedy jest du¿a szansa, ¿e cena akcji zacznie rosn¹æ)
+    \item Sygna³ na sprzeda¿ akcji - sygna³ wejœciowy zbli¿a siê do górnej wstêgi b¹dŸ jest nad ni¹ (wtedy jest du¿a szansa, ¿e cena akcji zacznie spadaæ)
+\end{itemize}
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.5\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Bollinger Bands}
+    }
+    % opis obrazka
+    \caption[Wstêgi Bollingera]{Przedstawia wykres wstêg bollingera wraz z sygna³em wejœciowym Input.}
+
+    % etykieta
+    \label{Wykres wstêg Bollingera}
+  \end{center}
+\end{figure*}
+
+\section{Oscylator Stochastyczny}
+$<<<$ todo $>>>$
+\section{WskaŸnik zagregowany}
+WskaŸnik zagregowany sk³ada siê z $N$ poprzednich wskaŸników. Jest on sum¹ odpowiednich wag przemno¿onych przez znormalizowan¹ wartoœæ wynikaj¹c¹ z wartoœci wyznaczonych przez poprzedni wskaŸnik (np. MACD). Dodatkow¹ wartoœci¹ pojawiaj¹c¹ siê we wzorze jest wartoœæ progowa $\omega_0$, któr¹ mo¿na interpretowaæ jako tendencjê do kupna lub sprzeda¿y. Je¿eli jest ona ujemna, nasz wskaŸnik bêdzie wykazywa³ mniejsz¹ tendencjê do kupna i pozosta³e wartoœci bêd¹ musia³y byæ wiêksze, ¿eby pokaza³ sygna³ do kupna. 
+\begin{equation}
+y = \omega_0 + \sum^N_{i = 1}(\alpha_i*\omega_i)
+\end{equation}
+\subsection{Normalizacja wskaŸników}
+Do normalizacji wskaŸników wykorzystujemy funckje aktywacyjne popularne w sieciach neurnowych. Funkcje aktywacyjne, które planujemy wykorzystaæ maj¹ nastêpuj¹ce cechy:
+\begin{itemize}
+    \item Przyjmuj¹ wartoœci w ca³ej dziedzinie liczb rzeczywistych ${\rm I\!R}$
+    \item Wartoœci zwracane s¹ w przedzia³ach $(-1, 1)$ albo $(0, 1)$
+    \item S¹ ci¹g³e i rosn¹ce
+\end{itemize}
+W naszym przypadku wykorzystujemy $\tanh$. Gdy zwrócona przez $\tanh$ wartoœæ bêdzie wiêksza od zera, jest to sygna³ do zakupu akcji dla danego wskaŸnika, a gdy wartoœæ jest mniejsza ni¿ 0 - sygna³ do sprzedania. Wagi pozwalaj¹ stwierdziæ jak wa¿na ma byæ decyzja danego wskaŸnika i podobnie jak w przypadku $\tanh$, je¿eli wartoœæ naszego zagregowanego wskaŸnika jest wiêksza ni¿ 0, jest to sygna³ do kupna, a w przeciwnym wypadku do sprzeda¿y.
+\subsubsection{Normalizacja MACD}
+$<<<$ todo $>>>$
+\subsubsection{Normalizacja wstêg Bollingera}
+$<<<$ todo $>>>$
+\subsubsection{Normalizacja oscylatora stochastycznego}
+$<<<$ todo $>>>$
+\subsection{Algorytm Genetyczny}
+$<<<$ todo $>>>$
