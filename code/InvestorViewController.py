@@ -4,11 +4,12 @@ import os
 
 
 class InvestorViewController:
-    def __init__(self, folder_path='signals'):
+    def __init__(self, folder_path='signals', transformations={}):
         self.folder_path = folder_path
 
         self.view = InvestorView()
         self.model = InvestorModel()
+        self.model.signal_transformations.update(transformations)
 
         self.view.signal_file_menu.options = sorted(self.file_names)
 

@@ -1,4 +1,5 @@
 from numpy import pi, exp
+from itertools import islice
 
 
 class FastFourierTransformationError(Exception):
@@ -15,7 +16,7 @@ def fast_fourier_transformation(signal):
             f"Length of the signal must be the power of two! Given length of the signal: {len(signal)}"
         )
 
-    return [abs(y) for y in __fast_fourier_transformation(signal)]
+    return [abs(y) for y in islice(__fast_fourier_transformation(signal), int(len(signal)/2))]
 
 
 def __fast_fourier_transformation(signal):

@@ -4,11 +4,12 @@ import os
 
 
 class DefaultViewController:
-    def __init__(self, folder_path='signals'):
+    def __init__(self, folder_path='signals', transformations={}):
         self.folder_path = folder_path
 
         self.view = DefaultView()
         self.model = DefaultModel()
+        self.model.signal_transformations.update(transformations)
 
         self.view.transformation_menu.options = sorted(self.model.transformation_names)
         self.view.transformation_menu.value = None

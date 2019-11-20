@@ -100,8 +100,9 @@ class SignalData:
             return None
 
         elif file_path != self.csv_file_path:
-            self.csv_file = read_csv(file_path)
-            self.csv_file_path = file_path
+            with open(file_path, encoding='ansi') as file:
+                self.csv_file = read_csv(file)
+                self.csv_file_path = file_path
 
         return self.csv_file
 

@@ -2,13 +2,7 @@ from numba import cuda, jit
 from random import random, seed
 from numba.cuda.random import create_xoroshiro128p_states, xoroshiro128p_uniform_float64
 from time import time
-import math
 import numpy as np
-
-
-@cuda.jit(device=True)
-def device_sigmoid(x):
-    return 1 / (1 + math.exp(-x))
 
 
 @jit(nopython=False, forceobj=True)
@@ -80,8 +74,7 @@ def cuda_eval_fitness(population, dataset, dataset_activations, fitness):
             for l in range(len(dataset_activations[j])):
                 act += population[i, l] * dataset_activations[j, l, k]
 
-            act = device_sigmoid(act)
-            if act >= 0.5:
+            if act > 0:
                 new_actions = int(current_money / dataset[j, k])
                 actions += new_actions
                 current_money -= new_actions * dataset[j, k]
@@ -105,7 +98,7 @@ def cuda_avg_fitness(fitness, fitness_avg):
         for j in range(len(fitness[i])):
             sum_ += fitness[i, j]
 
-        fitness_avg[i] = sum_ / len(fitness[i])
+        fitness_avg[i] = sum_ / len(fitness[i]) - 2000
 
 
 @cuda.jit
@@ -117,7 +110,7 @@ def cuda_generate_new_population(population, rng_states):
     i = tx + bx * dx
     if i < len(population):
         for j in range(len(population[i])):
-            population[i][j] = math.atanh(2.0 * (xoroshiro128p_uniform_float64(rng_states, i) - 0.5))
+            population[i][j] = 2.0 * (xoroshiro128p_uniform_float64(rng_states, i) - 0.5)
 
 
 @cuda.jit
@@ -130,7 +123,7 @@ def cuda_mutate_population(population, mutation_chance, rng_states):
     if i < len(population):
         for j in range(len(population[i])):
             if xoroshiro128p_uniform_float64(rng_states, i) < mutation_chance:
-                population[i][j] = math.atanh(2.0 * (xoroshiro128p_uniform_float64(rng_states, i) - 0.5))
+                population[i][j] = 2.0 * (xoroshiro128p_uniform_float64(rng_states, i) - 0.5)
 
 
 def __get_2nd_el(el1):

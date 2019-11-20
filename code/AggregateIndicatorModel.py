@@ -2,7 +2,7 @@ from SignalData import SignalData
 import os
 
 
-class IntegratedIndicatorModel(SignalData):
+class AggregateIndicatorModel(SignalData):
     def __init__(self):
         SignalData.__init__(self)
         self.folder_path = None

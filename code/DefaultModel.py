@@ -1,5 +1,4 @@
 from collections.abc import Iterable
-from pandas import read_csv
 from SignalData import SignalData
 import logging as log
 import plotly as py
