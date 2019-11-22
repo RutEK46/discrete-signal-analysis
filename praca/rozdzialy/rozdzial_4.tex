@@ -1,19 +1,37 @@
 \chapter{Analiza techniczna}
-$<<<$ todo: Wstêp o analizie technicznej? $>>>$ 
+Analiza techniczna to narzêdzie s³u¿¹ce do analizy wykresów gie³dowych, która ma na celu prognozê przysz³ych cen kursów na podstawie historycznych zmian cen. Modele analizy technicznej charakteryzuj¹ pewne powtarzalne schematy mo¿liwe do zaobserwowania w zmianach cen akcji. W zale¿noœci od danego modelu mo¿na zaobserwowaæ powtarzalne zachowanie wskaŸników statystycznych.
+
+Poni¿ej zosta³y zaprezentowane zasady dzia³ania wskaŸników stosowanych w analizie technicznej, które zosta³y zaimplementowane w projekcie.
 \section{MACD}
-MACD sk³ada siê z dwóch linii - MACD i signal. MACD jest ró¿nic¹ dwóch œrednich EMA (najczêœciej o parametrach 26 i 12) sygna³u wejœciowego $X$, natomiast signal jest œredni¹ EMA sygna³u MACD z (najczêœciej) 9 ostatnich próbek.
+\subsection{wprowadzenie}
+MACD to skrót od Moving Average Convergence Divergence co w polskim t³umaczeniu oznacza zbie¿noœæ i rozbie¿noœæ œredniej krocz¹cej.
+
+WskaŸnik ten zosta³ opracowany przez Geralda Appel'a w roku 1970. Opracowa³ on fundamentaln¹ w³aciwoœæ tego wskaŸnika, czyli interpretacjê i przewidywanie przeciêæ linii MACD. Nastêpnie w roku 1986 dodany zosta³ histogram przez Thomasa Aspray'a, które umo¿liwi³o obserwacjê impetu ceny.
+
+Aktualnie MACD jest jednym z najpoplarniejszych wskaŸników stosowanych w analizie technicznej. Zawdziêcza to dziêki temu, ¿e jest ³atwy w interpretacji sygna³ów oraz dziêki mo¿liwoœci zastosowania go w ró¿nych warunkach rynkowych - zarówno stablilnej, jak i w trakcie nag³ych wzrostów, b¹dŸ spadków cen.
+\subsection{zasady dzia³ania}
+\subsubsection{wzór}
+Tym co wyró¿nia wskaŸnik MACD jest po³¹czenie dwóch ró¿nych typów wskaŸników. Wzór wskaŸnika wyznacza sygna³y kupna, b¹dŸ sprzeda¿y na podstawie dwóch linii zwanych lini¹ macd i lini¹ sygna³ow¹.
+
+Do wyznaczenia linii MACD wykorzystywana jest ró¿nica dwóch œrednich ruchomych sygna³u wejciowego X, o ró¿nych okresach. Standardowo przyjmowane s¹ 26 i 12 okresowe przedzia³y œredniej wyk³adniczej, jest to ustawienie domylne. Linia MACD s³u¿y do identyfikacji kierunku i czasu trwania trendu.
+
+Nastêpnie linia signal wyliczana jest na podstawie najczêœciej 9 okresowej œredniej wyk³adniczej z linii MACD. 
 \begin{equation}
 \begin{array}{lll}
 MACD & = & EMA_{26}(X) - EMA_{12}(X) \\
 signal & = & EMA_{9}(MACD)
 \end{array}
 \end{equation}
-MACD interpretuje siê w nastêpuj¹cy sposób:
+\subsubsection{strategia decyzyjna}
+Strategia MACD opiera siê g³ównie o interpretacjê przeciêæ linii sygna³u z lini¹ MACD. Analiza przeciêæ wygl¹da w nastêpuj¹cy sposób:
 \begin{itemize}
     \item Sygna³ na kupno akcji - linia MACD jest nad lini¹ signal
     \item Sygna³ na sprzeda¿ akcji - linia MACD jest pod lini¹ signal
 \end{itemize}
-Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika nie daje to ¿adnej gwarancji, ¿e zyskamy na kupnie/sprzeda¿y. $<<<$ Przerzuciæ do wprowadzenia? $>>>$
+\hfill
+
+Od odpowiedniej interpretacji sygna³ów zale¿y równie¿ fakt przeciêcia linii zero oraz odleg³oæ od tej linii. W momencie gdy sygna³ kupna jest generowany znacz¹co poni¿ej linii zero to jest on interpretowany jako bardziej wiarygodny. Czym wiêksza jest w³aœnie odleg³oœæ od linii zera, tym wiêksza wiarygodnoœæ. Równie¿ tym wiêksze jest prawdopodobieñstwo kontynuowania ruchu spadkowego. Analogicznie dzieje siê dla sygna³u sprzeda¿y gdy sygna³ ten jest generowany znacz¹co powy¿ej linii zero.
+
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
   \begin{center}
@@ -27,12 +45,22 @@ Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika nie daje to ¿adnej gwara
       \includegraphics{rysunki/MACD}
     }
     % opis obrazka
-    \caption[MACD]{Wykres po lewej przedstawia analizowany sygna³. Po prawej - wykres MACD wraz z signal. Na wykresie mo¿na wyraŸnie zobaczyæ momenty przecinania siê sygna³ów.}
-
+    \caption[MACD]{Wykres po lewej przedstawia analizowany sygna³. Po prawej zaznaczona jest linia MACD oraz signal. Na wykresie mo¿na wyraŸnie zobaczyæ momenty przecinania siê sygna³ów.}
     % etykieta
-    \label{Wykres wstêg Bollingera}
+    \label{Wykres MACD}
   \end{center}
 \end{figure*}
+
+Interpretacjê wskaŸnika MACD mo¿na wzbogaciæ o analizê histogramu MACD. Dziêki tej funkcjonalnoœci mo¿na zaobserwowaæ lokalne szczyty cenowe dla wartoœci histogramu powy¿ej zera. Analogicznie dla wartoœci kszta³tuj¹cych siê poni¿ej zera obserwuje siê do³ki cenowe. Szersza interpretacja histogramu nie bêdzie omawiana, gdy¿ opisywana aplikacja nie uwzglêdnia tej funkcjonalnoœci. 
+
+Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika sygna³ kupna czy sprzeda¿y nie daje ¿adnej gwarancji, ¿e zyskamy na transakcji.
+
+\subsection{przyk³ady numeryczne}
+\subsection{podsumowanie}
+MACD jest wartoœciowym wskaŸnikiem, poniewa¿ ³¹czy w sobie dwa ró¿ne wskaŸniki. Ponadto s³u¿y do wszestronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowaæ nie tylko sygna³y spadkowe i rosn¹ce, ale tak¿e umo¿liwia œledzenie potencjalnych do³ków lub szczytów cenowych.
+
+Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim terminie, poniewa¿ powsta³ w celu wykorzystania go na wykresie dziennym. Przy mniejszych okresach mo¿e jednak powodowaæ opóŸnione sygna³y.
+
 \section{Wstêgi Bollingera}
 Wstêgi Bollintera sk³adaj¹ ciê w trzech wstêg - górnej wstêgi, œrodkowej wstêgi i dolnej wstêgi (ang. upper band, middle band, bottom band). Œrodkowa wstêga jest œredni¹ SMA z ostatnich $n$ próbek sygna³u $X$. Górna wstêga to suma œrodkowej wstêgi wraz z k-krotnoœci¹ odchylenia standardowego $\sigma^2$ z $n$ ostatnich próbek, natomiast dolna wstêga to ró¿nica œrodkowej wstêgi i k-krotnoœci odchylenia standardowego z $n$ ostatnich próbek. Najczêœciej stosowane parametry to $n=20$ oraz $k=2$.
 \begin{equation}
