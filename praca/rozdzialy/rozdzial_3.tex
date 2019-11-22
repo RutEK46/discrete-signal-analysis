@@ -1,4 +1,98 @@
-\chapter{Szybka transformacja Fouriera}
-teoria, zastosowanie, przyk³ady
-done
+\chapter{Transformacja Fouriera}
+\section{Wprowadzenie}
+Transformacja Fouriera pozwala na transformacjê sygna³u reprezentowanego w widmie czasu na reprezentacjê w widmie czêstotliwoœci $k$. Umo¿liwia to analizowanie czêstotliwoœci wystêpuj¹cych w sygnale.
 
+\begin{equation}
+    F(k) = \sum_{n=0}^{N-1} x_n e^{-\frac{2\pi i}{N}nk}
+\end{equation}
+
+Standardowa Dyskretna Transformacja Fouriera (DFT) ma z³o¿onoœæ $O(n^2)$, jednak czêœciej stosowana jest jest Szybka Transformacja Fouriera (FFT), która liczy FFT dla sygna³u o d³ugoœci $n$ poprzez rekurencyjne obliczanie dwóch FFT dla sygna³ów o d³ugoœci $\frac{1}{2}n$ uzyskanych poprzez podzielenie g³ównego syna³u na pó³, a nastêpnie ³¹czeniu wyników za pomoc¹ operacji o z³o¿onoœci $O(n)$. W ten sposób z³o¿onoœæ FFT wynosi $O(n*logn)$, co umo¿liwia wykorzystywanie Transformacji Fouriera w obliczeniach czasu rzeczywistego.
+
+\begin{figure*}[!h]
+\centering
+\subfloat[Transformacja Fouriera, sygna³ wejœciowy]
+{
+    \resizebox{1\textwidth}{!}{
+      \includegraphics{rysunki/Fourier-input}
+    }
+}
+\newline
+\subfloat[Transformacja Fouriera, wynik]
+{
+    \resizebox{1\textwidth}{!}{
+      \includegraphics{rysunki/Fourier-result}
+    }
+}
+% opis obrazków
+\caption[Transformacja Fouriera]{Wykres na górze przedstawia analizowany sygna³. Na dole - wykres Transformaty Fouriera.}
+% etykieta
+\end{figure*}
+
+\subsection{Wyprowadzenie $e^{ix}$} 
+
+We wzorze na Transformacjê Fouriera wykorzystuje siê podnoczenie do potêgi liczby urojonej ($e^{ix}$). Wyprowadzenie podnoszenia do potêgi liczby urojonej uzyskuje siê z szeregu potêgowego (szeregu Taylora). Dla $e^x$:
+
+\begin{equation}
+    e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
+\end{equation}
+
+\begin{equation}
+    e^{ix} = \sum_{n=0}^\infty \frac{(ix)^n}{n!}
+\end{equation}
+
+\begin{equation}
+    e^{ix} = \frac{(ix)^0}{0!} + \frac{(ix)^1}{1!} + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} + \frac{(ix)^4}{4!} + \frac{(ix)^5}{5!} + ...
+\end{equation}
+
+\begin{equation}
+    e^{ix} = \frac{x^0}{0!} + \frac{ix^1}{1!} - \frac{x^2}{2!} - \frac{ix^3}{3!} + \frac{x^4}{4!} + \frac{ix^5}{5!} + ...
+\end{equation}
+
+\begin{equation}
+    e^{ix} = 
+    \underbrace{(1 -\frac{x^2}{2!} + \frac{x^4}{4!} + ...)}_{cos(x)} +
+    \underbrace{i(x - \frac{x^3}{3!}  + \frac{x^5}{5!} + ...)}_{isin(x)}
+\end{equation}
+
+Z szeregu Taylora:
+
+\begin{equation}
+    sin(x) = \sum_{x=0}^\infty \frac{(-1)^nx^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + ...
+\end{equation}
+
+\begin{equation}
+    cos(x) = \sum_{x=0}^\infty \frac{(-1)^nx^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + ...
+\end{equation}
+
+Oznacza to, ¿e zapis $|z|e^{i\phi}$ odpowiada reprezentacji trygonometrycznej liczby zespolonej $|z|(cos(\phi) + isin(\phi))$, gdzie $|z|$ jest modu³em liczby zespolonej (odleg³oœci¹ od punktu $(0 + i0)$), a $\phi$ k¹tem odchylenia od osi rzeczywistej.
+
+Samo $e^{ix}$ pozwala jedynie na zapisanie wartoœci, które le¿¹ na okrêgu o œrodku $S=0+i0$ i promieniu $r=1$. Szczególn¹ równoœci¹ jest tutaj to¿samoœæ Eulera:
+
+\begin{equation}
+    e^{i\pi}=-1
+\end{equation}
+
+Warto te¿ zaznaczyæ, ¿e funkcja $f(x) = e^{ix}$ jest okresowa. Od $e^{2*i\pi}$ wartoœci siê powtarzaj¹.
+
+\begin{equation}
+    e^{2*i\pi}=e^0=1
+\end{equation}
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+	\includegraphics{rysunki/euler}
+    }
+    % opis obrazka
+    \caption{Wykres $e^{ix}$}
+
+    % etykieta
+    \label{Euler}
+  \end{center}
+\end{figure*}
