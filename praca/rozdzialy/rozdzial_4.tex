@@ -1,7 +1,7 @@
 \chapter{Analiza techniczna}
 Analiza techniczna to narzêdzie s³u¿¹ce do analizy wykresów gie³dowych, która ma na celu prognozê przysz³ych cen kursów na podstawie historycznych zmian cen. Modele analizy technicznej charakteryzuj¹ pewne powtarzalne schematy mo¿liwe do zaobserwowania w zmianach cen akcji. W zale¿noœci od danego modelu mo¿na zaobserwowaæ powtarzalne zachowanie wskaŸników statystycznych.
 
-Poni¿ej zosta³y zaprezentowane zasady dzia³ania wskaŸników stosowanych w analizie technicznej, które zosta³y zaimplementowane w projekcie.
+Poni¿ej zosta³y zaprezentowane zasady dzia³ania wskaŸników stosowanych w analizie technicznej, które zosta³y zaimplementowane w projekcie. 
 \section{MACD}
 \subsection{wprowadzenie}
 MACD to skrót od Moving Average Convergence Divergence co w polskim t³umaczeniu oznacza zbie¿noœæ i rozbie¿noœæ œredniej krocz¹cej.
@@ -22,16 +22,17 @@ MACD & = & EMA_{26}(X) - EMA_{12}(X) \\
 signal & = & EMA_{9}(MACD)
 \end{array}
 \end{equation}
+We wzorze:
+\begin{itemize}
+\item $EMA_{X}$ - œrednia krocz¹ca w przedziale X okresowym, X - dowolna liczba naturalna
+\end{itemize}
 \subsubsection{strategia decyzyjna}
 Strategia MACD opiera siê g³ównie o interpretacjê przeciêæ linii sygna³u z lini¹ MACD. Analiza przeciêæ wygl¹da w nastêpuj¹cy sposób:
 \begin{itemize}
-    \item Sygna³ na kupno akcji - linia MACD jest nad lini¹ signal
-    \item Sygna³ na sprzeda¿ akcji - linia MACD jest pod lini¹ signal
+    \item Sygna³ na kupno akcji - linia MACD przecina liniê signal od do³u
+    \item Sygna³ na sprzeda¿ akcji - linia MACD przecina liniê signal od góry
 \end{itemize}
-\hfill
-
-Od odpowiedniej interpretacji sygna³ów zale¿y równie¿ fakt przeciêcia linii zero oraz odleg³oæ od tej linii. W momencie gdy sygna³ kupna jest generowany znacz¹co poni¿ej linii zero to jest on interpretowany jako bardziej wiarygodny. Czym wiêksza jest w³aœnie odleg³oœæ od linii zera, tym wiêksza wiarygodnoœæ. Równie¿ tym wiêksze jest prawdopodobieñstwo kontynuowania ruchu spadkowego. Analogicznie dzieje siê dla sygna³u sprzeda¿y gdy sygna³ ten jest generowany znacz¹co powy¿ej linii zero.
-
+Na poni¿szym wykresie zosta³y zaznaczone omawiane linie wskaŸnika MACD. Mo¿na zauwa¿yæ wyraŸne momenty przecinania siê sygna³ów.
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
   \begin{center}
@@ -41,27 +42,81 @@ Od odpowiedniej interpretacji sygna³ów zale¿y równie¿ fakt przeciêcia linii zero
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
     \resizebox{1\textwidth}{!}{
       % wstawienie obrazka
-	\includegraphics{rysunki/Input}
       \includegraphics{rysunki/MACD}
     }
     % opis obrazka
-    \caption[MACD]{Wykres po lewej przedstawia analizowany sygna³. Po prawej zaznaczona jest linia MACD oraz signal. Na wykresie mo¿na wyraŸnie zobaczyæ momenty przecinania siê sygna³ów.}
+    \caption[wykres MACD]{Wykres przedstawia linie MACD oraz signal.}
     % etykieta
     \label{Wykres MACD}
   \end{center}
 \end{figure*}
 
+Od odpowiedniej interpretacji sygna³ów zale¿y równie¿ fakt przeciêcia linii zero oraz odleg³oæ od tej linii. W momencie gdy sygna³ kupna jest generowany znacz¹co poni¿ej linii zero to jest on interpretowany jako bardziej wiarygodny. Czym wiêksza jest w³aœnie odleg³oœæ od linii zera, tym wiêksza wiarygodnoœæ. Równie¿ tym wiêksze jest prawdopodobieñstwo kontynuowania ruchu spadkowego. Analogicznie dzieje siê dla sygna³u sprzeda¿y gdy sygna³ ten jest generowany znacz¹co powy¿ej linii zero.
+
+
 Interpretacjê wskaŸnika MACD mo¿na wzbogaciæ o analizê histogramu MACD. Dziêki tej funkcjonalnoœci mo¿na zaobserwowaæ lokalne szczyty cenowe dla wartoœci histogramu powy¿ej zera. Analogicznie dla wartoœci kszta³tuj¹cych siê poni¿ej zera obserwuje siê do³ki cenowe. Szersza interpretacja histogramu nie bêdzie omawiana, gdy¿ opisywana aplikacja nie uwzglêdnia tej funkcjonalnoœci. 
 
 Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika sygna³ kupna czy sprzeda¿y nie daje ¿adnej gwarancji, ¿e zyskamy na transakcji.
-
+\newpage
 \subsection{przyk³ady numeryczne}
+Zastosowanie i interpretacja wskaŸnika MACD w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
+\subsubsection{Przyk³ad 1: sygna³ kupna}
+Dla sygna³u kupna oznaczonego na rys. 4.2 liter¹ "K" linia MACD (niebieska) przecina liniê signal (zielona) od do³u. W tym przyk³adzie mo¿na zaobserwowaæ cztery wygenerowane przyk³ady sygna³ów kupna: 8 stycznia, 7 lutego, 18 marca i 2 kwietnia.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/MACD_kup}
+    }
+    % opis obrazka
+    \caption[MACD - sygna³y kupna]{Wykres przedstawia sygna³y kupna (K) wygenerowane przez wskaŸnik MACD.}
+    % etykieta
+    \label{Wykres MACD}
+  \end{center}
+\end{figure*}
+
+Jednym z d³u¿szych okresów, gdy linia MACD znajdowa³a siê nad lini¹ signal jest pierwszy przypadek, to jest od 8 stycznia. Niestety jest to niewiarygodny sygna³, poniewa¿ znajduje siê powy¿ej linii 0. Tak samo jest dla wskazania z 7 lutego.
+
+Dla porównania sygna³y kupna po prawej stronie wykresu, to jest z dnia 18 marca i 2 kwietnia zosta³y wygenerowane poni¿ej linii 0. Oznacza to, ¿e sygna³ ten jest wiarygodny. Najbardziej wiarygodny sygna³ kupna w tym przypadku zosta³ wygenerowany w³aœnie 18 marca. W kolejnych dniach ta wiarygodnoœæ maleje, bo do 20 marca wzrasta w kierunku linii 0. Podobnie dzieje siê po 2 kwietnia. W momencie gdy sygna³ przekroczy liniê 0 sygna³ kupna staje siê niewiarygodny.
+
+\subsubsection{Przyk³ad 2: sygna³ sprzeda¿y}
+Z kolei dla sygna³u sprzeda¿y oznaczonego na rys. 4.3 liter¹ "S" linia MACD (niebieska) przecina liniê signal (zielona) od góry. W tym przyk³adzie mo¿na zaobserwowaæ dwa wygenerowane przyk³ady sygna³ów sprzeda¿y: 30 stycznia i 27 marca.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/MACD_sprzedaj}
+    }
+    % opis obrazka
+    \caption[MACD - sygna³y sprzeda¿y]{Wykres przedstawia sygna³y sprzeda¿y (S) wygenerowane przez wskaŸnik MACD.}
+    % etykieta
+    \label{Wykres MACD}
+  \end{center}
+\end{figure*}
+
+Pocz¹tkowo sygna³ sprzeda¿y wygenerowany dnia 30 stycznia jest wiarygodny, poniewa¿ znajduje siê wysoko ponad lini¹ 0. Z biegiem czasu wskazania spadaj¹ w kierunku linii 0. Gdy przekracza on tê liniê 19 lutego sygna³ staje siê niewiarygodny. Najwiêksz¹ wiarygodnoœæ w ca³ym analizowanym zakresie 4 miesiêcy wskaŸnik osi¹ga 30 stycznia.
+
+Drugi wygenerowany sygna³ z dnia 27 marca jest sygna³em niewiarygodnym, gdy¿ znajduje siê znacz¹co poni¿ej linii 0.
 \subsection{podsumowanie}
-MACD jest wartoœciowym wskaŸnikiem, poniewa¿ ³¹czy w sobie dwa ró¿ne wskaŸniki. Ponadto s³u¿y do wszestronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowaæ nie tylko sygna³y spadkowe i rosn¹ce, ale tak¿e umo¿liwia œledzenie potencjalnych do³ków lub szczytów cenowych.
+MACD jest wartoœciowym wskaŸnikiem, poniewa¿ ³¹czy w sobie dwa ró¿ne wskaŸniki. Ponadto s³u¿y do wszechstronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowaæ nie tylko sygna³y spadkowe i rosn¹ce, ale tak¿e umo¿liwia œledzenie potencjalnych do³ków lub szczytów cenowych.
 
 Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim terminie, poniewa¿ powsta³ w celu wykorzystania go na wykresie dziennym. Przy mniejszych okresach mo¿e jednak powodowaæ opóŸnione sygna³y.
-
+\newpage
 \section{Wstêgi Bollingera}
+\subsection{wprowadzenie}
+$<<<$ todo $>>>$
+\subsection{zasady dzia³ania}
+\subsubsection{wzór}
 Wstêgi Bollintera sk³adaj¹ ciê w trzech wstêg - górnej wstêgi, œrodkowej wstêgi i dolnej wstêgi (ang. upper band, middle band, bottom band). Œrodkowa wstêga jest œredni¹ SMA z ostatnich $n$ próbek sygna³u $X$. Górna wstêga to suma œrodkowej wstêgi wraz z k-krotnoœci¹ odchylenia standardowego $\sigma^2$ z $n$ ostatnich próbek, natomiast dolna wstêga to ró¿nica œrodkowej wstêgi i k-krotnoœci odchylenia standardowego z $n$ ostatnich próbek. Najczêœciej stosowane parametry to $n=20$ oraz $k=2$.
 \begin{equation}
 \begin{array}{lll}
@@ -70,6 +125,7 @@ middle \: band & = & SMA_{n}(X) \\
 bottom \: band & = & SMA_{n}(X) - k*\sigma^2_{n}(X)
 \end{array}
 \end{equation}
+\subsubsection{strategia decyzyjna}
 Wstêgi Bollingera interpretuje siê w nastêpuj¹cy sposób:
 \begin{itemize}
     \item Sygna³ na kupno akcji - sygna³ wejœciowy zbli¿a siê do dolnej wstêgi b¹dŸ jest pod ni¹ (wtedy jest du¿a szansa, ¿e cena akcji zacznie rosn¹æ)
@@ -93,9 +149,109 @@ Wstêgi Bollingera interpretuje siê w nastêpuj¹cy sposób:
     \label{Wykres wstêg Bollingera}
   \end{center}
 \end{figure*}
-
-\section{Oscylator Stochastyczny}
+\subsection{przyk³ady numeryczne}
 $<<<$ todo $>>>$
+\subsection{podsumowanie}
+$<<<$ todo $>>>$
+\newpage
+\section{Oscylator Stochastyczny}
+\subsection{wprowadzenie}
+Oscylator stochastyczny jest wskaŸnikiem, który pozwala œledziæ ruchy cen i si³ê trendu momentum. 
+
+Omawiany wskaŸnik zosta³ wprowadzony w 1950 r. przez George'a Lana w celu porównywania cen zamkniêcia do wszystkich w danym okresie. Oscylator wystêpuje w trzech wersjach: szybkiej, wolnej i pe³nej. Wersja szybka jest najlepsza w zastosowaniu przy analizach krótkoterminowych, a wolna do analiz d³ugoterminowych. Pe³na wersja - Stochastic Full czyli STS jest najbardziej uniwersalna ze wszystkich wersji. W³aœnie ta wersja zosta³a zaimplementowana.
+
+\subsection{zasady dzia³ania}
+\subsubsection{wzór}
+WskaŸnik sk³ada siê z dwóch linii: linii wolno oscyluj¹cej zwanej \%K oraz linii \%D, która jest 3 okresow¹ œredni¹ krocz¹c¹ z \%K. Linia \%K wyznaczana jest na podstawie znajomoœci ceny zamkniêcia z danego dnia oraz cen najni¿szej i najwy¿szej z domyœlnie przyjêtych 14 poprzednich sesji zamkniêcia. Z kolei otrzymane wartoœci s¹ uœredniane i zobrazowane za pomoc¹ linii \%D. Wyznaczana jest na podstawie œredniej krocz¹cej 3 poprzednich sesji z wyznaczonego \%K na dany moment. Okres 3 dniowy jest równie¿ standardowo przyjêt¹ wartoœci¹ u¿ywan¹ dla tego wskaŸnika.
+\begin{equation}
+\begin{array}{lll}
+\%K & = & 100 \times \frac{C - L_{14}}{H_{14} - L_{14}} \\
+\%D & = & EMA_{3}(\%K)
+\end{array}
+\end{equation}
+We wzorze:
+\begin{itemize}
+\item C - aktualny kurs zamkniêcia 
+\item $L_{14}$ - najni¿sza cena w przedziale 14 okresowym 
+\item $H_{14}$ - najwy¿sza cena w przedziale 14 okresowym
+\item $EMA_{3}$ - œrednia krocz¹ca w przedziale 3 okresowym
+\end{itemize}
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/stochastic_oscillator}
+    }
+    % opis obrazka
+    \caption[Oscylator stochastyczny - wykres]{Wykres przedstawia oscylator stochastyczny.}
+    % etykieta
+    \label{Wykres stochastic oscillator}
+  \end{center}
+\end{figure*}
+
+\subsubsection{strategia decyzyjna}
+Aby analizowaæ wskazania oscylatora najpierw nale¿y zaznaczyæ, ¿e jego wskazania znajduj¹ siê w zakresie od 0\% - 100\%. Zakres 0 jest w okolicach najmniejszej wartoœci sygna³ów oscylatora stochastycznego, a 100 jest dla najwy¿szej wartoœci. Do interpretacji wskazañ jako istotne momenty na wykresie przyjmuje siê standardowo poziom na wysokoœci 20\% i 80\% wykresu - nazywane poziom 20 i poziom 80.
+\begin{itemize}
+    \item Sygna³ na kupno akcji - linia \%K przecina w dó³ poziom 20 
+    \item Sygna³ na sprzeda¿ akcji - linia \%K przecina w górê poziom 80
+\end{itemize}
+Poziom 20 nazywany jest te¿ poziomem wyprzedania, a z kolei poziom 80 to poziom wykupienia.
+
+\subsection{przyk³ady numeryczne}
+Zastosowanie i interpretacja oscylatora stochastycznego w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
+\subsubsection{Przyk³ad 1: sygna³ kupna}
+Dla sygna³u kupna linia \%K przecina w dó³ poziom 20\% swojego zakresu. Dla zastosowanego przedzia³u czasu, w tym przyk³adzie mo¿na zaobserwowaæ wygenerowane trzy przyk³ady sygna³ów kupna: 15 lutego, 5 marca oraz 26 marca. 
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/stochastic_oscillator_kup}
+    }
+    % opis obrazka
+    \caption[Oscylator stochastyczny - strefa wykupienia]{Wykres przedstawia momenty wejœcia w strefê wykupienia (K) wygenerowane przez oscylator stochastyczny.}
+    % etykieta
+    \label{Wykres stochastic oscillator}
+  \end{center}
+\end{figure*}
+
+Efektem jaki mo¿na zaobserwowaæ jest to, ¿e po przekroczeniu poni¿ej poziomu 20\% wskaŸnik wszed³ w strefê "wykupienia". Nie zawsze jest to jednak pewny sygna³, poniewa¿ wskaŸnik mo¿e znajdowaæ siê w tej strefie przez pewnien czas - wtedy warto rozwa¿yæ zmiejszenie poziomu do np. 90\%. W tym przyk³adzie wskaŸnik w dwóch przypadkach znajdowa³ siê przez d³u¿szy czas w strefie wykupienia. By³o to od 5 marca do 14 marca oraz krótszy okres od 26 marca do 27 marca.
+
+\subsubsection{Przyk³ad 2: sygna³ sprzeda¿y}
+Dla sygna³u sprzeda¿y linia \%K przecina w górê poziom 80\% swojego zakresu. Dla zastosowanego przedzia³u czasu, w tym przyk³adzie mo¿na zaobserwowaæ wygenerowane trzy przyk³ady sygna³ów sprzeda¿y: 25 stycznia, 6 lutego oraz 4 kwietnia.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/stochastic_oscillator_sprzedaj}
+    }
+    % opis obrazka
+    \caption[Oscylator stochastyczny - strefa wyprzedania]{Wykres przedstawia momenty wejœcia w strefê wyprzedania (S) wygenerowane przez oscylator stochastyczny.}
+    % etykieta
+    \label{Wykres stochastic oscillator}
+  \end{center}
+\end{figure*}
+
+Po przekroczeniu powy¿ej poziomu 80\% wskaŸnik wszed³ w strefê "wyprzedania". Tak jak dla sygna³u kupna warto pamiêtaæ i przetestowaæ jak wskaŸnik zachowuje siê powy¿ej tego poziomu i dostosowaæ indywidualnie parametry. Dla tego przyk³adu wskaŸnik znajdowa³ siê w strefie "wyprzedania" d³u¿ej ni¿ jeden dzieñ w dwóch przypadkach: od 25 stycznia do 28 stycznia oraz od 6 lutego do 7 lutego.
+
+\subsection{podsumowanie}
+Oscylator stochastyczny jest ³atwy w u¿yciu i skuteczny po dostosowaniu odpowiednich parametrów do danego typu rynku, ze wzglêdu na mo¿liwoœæ dopasowania odpowiedniej wersji oscylatora. Najczêciej u¿ywany jest przez inwestorów do analizy interwa³u dziennego przy du¿ej iloœci wyraŸnych sygna³ów. 
+
+\newpage
 \section{WskaŸnik zagregowany}
 WskaŸnik zagregowany sk³ada siê z $N$ poprzednich wskaŸników. Jest on sum¹ odpowiednich wag przemno¿onych przez znormalizowan¹ wartoœæ wynikaj¹c¹ z wartoœci wyznaczonych przez poprzedni wskaŸnik (np. MACD). Dodatkow¹ wartoœci¹ pojawiaj¹c¹ siê we wzorze jest wartoœæ progowa $\omega_0$, któr¹ mo¿na interpretowaæ jako tendencjê do kupna lub sprzeda¿y. Je¿eli jest ona ujemna, nasz wskaŸnik bêdzie wykazywa³ mniejsz¹ tendencjê do kupna i pozosta³e wartoœci bêd¹ musia³y byæ wiêksze, ¿eby pokaza³ sygna³ do kupna. 
 \begin{equation}
