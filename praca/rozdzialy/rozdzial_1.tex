@@ -1,2 +1,91 @@
-\chapter{Wstêp i cel pracy} 
+\chapter{Wstêp} 
+\section{Wprowadzenie}
+
+todo
+
 Du¿o o sygna³ach (elektronika, telekomunikacja, akustyka, informatyka, medycyna - mo¿na wymieniæ przyk³ady) - tutaj du¿a dowolnoœæ, na poziomie popularnonaukowym. Wa¿ne, ¿eby pokazaæ, ¿e sygna³y s¹ wszêdzie, analiza tych sygna³ów jest niezbêdna (np. filtrowanie, badanie korelacji, predykcja). Cel pracy - stworzenie zaawansowanego narzêdzia w pythonie do analizy sygna³ów dyskretnych za pomoc¹ szerokiego spektrum narzêdzi. 
+\section{Cel pracy, za³o¿enia}
+todo 
+
+Celem projektu jest stworzenie zaawansowanego narzêdzia w pythonie do analizy sygna³ów dyskretnych za pomoc¹ szerokiego spektrum narzêdzi.
+\section {Podzia³ pracy}
+(todo: uzupe³nienie podzia³u tekstu pracy)
+\subsubsection{Agnieszka Wojciechowska}
+\begin{itemize}
+\item Aplikacja: 
+\subitem interfejs inwestora, 
+\subitem wskaŸnik: oscylator stochastyczny, 
+\subitem modu³ interpretacji wskaŸników: MACD, wstêgi Boillingera, oscylator stochastyczny \\
+
+\item Tekst pracy: streszczenie, rozdzia³ 1, punkty 2.1, 4.1, 4.2, 4.4
+\end{itemize}
+\subsubsection{Mateusz Rutkiewicz}
+\begin{itemize}
+\item Aplikacja:
+\subitem interfejs podstawowy, 
+\subitem wskaŸnik: MACD, wstegi Boillingera, zagregowany wskaŸnik, 
+\subitem operacje matematyczne \\
+
+\item Tekst pracy: rozdzia³ 3, punkty 4.3, 4.5
+\end{itemize}
+\newpage
+\section{Analiza rynkowa}
+Jednym z bardziej popularnych narzêdzi do analizy sygna³ów wykorzystywanych na rynku finansowym jest aplikacja ''Biznes Radar'' dostêpna w mobilnej wersji oraz online. Ma ona pomagaæ inwestorom w podejmowaniu decyzji o transakcji, wspieraæ ich strategiê inwestycyjn¹ lub s³u¿yæ do analizowania notowañ na rynku na podstawie przesz³ych danych.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Biznes_Radar}
+    }
+    % opis obrazka
+    \caption[aplikacja BiznesRadar - logo]{Logo aplikacji BiznesRadar dostêpnej w sklepie Google.}
+    % etykieta
+    \label{BiznesRadar}
+  \end{center}
+\end{figure*}
+
+Aplikacja ''Biznes Radar'' stworzona przez spó³kê o tej samej nazwie umo¿liwia u¿ytkownikowi œledziæ w³asne inwestycje i notowania kursów, które s¹ synchronizowane z rzeczywistym Domem Maklerskim poprzez portal BiznesRadar.pl.  Jest to narzêdzie skierowane do inwestorów, g³ównie dowiadczonych, takich którzy potrafi¹ czytaæ przedstawione wykresy, maj¹ podstawow¹ wiedzê na temat dostêpnych narzêdzi i instrumentów na rynku.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Biznes_Radar_wskazniki}
+      \includegraphics{rysunki/Biznes_Radar_wykres}
+    }
+    % opis obrazka
+    \caption[aplikacja BiznesRadar - indeksy i wykres]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej przedstawione s¹ dostêpne indeksy do analizy notowañ. Po lewej przedstawiony jest wygenerowany wykres cen dla spó³ki KGH Polska MiedŸ.}
+    % etykieta
+    \label{BiznesRadar}
+  \end{center}
+\end{figure*}
+
+Ponad to narzêdzie zawiera ekran, w którym przedstawione s¹ podsumowane wartoœci wskaŸników i ich interpretacje za pomoc¹ oceny kupuj/ neutralnie / sprzedaj. Odpowiedni zysk inwestora jest te¿ przedstawiany w kompleksowym sprawozdaniu z portfela.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Biznes_Radar_odp}
+      \includegraphics{rysunki/Biznes_Radar_zysk}
+    }
+    % opis obrazka
+    \caption[aplikacja BiznesRadar - decyzje i sprawozdania]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej znajduje siê lista wzkaŸników oraz ich wartoœæ i ocena. Po lewej znajduje siê ekran ze sprawozdaniem z portfela inwestycyjnego danego u¿ytkownika z podsumowaniem zysków.}
+    % etykieta
+    \label{BiznesRadar}
+  \end{center}
+\end{figure*}
