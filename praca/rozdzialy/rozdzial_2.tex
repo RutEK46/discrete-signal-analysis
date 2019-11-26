@@ -1,41 +1,41 @@
-\chapter{Sygna³y cyfrowe}
+\chapter{SygnaÅ‚y cyfrowe}
 \section{Wprowadzenie}
-W tym rozdziale trochê teorii - czym s¹ sygna³y cyfrowe (w ogólnoœci - dyskretne). 
+W tym rozdziale trochÄ™ teorii - czym sÄ… sygnaÅ‚y cyfrowe (w ogÃ³lnoÅ›ci - dyskretne). 
 
 
-\section{Narzêdzia}
-Poni¿ej zosta³y zaprezentowane podstawowe narzêdzia do analizy sygna³ów cyfrowych.
-\subsection{Œrednia}
-Prosta œrednia ruchoma:
+\section{NarzÄ™dzia}
+PoniÅ¼ej zostaÅ‚y zaprezentowane podstawowe narzÄ™dzia do analizy sygnaÅ‚Ã³w cyfrowych.
+\subsection{Åšrednia}
+Prosta Å›rednia ruchoma:
 \begin{equation}
 SMA = \frac{1}{n}\sum_{i = 0}^{n - 1}p_i,
 \end{equation}
-gdzie: $n$ to liczba okresów, a $p_i$ to wartoœæ z sprzed $i$ okresów
-Wyk³adnicza œrednia ruchoma:
+gdzie: $n$ to liczba okresÃ³w, a $p_i$ to wartoÅ›Ä‡ z sprzed $i$ okresÃ³w
+WykÅ‚adnicza Å›rednia ruchoma:
 \begin{equation}
-SMA = \sum_{i = 0}^{n - 1}((1 - \alpha)^ip_i) / \sum_{i = 0}^{n-1}(1 - \alpha)^i,
+EMA = \sum_{i = 0}^{n - 1}((1 - \alpha)^ip_i) / \sum_{i = 0}^{n-1}(1 - \alpha)^i,
 \end{equation}
-gdzie: $n$ to liczba okresów, $\alpha = \frac{2}{n}$, a $p_i$ to wartoœæ z sprzed $i$ okresów
-mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD
+gdzie: $n$ to liczba okresÃ³w, $\alpha = \frac{2}{n}$, a $p_i$ to wartoÅ›Ä‡ z sprzed $i$ okresÃ³w
+moÅ¼na daÄ‡ przykÅ‚ad: Å›rednia kroczÄ…ca w MACD
 \subsection{Odchylenie standardowe}
 \begin{equation}
 \sigma^2 = \frac{1}{n}\sum_{i = 0}^{n - 1}(p_i - SMA)^2
 \end{equation}
-\subsection{Ca³kowanie}
+\subsection{CaÅ‚kowanie}
 todo
 \subsection{Pochodne}
-Najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹:
+NajczÄ™Å›ciej stosuje siÄ™ wzÃ³r na pochodnÄ… Å›rodkowÄ…:
 \begin{equation}
 f^\prime(x) = \frac{f(x + h) - f(x - h)}{2h}
 \end{equation}
-W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹:
+W przypadku pochodnej na poczÄ…tku sygnaÅ‚u stosuje siÄ™ pochodnÄ… prawostronnÄ…:
 \begin{equation}
 f^\prime(x) = \frac{f(x + h) - f(x)}{h}
 \end{equation}
-natomiast w przypadku pochodnej na koñcu sygna³u stosuje siê pochodn¹ lewostronn¹:
+natomiast w przypadku pochodnej na koÅ„cu sygnaÅ‚u stosuje siÄ™ pochodnÄ… lewostronnÄ…:
 \begin{equation}
 f^\prime(x) = \frac{f(x) - f(x - h)}{h}
 \end{equation}
-mo¿na daæ przyk³ad: pochodne w badaniu trendu, predykcji
+moÅ¼na daÄ‡ przykÅ‚ad: pochodne w badaniu trendu, predykcji
 
 
