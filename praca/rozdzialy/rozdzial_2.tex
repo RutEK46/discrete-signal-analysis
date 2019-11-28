@@ -1,11 +1,16 @@
 \chapter{Sygna³y cyfrowe}
 \section{Wprowadzenie}
 W tym rozdziale trochê teorii - czym s¹ sygna³y cyfrowe (w ogólnoœci - dyskretne). 
-
+TODO
 
 \section{Narzêdzia}
-Poni¿ej zosta³y zaprezentowane podstawowe narzêdzia do analizy sygna³ów cyfrowych.
+Poni¿ej zosta³y zaprezentowane podstawowe narzêdzia do analizy sygna³ów cyfrowych. S¹ to podstawowe narzêdzia do analizy sygna³ów. Wykorzystywane s¹ w ró¿nych obaszarach takich jak .... TODO
 \subsection{Œrednia}
+\subsubsection{opis}
+todo
+
+opisaæ po co `kroczenie' w redniej krocz¹cej i po co `exponential'
+\subsubsection{zasady dzia³ania}
 Prosta œrednia ruchoma:
 \begin{equation}
 SMA = \frac{1}{n}\sum_{i = 0}^{n - 1}p_i,
@@ -16,14 +21,29 @@ Wyk³adnicza œrednia ruchoma:
 EMA = \sum_{i = 0}^{n - 1}((1 - \alpha)^ip_i) / \sum_{i = 0}^{n-1}(1 - \alpha)^i,
 \end{equation}
 gdzie: $n$ to liczba okresów, $\alpha = \frac{2}{n}$, a $p_i$ to wartoœæ z sprzed $i$ okresów
-mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD
+\subsubsection{przyk³ad}
+todo - mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD
 \subsection{Odchylenie standardowe}
+\subsubsection{opis}
+todo
+\subsubsection{zasady dzia³ania}
+todo 
 \begin{equation}
 \sigma^2 = \frac{1}{n}\sum_{i = 0}^{n - 1}(p_i - SMA)^2
 \end{equation}
+\subsubsection{przyk³ad}
+todo
 \subsection{Ca³kowanie}
+\subsubsection{opis}
+todo
+\subsubsection{zasady dzia³ania}
+todo
+\subsubsection{przyk³ad}
 todo
 \subsection{Pochodne}
+\subsubsection{opis}
+todo
+\subsubsection{zasady dzia³ania}
 Najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹:
 \begin{equation}
 f^\prime(x) = \frac{f(x + h) - f(x - h)}{2h}
@@ -36,6 +56,7 @@ natomiast w przypadku pochodnej na koñcu sygna³u stosuje siê pochodn¹ lewostronn
 \begin{equation}
 f^\prime(x) = \frac{f(x) - f(x - h)}{h}
 \end{equation}
-mo¿na daæ przyk³ad: pochodne w badaniu trendu, predykcji
+\subsubsection{przyk³ad}
+todo - mo¿na daæ przyk³ad: pochodne w badaniu trendu, predykcji
 
 

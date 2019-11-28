@@ -2,7 +2,73 @@
 \section{Wprowadzenie}
 Analiza techniczna to narzêdzie s³u¿¹ce do analizy wykresów gie³dowych, która ma na celu prognozê przysz³ych cen kursów na podstawie historycznych zmian cen. Modele analizy technicznej charakteryzuj¹ pewne powtarzalne schematy mo¿liwe do zaobserwowania w zmianach cen akcji. W zale¿noœci od danego modelu mo¿na zaobserwowaæ powtarzalne zachowanie wskaŸników statystycznych.
 
-Poni¿ej zosta³y zaprezentowane zasady dzia³ania wskaŸników stosowanych w analizie technicznej, które zosta³y zaimplementowane w projekcie. 
+Na wstêpie zostanie omówiony jeden z popularniejszych narzêdzi na polskim rynku pozwalaj¹cy na analizê techniczn¹ wybranych wykresów. W kolejnych rozdzia³ach zosta³y zaprezentowane zasady dzia³ania wskaŸników stosowanych w analizie technicznej i ich przyk³ady, które zosta³y zaimplementowane w projekcie. Do zdefiniowania narzêdzi analizy technicznej zostanie u¿yta wiedza przedstawiona w poprzednim rozdziale.
+
+\subsection{Analiza rynkowa}
+Istnieje bardzo du¿o narzêdzi w obszarze analizy technicznej wykorzystywanych na rynku finansowym. Na polskim rynku jednym z bardziej popularnych jest aplikacja ''BiznesRadar'' dostêpna w mobilnej wersji oraz online. Ma ona pomagaæ inwestorom w podejmowaniu decyzji o transakcji, wspieraæ ich strategiê inwestycyjn¹ lub s³u¿yæ do analizowania notowañ na rynku na podstawie przesz³ych danych.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Biznes_Radar}
+    }
+    % opis obrazka
+    \caption[aplikacja BiznesRadar - logo]{Logo aplikacji BiznesRadar dostêpnej w sklepie Google.}
+    % etykieta
+    \label{BiznesRadar}
+  \end{center}
+\end{figure*}
+
+Aplikacja ''Biznes Radar'' stworzona przez spó³kê o tej samej nazwie umo¿liwia u¿ytkownikowi œledzenie wskazañ w³asnych inwestycji i notowania kursów. S¹ one synchronizowane z rzeczywistym Domem Maklerskim poprzez portal BiznesRadar.pl [2]. 
+
+Jest to narzêdzie skierowane do inwestorów, g³ównie doœwiadczonych. Doœwiadczonych oznacza takich inwestorów, którzy potrafi¹ czytaæ przedstawione wykresy oraz maj¹ podstawow¹ wiedzê na temat dostêpnych narzêdzi i instrumentów na rynku.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Biznes_Radar_wskazniki}
+      \includegraphics{rysunki/Biznes_Radar_wykres}
+    }
+    % opis obrazka
+    \caption[aplikacja BiznesRadar - indeksy i wykres]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej przedstawione s¹ dostêpne indeksy do analizy notowañ. Po lewej przedstawiony jest wygenerowany wykres cen dla spó³ki KGH Polska MiedŸ.}
+    % etykieta
+    \label{BiznesRadar}
+  \end{center}
+\end{figure*}
+
+Ponad to, jak pokazano na rys. 4.3  narzêdzie zawiera ekran, w którym przedstawione s¹ podsumowane wartoœci wskaŸników i ich interpretacje za pomoc¹ oceny kupuj/ neutralnie / sprzedaj. Odpowiedni zysk inwestora jest te¿ przedstawiany w kompleksowym sprawozdaniu z portfela.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Biznes_Radar_odp}
+      \includegraphics{rysunki/Biznes_Radar_zysk}
+    }
+    % opis obrazka
+    \caption[aplikacja BiznesRadar - decyzje i sprawozdania]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej znajduje siê lista wzkaŸników oraz ich wartoœæ i ocena. Po lewej znajduje siê ekran ze sprawozdaniem z portfela inwestycyjnego danego u¿ytkownika z podsumowaniem zysków.}
+    % etykieta
+    \label{BiznesRadar}
+  \end{center}
+\end{figure*}
+
+
+\newpage
 \section{MACD}
 \subsection{wprowadzenie}
 MACD to skrót od Moving Average Convergence Divergence co w polskim t³umaczeniu oznacza zbie¿noœæ i rozbie¿noœæ œredniej krocz¹cej.
@@ -25,7 +91,7 @@ signal & = & EMA_{9}(MACD)
 \end{equation}
 We wzorze:
 \begin{itemize}
-\item $EMA_{X}$ - œrednia krocz¹ca w przedziale X okresowym, X - dowolna liczba naturalna
+\item $EMA_{X}$ - œrednia krocz¹ca wyk³adniczo w przedziale X okresowym, X - dowolna liczba naturalna
 \end{itemize}
 \subsubsection{strategia decyzyjna}
 Strategia MACD opiera siê g³ównie o interpretacjê przeciêæ linii sygna³u z lini¹ MACD. Analiza przeciêæ wygl¹da w nastêpuj¹cy sposób:
@@ -61,6 +127,8 @@ Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika sygna³ kupna czy sprzeda
 \newpage
 \subsection{przyk³ady numeryczne}
 Zastosowanie i interpretacja wskaŸnika MACD w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
+\subsubsection{Analizowany wykres w przyk³adach 1 i 2}
+todo przedstawienie wykresu input
 \subsubsection{Przyk³ad 1: sygna³ kupna}
 Dla sygna³u kupna oznaczonego na rys. 4.2 liter¹ "K" linia MACD (niebieska) przecina liniê signal (zielona) od do³u. W tym przyk³adzie mo¿na zaobserwowaæ cztery wygenerowane przyk³ady sygna³ów kupna: 8 stycznia, 7 lutego, 18 marca i 2 kwietnia.
 \begin{figure*}[!h]
@@ -109,9 +177,9 @@ Pocz¹tkowo sygna³ sprzeda¿y wygenerowany dnia 30 stycznia jest wiarygodny, ponie
 
 Drugi wygenerowany sygna³ z dnia 27 marca jest sygna³em niewiarygodnym, gdy¿ znajduje siê znacz¹co poni¿ej linii 0.
 \subsection{podsumowanie}
-MACD jest wartoœciowym wskaŸnikiem, poniewa¿ ³¹czy w sobie dwa ró¿ne wskaŸniki. Ponadto s³u¿y do wszechstronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowaæ nie tylko sygna³y spadkowe i rosn¹ce, ale tak¿e umo¿liwia œledzenie potencjalnych do³ków lub szczytów cenowych.
+MACD s³u¿y do wszechstronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowaæ nie tylko sygna³y spadkowe i rosn¹ce, ale tak¿e umo¿liwia œledzenie potencjalnych do³ków lub szczytów cenowych.
 
-Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim terminie, poniewa¿ powsta³ w celu wykorzystania go na wykresie dziennym. Przy mniejszych okresach mo¿e jednak powodowaæ opóŸnione sygna³y.
+Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim terminie, poniewa¿ powsta³ w celu wykorzystania go do odczytywania sygna³ów w raz w ci¹gu dnia, czyli na tak zwanym wykresie dziennym. Przy mniejszych okresach mo¿e jednak powodowaæ opóŸnione sygna³y.
 \newpage
 \section{Wstêgi Bollingera}
 \subsection{wprowadzenie}
@@ -263,6 +331,8 @@ We wzorze:
   \end{center}
 \end{figure*}
 
+*********todo poprawienie wykresu - lepiej pokazaæ na przedziale <55,65>
+
 \subsubsection{strategia decyzyjna}
 Aby analizowaæ wskazania oscylatora najpierw nale¿y zaznaczyæ, ¿e jego wskazania znajduj¹ siê w zakresie od 0\% - 100\%. Zakres 0 jest w okolicach najmniejszej wartoœci sygna³ów oscylatora stochastycznego, a 100 jest dla najwy¿szej wartoœci. Do interpretacji wskazañ jako istotne momenty na wykresie przyjmuje siê standardowo poziom na wysokoœci 20\% i 80\% wykresu - nazywane poziom 20 i poziom 80.
 \begin{itemize}
@@ -273,6 +343,8 @@ Poziom 20 nazywany jest te¿ poziomem wyprzedania, a z kolei poziom 80 to poziom 
 
 \subsection{przyk³ady numeryczne}
 Zastosowanie i interpretacja oscylatora stochastycznego w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
+\subsubsection{Analizowany wykres w przyk³adach 1 i 2}
+todo przedstawienie wykresu input
 \subsubsection{Przyk³ad 1: sygna³ kupna}
 Dla sygna³u kupna linia \%K przecina w dó³ poziom 20\% swojego zakresu. Dla zastosowanego przedzia³u czasu, w tym przyk³adzie mo¿na zaobserwowaæ wygenerowane trzy przyk³ady sygna³ów kupna: 15 lutego, 5 marca oraz 26 marca. 
 \begin{figure*}[!h]
@@ -358,3 +430,14 @@ Algorytm genetyczny jest algorytmem heurystycznym do znajdowania prawie optymaly
 	\item Pokolenie - pula osobników w danej iteracji algorytmu
 \end{itemize}
 Pierwszym krokiem algorytmu genetycznego jest wygenerowanie pierwszego pokolenia. Wykonuje siê to poprzez losow¹ generacjê genów dla ka¿dego nowego osobnika. Nastêpnymi krokami s¹: obliczenie wartoœci fitness dla ka¿dego z osobników oraz selekcja osobników na podstawie tej wartoœci. W tym momencie mo¿emy zapamiêtaæ najlepszego do tej pory osobnika. Wa¿ne, by zrobiæ to przed mutacj¹, gdy¿ w wyniku mutacji geny mog¹ siê zmieniæ. Gdy osobniki zostan¹ wybrane, ca³a reszta jest usuwana, a na ich miejsce tworzone s¹ nowe osobniki poprzez krzy¿owanie dwóch losowo wybieranych osobników. Powsta³e w ten sposób pokolenie mo¿e znacz¹co ró¿niæ pomiêdzy ró¿nymi uruchomieniami algorytmu, nawet jeœli pokolenie, z którego te osobniki s¹ generowane jest takie same, jednak krzy¿uj¹c tak osobniki ze sob¹ mamy du¿¹ szansê, ¿e któryœ z nowo powsta³ych osobników bêdzie jeszcze lepiej dopasowany do problemu (szukamy w ten sposób lokalnego najlepszego rozwi¹zania). Przedostatnim krokiem jest mutacja genów, która dla ka¿dego osobnika odbywa siê z losowym prawdopodobieñstwem (czêœæ osobników mo¿e nie zmutowaæ). Naszym celem jest znalezienie najlepszego rozwi¹zania globalnego, jednak krzy¿owanie zbli¿a nas jedynie do najlepszego lokalnego rozwi¹zania dla obecnego pokolenia. Mutacje s¹ rozwi¹zaniem tego problemu sprawiaj¹c, ¿e rozszerzamy spektrum poszukiwaæ. Wa¿nym parametrem tutaj jest prawdopodobieñstwo wystêpowania mutacji. Przy zbyt du¿ym algorytm bêdzie dzia³a³ w sposób zbyt przypadkowy, a przy zbyt ma³ym - przez bardzo d³ugie czasy bêdziemy pozostawaæ w lokalnym najlepszym rozwi¹zaniu. Najczêœciej stosowane prawdopodobieñstwo na mutacjê genu w algorytmach genetycznych to pomiêdzy 0.2\% a 0.5\%. Czasami sama mutacja to zama³o, poniewa¿ szansa na to, ¿e dany osobnik przetrwa w selekcji po mutacji jest ma³a, wiêc w bardziej z³o¿onych algorytmach genetycznym symuluje siê podzia³ na gatunki sprawiaj¹c, ¿e nawet najmniej dopasowany osobnik, je¿eli wyj¹tkowo ró¿ni siê od pozosta³ych, mo¿e przetrwaæ, daj¹c mu w ten sposób szansê do znalezienia lokalnego najlepszego rozwi¹zania dla tego osobnika. Po mutacji sprawdzamy warunek zakoñczenia algorytmu (np. liczbê iteracji, któr¹ mieliœmy wykonaæ) i wracamy do kroku drugiego kroku algorytmu (obliczania wartoœci fitness) , je¿eli warunek nie jest spe³niony.
+
+\subsection{Podsumowanie}
+TODO
+
+tutaj zauwa¿ymy czy wyniki s¹ zgodne z naszymi oczekiwaniami, poka¿emy dane - kiedy s¹ zadowalaj¹ce wyniki 
+Uzyskalimy ciekawe efekty, gdy¿ algorytm genetyczny da³ ujemne wyniki. Byæ mo¿e jest to spowodowane...
+
+\section{Porównanie wskaŸników}
+TODO 
+
+tutaj przedstawimy testy wskaŸników z zadanym na pocz¹tku kapita³em i iloci¹ akcji, nastêpnie porównamy wyniki i zauwa¿ymy, który wskaŸnik da³ najlepsze wyniki 
