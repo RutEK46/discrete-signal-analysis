@@ -1,13 +1,23 @@
-\chapter{Wstêp} 
-\section{Wprowadzenie}
+\chapter{Wstêp i cel pracy} 
+\section{Wprowadzenie do sygna³ów}
 
-todo
+Sygna³em nazywamy zmiennoœæ dowolnej mierzalnej wielkoœci we funkcji argumentu, którym najczêœciej jest jednostka czasu. U¿ywane s¹ w celach badawczych, by mierzyæ i sprawdzaæ zachowanie systemów, a tak¿e do przekazywania informacji zebranych w czasie. 
 
-Du¿o o sygna³ach (elektronika, telekomunikacja, akustyka, informatyka, medycyna - mo¿na wymieniæ przyk³ady) - tutaj du¿a dowolnoœæ, na poziomie popularnonaukowym. Wa¿ne, ¿eby pokazaæ, ¿e sygna³y s¹ wszêdzie, analiza tych sygna³ów jest niezbêdna (np. filtrowanie, badanie korelacji, predykcja). Cel pracy - stworzenie zaawansowanego narzêdzia w pythonie do analizy sygna³ów dyskretnych za pomoc¹ szerokiego spektrum narzêdzi. 
+Sygna³y mo¿na spotkaæ wszêdzie. Znajduj¹ one zastosowanie we wielu dziedzinach ¿ycia, od telekomunikacji a¿ po medycynê i astronomiê. Przyk³adowo w telekomunikacji sygna³y s¹ noœnikiem informacji w centralach telefonicznych. Z kolei w medycynie s³u¿¹ do oceny stanu rytmu serca i wykrycia ewentualnych zaburzeñ za pomoc¹ badania elektrokardiografii. Wynikiem odczytu sygna³u jest krzywa, która odpowiada pe³nemu cyklowi serca, której interpretacji dokonuje lekarz. W podobny sposób w medycynie s¹ odczytywane tak¿e inne czynnoœci ¿yciowe, takie jak puls czy czynnoœci uk³adu nerwowego. Z kolei w elektronice sygna³y s¹ wykorzystywane do mierzenia wartoœci napiêcia elektrycznego w uk³adach elektronicznych. W motoryzacji sygna³y s¹ wykorzystywane do sterowania systemem wytrysku paliwa, a w ekonomii do badania zjawisk ekonomicznych, takich jak popyt czy poda¿. W przemyœle sygna³y s¹ u¿ywane przenosz¹ informacje o stanie urz¹dzeniami jak piece i roboty, ponad to s³u¿¹ te¿ do sterowania nimi. Sygna³y s³u¿¹ te¿ do ochrony przed wstrz¹sami sejsmologicznymi poprzez badanie energii masy. Podobnie w astronomii za pomoc¹ sygna³u przenoszone s¹ informacje o impulsach emitowanych przez obiekty pozaziemskie. Mo¿liwy jest wtedy miêdzy innymi odczyt jak szybko lub w jakim kierunku obiekt siê porusza. Co wiêcej, sygna³y s¹ równie¿ wykorzystywane we wojsku w systemach bezpieczeñstwa, nawigacji i ³¹cznoœci, a nawet w zdalnym sterowaniu maszynami bezza³ogowymi.
+
+We wielu aspektach ¿ycia, wspomnianych powy¿ej mo¿na zauwa¿yæ, ¿e analiza sygna³ów jest niezbêdna. Nie tylko ratuje ¿ycie za pomoc¹ mierzenia czynnoœci ¿yciowych, ale tak¿e czyni je prostszym, bo umo¿liwia korzystanie z urz¹dzeñ telekomunikacyjnych.
+
 \section{Cel pracy, za³o¿enia}
-todo 
+Na codzieñ ka¿dy inwestor gie³dowy, który analizuje wykresy kursu akcji ma równie¿ stycznoœæ ze sygna³ami, s¹ to sygna³y kupna i sprzeda¿y. Celem projektu jest stworzenie zaawansowanego narzêdzia w pythonie do analizy sygna³ów dyskretnych za pomoc¹ szerokiego spektrum narzêdzi tak, by usprawniæ proces decyzjny inwestora. 
 
-Celem projektu jest stworzenie zaawansowanego narzêdzia w pythonie do analizy sygna³ów dyskretnych za pomoc¹ szerokiego spektrum narzêdzi.
+Istnieje bardzo du¿o narzêdzi do analizy danych. Systemy te zawieraj¹ ró¿ne wskaŸniki czyli narzêdzia, które s³u¿¹ do identyfikacji kierunku rozwoju cen akcji, tak zwanego trendu. W dostêpnych systemach najczêœciej u¿ywane s¹ te najbardziej popularne wœród inwestorów, gdzie mo¿na odczytaæ ich wykresy. Wreszcie mo¿na tak¿e znaleŸæ zak³adki z odpowiedni¹ interpretacj¹ wartoœci wskaŸników i ocen¹ o kupnie, b¹dŸ sprzeda¿y generowanej przez dany wskaŸnik. S¹ to jednak prezentowane pojedyncze decyzje w postaci listy wskaŸników wraz z ich ocen¹. 
+
+W trakcie gry gie³dowej liczy siê czas, zw³aszcza przy inwestycjach krótkoterminowych od inwestora wymagane jest podjêcie szybkiej decyzji. Cech¹ która wyró¿nia ten projekt, sporód innych systemów w analizie technicznej jest wprowadzenie usprawnienia w postaci zaregowanego wskaŸnika do komponentu zwi¹zanego z analiz¹ techniczn¹. System wspomaga decyzjê u¿ytkownika w postaci podsumowania ocen wszystkich u¿ytych wskaŸników do jednej czytelnej oceny, co znacznie usprawnia podjêcie decyzji.
+
+Na podstawie notowañ indeksów gie³dowych, czyli wycen akcji wybranych spó³ek gie³dowych wyliczane s¹ wartoœci wskaŸników, które s¹ wizualizowane na wykresie. W narzêdziu mo¿liwe jest dynamiczne zarz¹dzanie wykresem przez u¿ytkownika poprzez dowolne przybli¿anie i dodawanie/ usuwanie parametrów wykresu. Osoba obs³uguj¹ca system ma mo¿liwoœæ odczytania interpretacji wskaŸników, równie¿ zagregowanej decyzji z dowolnego dnia z przesz³oœci, a¿ do najnowszego. Mo¿liwe jest równie¿ przeprowadzenie symulacji inwestycji z decyzjami sugerowanymi przez system na wczytanych danych historycznych. Ta funkcjonalnoœæ mo¿e byæ przydatna przyk³adowo w poznawaniu nowego indeksu gie³dowego. Jednoczeœnie system umo¿liwia te¿ analizê innych sygna³ów, ni¿ te pochodz¹ce z indeksów gie³dowych. Do analizy tych sygna³ów u¿ytkownik mo¿e korzystaæ w taki sam sposób z funkcjonalnoœci wykresu. 
+
+Istotnymi za³o¿eniami projektu jest przeznaczenie systemu dla zaawansowanych inwestorów. W trakcie inwestycji istotna jest znajomoœæ podstawowej wiedzy na temat dostêpnych narzêdzi i umiejêtnoœæ odczytania przedstawionych wykresów. Równie¿ istotne jest doœwiadczenie ze wzglêdu na znajomoœæ sytuacji gospodarczej, któr¹ równie¿ trzeba uwzglêdniaæ przy podejmowaniu decyzji inwestycyjnej.
+
 \section {Podzia³ pracy}
 (todo: uzupe³nienie podzia³u tekstu pracy)
 \subsubsection{Agnieszka Wojciechowska}
@@ -29,63 +39,17 @@ Celem projektu jest stworzenie zaawansowanego narzêdzia w pythonie do analizy sy
 \item Tekst pracy: rozdzia³ 3, punkty 4.3, 4.5
 \end{itemize}
 \newpage
-\section{Analiza rynkowa}
-Jednym z bardziej popularnych narzêdzi do analizy sygna³ów wykorzystywanych na rynku finansowym jest aplikacja ''Biznes Radar'' dostêpna w mobilnej wersji oraz online. Ma ona pomagaæ inwestorom w podejmowaniu decyzji o transakcji, wspieraæ ich strategiê inwestycyjn¹ lub s³u¿yæ do analizowania notowañ na rynku na podstawie przesz³ych danych.
-\begin{figure*}[!h]
-  % wyœrodkowanie zawartoœci pola obrazka
-  \begin{center}
-    % okienko skaluj¹ce:
-    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
-    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
-    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{0.8\textwidth}{!}{
-      % wstawienie obrazka
-      \includegraphics{rysunki/Biznes_Radar}
-    }
-    % opis obrazka
-    \caption[aplikacja BiznesRadar - logo]{Logo aplikacji BiznesRadar dostêpnej w sklepie Google.}
-    % etykieta
-    \label{BiznesRadar}
-  \end{center}
-\end{figure*}
+\section{Struktura pracy}
+Omawiana praca dyplomowa zosta³a podzielona na szeœæ rozdzia³ów, które poni¿ej zostan¹ krótko przybli¿one.
 
-Aplikacja ''Biznes Radar'' stworzona przez spó³kê o tej samej nazwie umo¿liwia u¿ytkownikowi œledziæ w³asne inwestycje i notowania kursów, które s¹ synchronizowane z rzeczywistym Domem Maklerskim poprzez portal BiznesRadar.pl.  Jest to narzêdzie skierowane do inwestorów, g³ównie dowiadczonych, takich którzy potrafi¹ czytaæ przedstawione wykresy, maj¹ podstawow¹ wiedzê na temat dostêpnych narzêdzi i instrumentów na rynku.
+W pierwszym, aktualnie omawianym rozdziale zawarte zosta³o wprowadzenie do tematu sygna³ów oraz zosta³ przedstawiony cel pracy. Podano równie¿ szczegó³owy podzia³ prac dyplomantów realizuj¹cych pracê w grupie. Nastêpnie krótko przedstawiono strukturê pracy.
 
-\begin{figure*}[!h]
-  % wyœrodkowanie zawartoœci pola obrazka
-  \begin{center}
-    % okienko skaluj¹ce:
-    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
-    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
-    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{0.8\textwidth}{!}{
-      % wstawienie obrazka
-      \includegraphics{rysunki/Biznes_Radar_wskazniki}
-      \includegraphics{rysunki/Biznes_Radar_wykres}
-    }
-    % opis obrazka
-    \caption[aplikacja BiznesRadar - indeksy i wykres]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej przedstawione s¹ dostêpne indeksy do analizy notowañ. Po lewej przedstawiony jest wygenerowany wykres cen dla spó³ki KGH Polska MiedŸ.}
-    % etykieta
-    \label{BiznesRadar}
-  \end{center}
-\end{figure*}
+Nastêpny rozdzia³ zawiera omówienie teorii sygna³ów cyfrowych, która jest u¿ywana w projekcie. Przybli¿one zosta³y podstawowe narzêdzia takie jak œrednia krocz¹ca i odchylenie standardowe.
 
-Ponad to narzêdzie zawiera ekran, w którym przedstawione s¹ podsumowane wartoœci wskaŸników i ich interpretacje za pomoc¹ oceny kupuj/ neutralnie / sprzedaj. Odpowiedni zysk inwestora jest te¿ przedstawiany w kompleksowym sprawozdaniu z portfela.
-\begin{figure*}[!h]
-  % wyœrodkowanie zawartoœci pola obrazka
-  \begin{center}
-    % okienko skaluj¹ce:
-    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
-    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
-    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{0.8\textwidth}{!}{
-      % wstawienie obrazka
-      \includegraphics{rysunki/Biznes_Radar_odp}
-      \includegraphics{rysunki/Biznes_Radar_zysk}
-    }
-    % opis obrazka
-    \caption[aplikacja BiznesRadar - decyzje i sprawozdania]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej znajduje siê lista wzkaŸników oraz ich wartoœæ i ocena. Po lewej znajduje siê ekran ze sprawozdaniem z portfela inwestycyjnego danego u¿ytkownika z podsumowaniem zysków.}
-    % etykieta
-    \label{BiznesRadar}
-  \end{center}
-\end{figure*}
+Trzeci rozdzia³ zosta³ w ca³oœci poœwiêcony transformacji Fouriera, która jest jedn¹ z najpowszechniejszych metod analizy sygna³ów i znajduje zastosowanie miêdzy innymi w interpretacji czêstotliwoœci dŸwiêku.
+
+Kolejny rozdzia³ omawia szczegó³owo pojêcie analizy technicznej poprzez prezentacjê zasad dzia³ania zastosowanych w projekcie wskaŸników wraz z omówieniem zaproponowanego wskaŸnika i jego wyników. Na zakoñczenie przedstawiono testy symulacji inwestycji z udzia³em omówionych wskaŸników oraz wnioski z otrzymanych wyników.
+
+Nastêpna czêœæ, pi¹ta przedstawia prezentacjê interfejsu stworzonego narzêdzia. Rozdzia³ omawia wykorzystywane narzêdzia i biblioteki. Podane s¹ wymagania sprzêtowe, opis instalacji wymaganego œrodowiska oraz instrukcja obs³ugi narzêdzia.
+
+Ostatnia czêœæ zawiera podsumowanie i prezentacjê wniosków z usyskanych efektów w pracy. Zaproponowane zosta³y równie¿ dalsze kierunki rozwoju.
