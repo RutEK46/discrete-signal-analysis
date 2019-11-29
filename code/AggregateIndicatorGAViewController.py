@@ -39,13 +39,16 @@ class AggregateIndicatorGAViewController:
         templates = ["MACD: {}", "Bollinger Bands: {}", "Bias: {}"]
 
         max_earned = 0
-        for i, (chromosome, earned) in islice(enumerate(genetic_algorithm(dataset, act_funcs, 30, 0.005)), 16384):
+        range_ = 16384
+        for i, (chromosome, earned) in islice(enumerate(genetic_algorithm(dataset, act_funcs, 30, 0.005)), range_):
             if max_earned < earned:
                 max_earned = earned
                 self.best_chromosome = chromosome
                 for template, coef, label in zip(templates, chromosome, self.view.result_layer.children):
                     label.value = template.format(coef)
                 self.view.result_layer.children[-1].value = f"Earned: {earned}"
+            self.view.progress.value = i/range_
+        self.view.progress.value = 1
 
     def predict(self, x, macd_result, bb_result):
         if self.best_chromosome is not None:
@@ -74,11 +77,11 @@ class AggregateIndicatorGAViewController:
 
     def activate_macd(self, signal):
         [macd, signal] = self.model.signal_transformations["MACD"](signal)
-        return np.array(list(sigmoid(m - s for m, s in zip(macd, signal))), 'float64')
+        return np.array(list(sigmoid(min(-m, (m - s)) for m, s in zip(macd, signal))), 'float64')
 
     def activate_bollinger_bands(self, signal):
         [upper, middle, _] = self.model.signal_transformations["Bollinger Bands"](signal)
-        return np.array(list(sigmoid((s - m) / (u - m) if u - m != 0 else 0 for u, m, s in zip(upper, middle, signal))),
+        return np.array(list(sigmoid(-(s - m) / (u - m) if u - m != 0 else 0 for u, m, s in zip(upper, middle, signal))),
                         'float64')
 
     @staticmethod
@@ -91,4 +94,4 @@ class AggregateIndicatorGAViewController:
 
     @staticmethod
     def _bollinger_bands_normalize(u, m, s):
-        return sigmoid((s - m) / (u - m) if u - m != 0 else 0)
+        return sigmoid(-(s - m) / (u - m) if u - m != 0 else 0)
