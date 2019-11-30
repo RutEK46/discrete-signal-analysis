@@ -1,5 +1,6 @@
 from SignalData import SignalData
 from macd import macd
+from stochastic_oscillator import stochastic_oscillator
 from bollinger_bands import bollinger_bands
 from pandas import read_csv
 from itertools import islice
@@ -102,9 +103,24 @@ class InvestorModel(SignalData):
     def get_stochastic_oscillator_decision(self, file_path, date, price):
         date_index = self.get_data_index(file_path, date)
         input_signal = list(self.read_csv_file(file_path)[price])
-        return "TBD"
+        stochastic = stochastic_oscillator(input_signal)
+        all_k = stochastic[0]
+        min_k = min(all_k)
+        max_k = max(all_k)
+        today_k = stochastic[0][date_index]
+        poziom = ((max_k - min_k) * 0.2)
+        poziom_20 = min_k + poziom
+        poziom_80 = max_k - poziom
+        if today_k <= poziom_20:
+            answer = "buy"
+        elif today_k >= poziom_80:
+            answer = "sell"
+        else:
+            answer = "neutral"
+        return answer
 
     def get_agregated_decision(self, file_path, date, price):
         date_index = self.get_data_index(file_path, date)
         input_signal = list(self.read_csv_file(file_path)[price])
-        return "TBD"
+
+        return "neutral"
