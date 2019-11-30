@@ -52,13 +52,16 @@ Inaczej jest dla sygna³u cyfrowego. Najpierw wartoœci s¹ próbkowane w czasie, ja
 
 \section{Narzêdzia}
 Poni¿ej zosta³y zaprezentowane podstawowe narzêdzia do analizy sygna³ów cyfrowych. S¹ to podstawowe narzêdzia do analizy sygna³ów. Wykorzystywane s¹ w ró¿nych obaszarach takich jak finanse i .... TODO
+
 \subsection{Œrednia krocz¹ca}
 \subsubsection{opis}
 Moving average, czyli MA to w polskim t³umaczeniu jest œrednia krocz¹ca. Jest to bardzo popularne narzêdzie w gronie inwestorów. Przydatne jest miêdzy innymi do analizowania trendu panuj¹cego na rynku. 
 
-Wystêpuje wiele rodzajówœ rednich krocz¹cych, które ró¿ni¹ siê miêdzy sob¹ interpretacj¹ i sposobem obliczania. Generalnie ka¿dy z nich opiera siê o obliczenie œredniej wartoœci z wyznaczonej liczby przesz³ych okresów. Okrelenie ``krocz¹ca'' w œredniej krocz¹cej oznacza w³aœnie ten sta³y okres odstêpów czasu pomiêdzy obliczeniami. 
+Wystêpuje wiele rodzajów œrednich krocz¹cych, które ró¿ni¹ siê miêdzy sob¹ interpretacj¹ i sposobem obliczania. Generalnie ka¿dy z nich opiera siê o obliczenie œredniej wartoœci z wyznaczonej liczby przesz³ych okresów. Okrelenie ``krocz¹ca'' w œredniej krocz¹cej oznacza w³aœnie ten sta³y okres odstêpów czasu pomiêdzy obliczeniami. 
 
-W poni¿szej czêœci opisane zosta³y dwie najczêœciej u¿ywane œrednie krocz¹ce.
+W poni¿szej czêœci opisane zosta³y dwie najbardziej popularne œrednie ruchome to prosta œrednia ruchoma SMA oraz wyk³adnicza œrednia ruchoma EMA.
+
+\newpage
 \subsubsection{zasady dzia³ania}
 \indent \textbf{Prosta œrednia ruchoma} \\
 Tak zwana SMA, czyli z angielskiego simple moving average, a w polskim t³umaczeniu ''prosta œrednia ruchoma'' to zwyk³a œrednia ze wszystkich wartoœci, podzielona przez n okresów:
@@ -73,10 +76,71 @@ gdzie:
 \end{itemize} 
 \vspace{0.3cm}
 
-Wolna œrednia krocz¹ca charakteryzuje siê wolnymi reakcjami na zmieniaj¹ce siê ceny. Zalet¹ SMA jest do ochrona przed fa³szywymi sygna³ami na rynku. Jednak minusem jest zdecydowanie opóŸnienie w odczytywaniu trendu.
+Jej dzia³anie polega "kroczeniu" po wykresie i obliczaniu dla danego punktu na wykresie œredniej z ostatnich $n$ próbek.  W przypadku, gdy $n$ jest wiêksze ni¿ iloœæ ostatnich próbek, któr¹ dysponujemy, parametr $n$ jest zmniejszany w danym miejscu do iloœci dysponowanych ostatnich próbek. Oznacza to, ¿e np. dla pierwszej próbki liczymy œredni¹ ruchom¹ z jednej próbki, dla dwóch pierwszych próbek z dwóch, itd. a¿ do $n$-tej próbki, sk¹d liczymy ju¿ tylko dla $n$ ostatnich próbek.
 
-\vspace{0.3cm}
+Wolna œrednia krocz¹ca charakteryzuje siê wolnymi reakcjami na zmieniaj¹ce siê ceny. Jej celem jest pokazanie trendu poprzez wyg³adzenie wykresu pozbywaj¹c siê krótkookresowych zmian i uwidaczniaj¹c bardziej te d³ugookresowe. Zalet¹ SMA jest do ochrona przed fa³szywymi sygna³ami na rynku. Jednak minusem jest zdecydowanie opóŸnienie w odczytywaniu trendu.
+\vspace{0.5cm}
 
+Poni¿ej zaprezentowano ró¿nice w wyg³adzaniu wykresu EMA dla ró¿nych parametrów $n$.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/ema_5}
+    }
+    % opis obrazka
+    \caption[Srednia krocz¹ca]{$EMA_{5}$}
+    % etykieta
+    \label{Œrednia krocz¹ca}
+  \end{center}
+\end{figure*}
+
+\newpage
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/ema_20}
+    }
+    % opis obrazka
+    \caption[Srednia krocz¹ca]{$EMA_{20}$}
+    % etykieta
+    \label{Œrednia krocz¹ca}
+  \end{center}
+\end{figure*}
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/ema_50}
+    }
+    % opis obrazka
+    \caption[Srednia krocz¹ca]{$EMA_{50}$}
+    % etykieta
+    \label{Œrednia krocz¹ca}
+  \end{center}
+\end{figure*}
+
+Trzy powy¿sze wykresy (rys. 2.3, 2.4, 2.5) przedstawiaj¹ œredni¹ krocz¹c¹ $EMA_n$ dla parametrów 3, 20 oraz 50. Mo¿na zauwa¿yæ, ¿e im wiêkszy jest parametr $n$, tym wykres staje siê g³adszy.
+
+\newpage
 \indent \textbf{Wyk³adnicza œrednia ruchoma} \\
 Z kolei EMA, czyli z angielskiego exponential moving average, co znaczy "wyk³adnicza œrednia ruchoma'' to pewna forma œredniej wa¿onej, gdzie znaczenie coraz bardziej odleg³ych w czasie sk³adników maleje wyk³adniczo.
 \begin{equation}
@@ -93,37 +157,33 @@ gdzie:
 Szybka œrednia krocz¹ca, jak sugeruje nazwa jest przeciwieñstwem wolnej œredniej krocz¹cej. EMA charakteryzuje siê szybkimi reakcjami na zmiany cen. Zdecydowanie do zalet nale¿y brak opóŸnienia w odczytywaniu sygna³ów, jednak wad¹ jest to, ¿e mog¹ byæ one fa³szywe.
 
 \subsubsection{przyk³ad}
-todo - mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD
+todo - mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD???
+
+
 \subsection{Odchylenie standardowe}
 \subsubsection{opis}
-todo
+todo - po co jest? gdzie siê u¿ywa?
 \subsubsection{zasady dzia³ania}
-todo 
+Odchylenie standardowe jest miar¹ rozrzucenia danych. Ma³a wartoœæ odchylenia standardowego oznacza, ¿e dane s¹ blisko œredniej. Wzór na odchylenie standardowe to:
 \begin{equation}
-\sigma^2 = \frac{1}{n}\sum_{i = 0}^{n - 1}(p_i - SMA)^2
+\sigma = \sqrt{\frac{1}{n}\sum_{i = 0}^{n - 1}(X_i - SMA)^2}
 \end{equation}
+W przypadku analizy technicznej,  odchylenie standardowe mo¿e siê pojawiæ jako krocz¹ce odchylenie standardowe $\sigma_n$, które jest podobne do œredniej krocz¹cej. Wartoœæ krocz¹cego odchylenia standardowego w danym miejsu to odchylenie standardowe z $n$ ostatnich próbek.
 \subsubsection{przyk³ad}
 todo
-\subsection{Ca³kowanie}
-\subsubsection{opis}
-todo
-\subsubsection{zasady dzia³ania}
-todo
-\subsubsection{przyk³ad}
-todo
+
+
 \subsection{Pochodne}
 \subsubsection{opis}
-todo
+todo - po co jest? gdzie siê u¿ywa?
 \subsubsection{zasady dzia³ania}
-Najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹:
+Pochodna funkcji jest miar¹ szybkoœci wzrostu funkcji w danym momencie. Pochodn¹ funkcji $f(x)$ zapisuje siê jako $f^\prime(x)$ albo $\frac{f(x)}{dx}$. W przypadku pochodnych dyskretnych najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹, jako ¿e jest on bardzo prosty do zaimplementowania, w którym to sprawdzamy ró¿nicê pomiêdzy próbk¹ odrobinê z ty³u oraz próbk¹ odrobinê z przodu oraz dzielimy przez odleg³oœæ pomiêdzy tymi próbkami. W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹, gdzie jako ¿e niedysponujemy próbk¹ z lewej strony, u¿ywamy próbki, dla której liczymy pochodn¹. Analogicznie dla pochodnej na koñcu sygna³u stosujemy pochodn¹ lewostronn¹, gdzie prawa próbka jest zastêpowana aktualn¹ próbk¹. Wzory:
 \begin{equation}
 f^\prime(x) = \frac{f(x + h) - f(x - h)}{2h}
 \end{equation}
-W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹:
 \begin{equation}
 f^\prime(x) = \frac{f(x + h) - f(x)}{h}
 \end{equation}
-natomiast w przypadku pochodnej na koñcu sygna³u stosuje siê pochodn¹ lewostronn¹:
 \begin{equation}
 f^\prime(x) = \frac{f(x) - f(x - h)}{h}
 \end{equation}
@@ -131,3 +191,31 @@ f^\prime(x) = \frac{f(x) - f(x - h)}{h}
 todo - mo¿na daæ przyk³ad: pochodne w badaniu trendu, predykcji
 
 
+\subsection{Ca³kowanie}
+\subsubsection{opis}
+todo - po co jest? gdzie siê u¿ywa?
+\subsubsection{zasady dzia³ania}
+Ca³kowanie funkcji jest operacj¹ odwrotn¹ do pochodnej. Oznacza to, ¿e je¿eli funckja $F(x)$ jest ca³k¹ funkcji $f(x)$, to $f(x) = \frac{F(x)}{dx}$. Poniewa¿ dodanie do funkcji $F(x)$ wartoœci sta³ej nie wp³ywa na wynik pochodnej, stosuje siê podzia³ na ca³ki nieoznaczone i oznaczone. Ca³kê nieoznaczon¹ funkcji $f(x)$ zapisuje siê wzorem:
+\begin{equation}
+F(x) = \int f(x) dx,
+\end{equation}
+gdzie do wyniku ca³ki dopisuje siê sta³¹ zapisan¹ czêsto symbolem $c$, poniewa¿ jak ju¿ wczeœniej wspomniano sta³a wartoœæ nie ma wp³ywu operacjê odwrotn¹ do ca³kowania, czyli prawd¹ jest, ¿e $f(x) = \frac{F(x) + c}{dx}$. Drugi rodzaj ca³ki to ca³ka oznaczona, która jest ró¿nic¹ ca³ek nieoznaczonych pomiêdzy wartoœciami wartoœciami $a$ oraz $b$. Ca³kê oznaczon¹ zapiuje siê wzorem:
+\begin{equation}
+\int_a^b f(x) dx = F(b) - F(a)
+\end{equation}
+W przypadku ca³ki oznaczonej niestosuje siê ju¿ sta³ej $c$, poniewa¿ jest taka sama dla $F(b)$ oraz $F(a)$, a przez odejmowanie we wzorze skraca siê. Mo¿na tutaj zauwa¿yæ, ¿e wynikiem ca³ki oznaczonej jest jakaœ wartoœæ bêd¹ca wynikiem odejmowania, a w ca³ce nieoznaczonej by³a to funkcja $F(x)$.
+
+W ca³kowaniu dyskretnym mo¿emy mówiæ jedynie o ca³kach oznaczonych, gdzie bardzo czêsto wykorzystuje siê interpretacjê ca³ki oznaczonej jako pola pod wykresem funkcji $f(x)$ pomiêdzy wartoœciami $a$ oraz $b$. Tutaj proponowane s¹ 2 proste sposoby na obliczanie przybli¿enia ca³ki: metoda prostok¹tów oraz metoda trapezów. Metoda prostok¹tów polega na obliczaniu pola prostok¹tów pomiêdzy próbkami i zsumowania tych pól, co daje w przybli¿eniu wynik ca³ki. Z tego powodu bardzo czêsto mówi siê, ¿e sumowanie zastêpuje ca³kowanie w obliczeniach na wartoœciach dyskretnych. Drugi sposób, to wyznaczanie pól trapezów pomiêdzy wartoœciami dyskretnymi, co daje zazwyczaj jeszcze lepsze przybli¿enie ni¿ metoda prostok¹tów. Poni¿ej s¹ wzory na ca³kê dyskretn¹ dla sygna³u $f(x)$ o $n$ próbkach, gdzie 2 pierwsze to metoda prostok¹tów, a trzeci to metoda trapezów:
+\begin{equation}
+F(x) \approx \sum_{i=0}^{n - 2} (f(x_i) \cdot(x_{i+1} - x_i))
+\end{equation}
+\begin{equation}
+F(x) \approx \sum_{i=0}^{n - 2} (f(x_{i+1}) \cdot(x_{i+1} - x_i))
+\end{equation}
+\begin{equation}
+F(x) \approx \sum_{i=0}^{n - 2} (\frac{f(x_i) + f(x_{i+1})}{2} \cdot(x_{i+1} - x_i))
+\end{equation}
+Dwa sposoby na obliczenie ca³ki metod¹ prostok¹tów wynikaj¹ z tego, ¿e wartoœæ jednej próbki sygna³u (pierwsza $f(x_0)$ lub ostatnia $f(x_{n-1})$) jest nieu¿ywana, a w metodzie trapezów wykorzystujemy zawsze wszystkie próbki.
+
+\subsubsection{przyk³ad}
+todo
