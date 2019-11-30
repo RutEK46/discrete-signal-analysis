@@ -4,7 +4,44 @@ Prezentacja GUI, testów narzêdzi z rozdzia³ów 2-4
 \subsection{Pycharm for Anaconda}
 \subsection{Jupyter Notebook}
 \section{Instrukcja}
-\subsection{Wymagania sprzêtowe i instalacja}
+\subsection{Wymagania sprzêtowe}
+\subsubsection{Minimalne wymagania sprzêtowe producenta biblioteki Numba:}
+\begin{itemize}
+\item karta graficzna: NVIDIA z mo¿liwoœciami obliczeniowymi 2.0 lub wiêksze
+\end{itemize}
+
+\vspace{0.3cm}
+\subsubsection{Konfiguracja sprzêtowa, na której by³y wykonywane testy:}
+\begin{itemize}
+\item system operacyjny: Windows 8.1
+\item procesor: Intel Core i5-4200H
+\item 8 GB RAM
+\item karta graficzna: NVIDIA GeForce GTX 860M
+\end{itemize}
+
+\subsection{Instalacja i konfiguracja}
+\subsubsection{Instalacja}
+Dla prawid³owego dzia³ania aplikacji nale¿y zainstalowaæ œrodowisko Anaconda, jeœli nie ma go na danym urz¹dzeniu. W tym celu nale¿y:
+\begin{itemize}
+\item Instalator mo¿na pobraæ na przyk³ad ze strony Anaconda.
+\item Nastepnie nale¿y wybraæ odpowiedni¹ wersjê instalatora odpowiedni¹ dla systemu operacyjnego na u¿ywanym komputerze.
+\item Nale¿y pobraæ wersjê Python 3.5 lub nowsz¹.
+\end{itemize}
+\vspace{0.3cm}
+
+\subsubsection{Konfiguracja}
+Po zainstalowaniu œrodowiska Anaconda, nale¿y skonfigurowaæ œrodowisko Anaconda za pomoc¹ narzêdzia ''Anaconda Prompt'' dostarczanego w instalatorze Anaconda:
+\begin{itemize}
+\item Nale¿y najpierw zaktualizowaæ narzêdzie conda za pomoc¹ polecenia: \\ ''conda update conda''.
+\item Nale¿y najpierw zaktualizowaæ narzêdzie jupyter za pomoc¹ polecenia: \\ ''conda update jupyter''.
+\item Nastepnie nale¿y zainstalowaæ wymagane biblioteki. Miêdzy innymi numpy, pandas, \\ matplotlib za pomoc¹ polecenia przyk³adowo ''conda install numpy''.
+\item Nale¿y tak¿e zainstalowaæ cudatoolkit. W tym celu nale¿y u¿yæ polecenia \\ ''conda install -c anaconda cudatoolkit''.
+\end{itemize}
+\vspace{0.3cm}
+
+\subsubsection{Uruchomienie}
+Nastêpnym krokiem, gdy œrodowisko bêdzie ju¿ przygotowane jest uruchomienie narzêdzia jupyter notebook. W tym celu nale¿y w narzêdziu ''Anaconda Prompt'' wpisaæ polecenie ''jupyter notebook''. Efektem jest uruchomienie notatnika w domyœlnej przegl¹darce internetowej.
+
 \subsection{Instrukcja obs³ugi}
 \subsubsection{interfejs standardowy}
 
