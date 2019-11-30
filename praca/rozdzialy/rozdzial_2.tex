@@ -1,26 +1,97 @@
 \chapter{Sygna³y cyfrowe}
 \section{Wprowadzenie}
-W tym rozdziale trochê teorii - czym s¹ sygna³y cyfrowe (w ogólnoœci - dyskretne). 
-TODO
+Ze wzglêdu na ci¹g³oœæ dziedziny i wartoœci, sygna³y mo¿na podzieliæ na analogowe, dyskretne i cyfrowe. Proces ich otrzymywania zosta³ opisany poni¿ej.
+
+\subsubsection{Sygna³ analogowy}
+Sygna³ analogowy powstaje poprzez mierzenie przebiegu zmian wielkoœci fizycznych przez sygna³ elektryczny. Cech¹ szczególn¹ jest to, ¿e przyjmuje dowolne wartoœci, które s¹ znane w ka¿dej chwili czasu. Zatem dziedzina i zbiór wartoœci sygna³u analogowego s¹ ci¹g³e. Przebieg obserwacji zbierany jest z operacji wykonywanych przez uk³ady ró¿niczkuj¹co-ca³kuj¹ce. 
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.5\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/sygnal_analogowy}
+    }
+    % opis obrazka
+    \caption[Sygnal analogowy]{Wykres przedstawia sygna³ analogowy.}
+    % etykieta
+    \label{Wykres sygnalu analogowego}
+  \end{center}
+\end{figure*}
+Poni¿ej zostan¹ omówione dwa procesy, dyskretyzacja i kwantyzacja, które bior¹ udzia³ w tworzeniu sygna³u cyfrowego.
+
+\subsubsection{Dyskretyzacja sygna³u analogowego}
+
+Sygna³ dyskretny i cyfrowy powstaje poprzez operacjê próbkowania sygna³u. Próbkowanie jest to najpierw zmierzenie wartoœci w danej chwili czasu i nastêpnie zapisanie jej. Proces podzia³u czasu na pewne roz³¹czne podzbiory, które s¹ reprezentowane przez dane przypisane im reprezentacje nazywa siê dyskretyzacj¹. W ten sposób powstaje sygna³ dyskretny. Sygna³ ten ma dyskretn¹ dziedzina, a wartoœci pozostaj¹ ci¹g³e w czasie, poniewa¿ przyjmuje dowolne wartoœci w konkretnych punktach osi czasu. 
+
+\subsubsection{Kwantyzacja sygna³u analogowego}
+Inaczej jest dla sygna³u cyfrowego. Najpierw wartoœci s¹ próbkowane w czasie, jak w przypadku sygna³u dyskretnego. Natêpnie ze wzglêdu na potrzeby wykorzystania sygna³ów w systemach cyfrowych powsta³a potrzeba dostosowania odczytywanych wartoœci do skoñczonej liczby bitów mo¿liwej do odczytania przez te urz¹dzenia. Proces odwzorowania dowolnych wartoœci do najbli¿szych poziomów reprezentacji nazywany jest kwantyzacj¹. Taka operacja zmniejsza dok³adnoœæ danych. Ró¿nica miêdzy pierwotn¹ wartoœci¹, a skwantyzowan¹ nazywana jest b³êdem kwantyzacji.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/sygnal_dyskretny}
+	\includegraphics{rysunki/sygnal_cyfrowy}
+    }
+    % opis obrazka
+    \caption[Sygnal dyskretny i cyfrowy]{Wykres po lewej przedstawia sygna³ dyskretny. Z kolei na wykresie po prawej powstaje sygna³ cyfrowy. Zak³adaj¹c, ¿e zielone linie to zakres wartoœci, które mo¿e przyj¹æ to czêœæ wartoœci trzeba zaokr¹gliæ. Efektem tego s¹ s¹ dyskretne wartoœci zaznaczone zielonymi kropkami na wykresie po prawej przekszta³cone z pierwotnego zdyskretyzowanego sygna³u oznaczonego czarnymi kropkami na wykresie po lewej.}
+    % etykieta
+    \label{Wykresy sygnalu dyskretnego i cyfrowego}
+  \end{center}
+\end{figure*}
 
 \section{Narzêdzia}
-Poni¿ej zosta³y zaprezentowane podstawowe narzêdzia do analizy sygna³ów cyfrowych. S¹ to podstawowe narzêdzia do analizy sygna³ów. Wykorzystywane s¹ w ró¿nych obaszarach takich jak .... TODO
-\subsection{Œrednia}
+Poni¿ej zosta³y zaprezentowane podstawowe narzêdzia do analizy sygna³ów cyfrowych. S¹ to podstawowe narzêdzia do analizy sygna³ów. Wykorzystywane s¹ w ró¿nych obaszarach takich jak finanse i .... TODO
+\subsection{Œrednia krocz¹ca}
 \subsubsection{opis}
-todo
+Moving average, czyli MA to w polskim t³umaczeniu jest œrednia krocz¹ca. Jest to bardzo popularne narzêdzie w gronie inwestorów. Przydatne jest miêdzy innymi do analizowania trendu panuj¹cego na rynku. 
 
-opisaæ po co `kroczenie' w redniej krocz¹cej i po co `exponential'
+Wystêpuje wiele rodzajówœ rednich krocz¹cych, które ró¿ni¹ siê miêdzy sob¹ interpretacj¹ i sposobem obliczania. Generalnie ka¿dy z nich opiera siê o obliczenie œredniej wartoœci z wyznaczonej liczby przesz³ych okresów. Okrelenie ``krocz¹ca'' w œredniej krocz¹cej oznacza w³aœnie ten sta³y okres odstêpów czasu pomiêdzy obliczeniami. 
+
+W poni¿szej czêœci opisane zosta³y dwie najczêœciej u¿ywane œrednie krocz¹ce.
 \subsubsection{zasady dzia³ania}
-Prosta œrednia ruchoma:
+\indent \textbf{Prosta œrednia ruchoma} \\
+Tak zwana SMA, czyli z angielskiego simple moving average, a w polskim t³umaczeniu ''prosta œrednia ruchoma'' to zwyk³a œrednia ze wszystkich wartoœci, podzielona przez n okresów:
 \begin{equation}
-SMA = \frac{1}{n}\sum_{i = 0}^{n - 1}p_i,
+SMA = \frac{1}{n}\sum_{i = 0}^{n - 1}p_i = \frac{p_0 + p_1 + ... + p_{n-1}}{n},
 \end{equation}
-gdzie: $n$ to liczba okresów, a $p_i$ to wartoœæ z sprzed $i$ okresów
-Wyk³adnicza œrednia ruchoma:
+gdzie: 
+\begin{itemize}
+\item SMA - simple moving average (po polsku prosta œrednia ruchoma)
+\item $n$ to liczba okresów, 
+\item $p_i$ to wartoœæ z sprzed $i$ okresów
+\end{itemize} 
+\vspace{0.3cm}
+
+Wolna œrednia krocz¹ca charakteryzuje siê wolnymi reakcjami na zmieniaj¹ce siê ceny. Zalet¹ SMA jest do ochrona przed fa³szywymi sygna³ami na rynku. Jednak minusem jest zdecydowanie opóŸnienie w odczytywaniu trendu.
+
+\vspace{0.3cm}
+
+\indent \textbf{Wyk³adnicza œrednia ruchoma} \\
+Z kolei EMA, czyli z angielskiego exponential moving average, co znaczy "wyk³adnicza œrednia ruchoma'' to pewna forma œredniej wa¿onej, gdzie znaczenie coraz bardziej odleg³ych w czasie sk³adników maleje wyk³adniczo.
 \begin{equation}
-EMA = \sum_{i = 0}^{n - 1}((1 - \alpha)^ip_i) / \sum_{i = 0}^{n-1}(1 - \alpha)^i,
+EMA =\frac{\sum_{i = 0}^{n - 1}((1 - \alpha)^ip_i) }{ \sum_{i = 0}^{n-1}(1 - \alpha)^i},
 \end{equation}
-gdzie: $n$ to liczba okresów, $\alpha = \frac{2}{n}$, a $p_i$ to wartoœæ z sprzed $i$ okresów
+gdzie: 
+\begin{itemize}
+\item EMA - exponential moving average (po polsku wyk³adnicza œrednia ruchoma)
+\item $\alpha = \frac{2}{n}$, 
+\item $p_i$ to wartoœæ z sprzed $i$ okresów
+\end{itemize}
+\vspace{0.3cm}
+
+Szybka œrednia krocz¹ca, jak sugeruje nazwa jest przeciwieñstwem wolnej œredniej krocz¹cej. EMA charakteryzuje siê szybkimi reakcjami na zmiany cen. Zdecydowanie do zalet nale¿y brak opóŸnienia w odczytywaniu sygna³ów, jednak wad¹ jest to, ¿e mog¹ byæ one fa³szywe.
+
 \subsubsection{przyk³ad}
 todo - mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD
 \subsection{Odchylenie standardowe}
