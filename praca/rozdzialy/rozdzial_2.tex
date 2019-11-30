@@ -95,7 +95,7 @@ Poni¿ej zaprezentowano ró¿nice w wyg³adzaniu wykresu EMA dla ró¿nych parametrów 
       \includegraphics{rysunki/ema_5}
     }
     % opis obrazka
-    \caption[Srednia krocz¹ca]{$EMA_{5}$}
+    \caption[Œrednia krocz¹ca]{$EMA_{5}$}
     % etykieta
     \label{Œrednia krocz¹ca}
   \end{center}
@@ -114,7 +114,7 @@ Poni¿ej zaprezentowano ró¿nice w wyg³adzaniu wykresu EMA dla ró¿nych parametrów 
       \includegraphics{rysunki/ema_20}
     }
     % opis obrazka
-    \caption[Srednia krocz¹ca]{$EMA_{20}$}
+    \caption[Œrednia krocz¹ca]{$EMA_{20}$}
     % etykieta
     \label{Œrednia krocz¹ca}
   \end{center}
@@ -132,7 +132,7 @@ Poni¿ej zaprezentowano ró¿nice w wyg³adzaniu wykresu EMA dla ró¿nych parametrów 
       \includegraphics{rysunki/ema_50}
     }
     % opis obrazka
-    \caption[Srednia krocz¹ca]{$EMA_{50}$}
+    \caption[Œrednia krocz¹ca]{$EMA_{50}$}
     % etykieta
     \label{Œrednia krocz¹ca}
   \end{center}
@@ -162,30 +162,53 @@ todo - mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD???
 
 \subsection{Odchylenie standardowe}
 \subsubsection{opis}
-todo - po co jest? gdzie siê u¿ywa?
+Odchylenie standardowe jest miar¹ rozrzucenia próbek. Informuje nas, jak bardzo próbki s¹ oddalone od œredniej. Im bli¿ej wartoœci $0$, tym bli¿ej wszystkim próbk¹ do œredniej. Odchylenie standardowe jest bardzo czêsto stosowane w probabilistyce, gdzie pozwala obliczyæ oczekiwany b³¹d wynikaj¹cy z losowoœci danych. Samo odchylenie standardowe wraz ze œredni¹ jest wystarczaj¹ce do jednoznacznego opisania dowolnego rozk³adu Gaussa prawdopodobieñstwa, chocia¿ zazwyczaj stosuje siê œredni¹ oraz wariancjê (kwadrat odchylenia standardowego). W analizie technicznej znajduje swoje zastosowanie we Wstêgach Bollingera, gdzie jest u¿ywane jako krocz¹ce odchylenie standardowe (podobnie jak krocz¹ca œrednia wy¿ej) i pomaga wykrywaæ szczyty i do³ki cenowe.
 \subsubsection{zasady dzia³ania}
-Odchylenie standardowe jest miar¹ rozrzucenia danych. Ma³a wartoœæ odchylenia standardowego oznacza, ¿e dane s¹ blisko œredniej. Wzór na odchylenie standardowe to:
+Wzór na odchylenie standardowe to:
 \begin{equation}
 \sigma = \sqrt{\frac{1}{n}\sum_{i = 0}^{n - 1}(X_i - SMA)^2}
 \end{equation}
-W przypadku analizy technicznej,  odchylenie standardowe mo¿e siê pojawiæ jako krocz¹ce odchylenie standardowe $\sigma_n$, które jest podobne do œredniej krocz¹cej. Wartoœæ krocz¹cego odchylenia standardowego w danym miejsu to odchylenie standardowe z $n$ ostatnich próbek.
+W przypadku analizy technicznej, odchylenie standardowe mo¿e siê pojawiæ jako krocz¹ce odchylenie standardowe $\sigma_n$, które jest podobne do œredniej krocz¹cej. Wartoœæ krocz¹cego odchylenia standardowego w danym miejsu to odchylenie standardowe z $n$ ostatnich próbek.
+
+Dla sygna³u, który ma wszystkie próbki takie same, co oznacza, ¿e i œrednia tego sygna³u jest taka sama, kwadrat ró¿nicy we wzorze wyniesie $0$ dla ka¿dej próbki, co sprawi, ¿e odchylenie standardowe wyniesie $0$. Oznacza to kompletny brak rozrzucenia danych i jest to jedyny przypadek, dla którego odchylenie standardowe mo¿e wynieœæ $0$.
 \subsubsection{przyk³ad}
-todo
+$<<<$todo$>>>$
 
 
 \subsection{Pochodne}
 \subsubsection{opis}
-todo - po co jest? gdzie siê u¿ywa?
+Pochodna funkcji jest podstawowych pojêæ w analizie matematycznej opisuj¹ce szybkoœci wzrostu funkcji w danym momencie. Ma swoje zastosowanie nawet w najbardziej podstawowych pojêciach fizycznych, np. prêdkoœæ jest pochodn¹ po³o¿enia, czyli opisuje zmianê po³o¿enia, przyspieszenie jest pochodn¹ prêdkoœci, czyli opisuje zmianê prêdkoœci, itp.
+
 \subsubsection{zasady dzia³ania}
-Pochodna funkcji jest miar¹ szybkoœci wzrostu funkcji w danym momencie. Pochodn¹ funkcji $f(x)$ zapisuje siê jako $f^\prime(x)$ albo $\frac{f(x)}{dx}$. W przypadku pochodnych dyskretnych najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹, jako ¿e jest on bardzo prosty do zaimplementowania, w którym to sprawdzamy ró¿nicê pomiêdzy próbk¹ odrobinê z ty³u oraz próbk¹ odrobinê z przodu oraz dzielimy przez odleg³oœæ pomiêdzy tymi próbkami. W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹, gdzie jako ¿e niedysponujemy próbk¹ z lewej strony, u¿ywamy próbki, dla której liczymy pochodn¹. Analogicznie dla pochodnej na koñcu sygna³u stosujemy pochodn¹ lewostronn¹, gdzie prawa próbka jest zastêpowana aktualn¹ próbk¹. Wzory:
+Pochodna $f^\prime(x)$ jest liczona jako ró¿nica pomiêdzy wartoœci¹ $f(x)$ w dwóch ró¿nich punktach podzelon¹ przez odleg³oœæ miêdzy tymi punktami $h$ dla $h$ d¹rz¹cego do $0$.
 \begin{equation}
-f^\prime(x) = \frac{f(x + h) - f(x - h)}{2h}
+f^\prime(x) = \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}
+\end{equation}
+Innym sposobem na zapisanie pochodnej jest postaæ $\frac{df(x)}{dx}$, która pozwala na przeprowadzanie bardziej z³o¿onych operacji na pochodnych (np. w równaniach ró¿niczkowych). $dx$ pozwala nas ³atwo poinformowaæ, która zmienna jest operatorem w pochodnej. T¹ postaæ mo¿na bardzo ³atwo wykorzystaæ do udowodnienia pochodnej na funkcje z³o¿on¹, które mówi, ¿e pochodna funkcji z³o¿onej to pochodna funkcji razy pochodna wnêtrza tej funkcji. WeŸmy np. funkcjê z³o¿on¹ $g(f(x))$. Pochodn¹ tej funkcji $\frac{dg(f(x))}{dx}$ mo¿na rozbiæ w nastêpuj¹cy sposób:
+\begin{equation}
+\frac{dg(f(x))}{dx} = \frac{dg(f(x))}{df(x)} \cdot \frac{df(x)}{dx}
+\end{equation}
+Wracaj¹c do sposobu w jaki zapisujemy pochodn¹, drugi sposób pozwala te¿ na rozró¿nianie zmiennych w pochodnych funkcji wielu zmiennych, np. $f(x, y)$. Tego typu pochodne nazywa siê pochodnymi cz¹stkowymi i zamiast $d$ we wzorze u¿ywa siê $\partial$. Pochodne cz¹stkowe funkcji $f(x, y)$ zapisuje siê w nastêpuj¹cy sposóB:
+\begin{equation}
+\frac{\partial f(x, y)}{\partial x}, \frac{\partial f(x, y)}{\partial y}.
+\end{equation}
+
+W przypadku pochodnych dyskretnych nie mo¿emy liczyæ tak poprostu granicy. Zamiast tego liczymi pochodn¹ jako ró¿nicê miêdzy próbkami, które mamy, podzielon¹ przez odleg³oœæ miêdzy tymi próbkami. Najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹, jako ¿e jest on bardzo prosty do zaimplementowania, w którym to sprawdzamy ró¿nicê pomiêdzy próbk¹ odrobinê z ty³u oraz próbk¹ odrobinê z przodu oraz dzielimy przez odleg³oœæ pomiêdzy tymi próbkami. W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹, gdzie jako ¿e niedysponujemy próbk¹ z lewej strony, u¿ywamy próbki, dla której liczymy pochodn¹. Analogicznie dla pochodnej na koñcu sygna³u stosujemy pochodn¹ lewostronn¹, gdzie prawa próbka jest zastêpowana aktualn¹ próbk¹. Wzory:
+\begin{equation}
+f^\prime(x_n) = \frac{f(x_{n+1}) - f(x_{n-1})}{x_{n+1} - x_{n-1}}
 \end{equation}
 \begin{equation}
-f^\prime(x) = \frac{f(x + h) - f(x)}{h}
+f^\prime(x_n) = \frac{f(x_{n+1}) - f(x_n)}{x_{n+1} - x_{n}}
 \end{equation}
 \begin{equation}
-f^\prime(x) = \frac{f(x) - f(x - h)}{h}
+f^\prime(x_n) = \frac{f(x_{n}) - f(x_{n-1})}{x_{n} - x_{n - 1}}
+\end{equation}
+Wzory te mog¹ byæ tak¿e stosowane dla pochodnych cz¹stkowych, gdzie liczymy pochodn¹ dla jednej zmiennej, a pozosta³e traktujemy jako sta³e. Wzór na pochodne cz¹stowe œrodkowe dla funkcji $f(x, y)$:
+\begin{equation}
+\frac{\partial f(x_n, y_n)}{\partial x_n} = \frac{f(x_{n+1}, y_n) - f(x_{n-1}, y_n)}{x_{n+1} - x_{n-1}}
+\end{equation}
+\begin{equation}
+\frac{\partial f(x_n, y_n)}{\partial y_n} = \frac{f(x_n, y_{n+1}) - f(x_n, y_{n-1})}{y_{n+1} - y_{n-1}}
 \end{equation}
 \subsubsection{przyk³ad}
 todo - mo¿na daæ przyk³ad: pochodne w badaniu trendu, predykcji
@@ -193,9 +216,9 @@ todo - mo¿na daæ przyk³ad: pochodne w badaniu trendu, predykcji
 
 \subsection{Ca³kowanie}
 \subsubsection{opis}
-todo - po co jest? gdzie siê u¿ywa?
+Ca³kowanie funkcji najczêœciej jest przedstawiane po prostu jako odwrotnoœæ pochodnej. Jako, ¿e jedn¹ z jego interpretacji jest pole pod wykresem, mog¹ byæ stosowane w matematyce do obliczania pól figur opisanych za pomoc¹ funkcji matematycznych.
 \subsubsection{zasady dzia³ania}
-Ca³kowanie funkcji jest operacj¹ odwrotn¹ do pochodnej. Oznacza to, ¿e je¿eli funckja $F(x)$ jest ca³k¹ funkcji $f(x)$, to $f(x) = \frac{F(x)}{dx}$. Poniewa¿ dodanie do funkcji $F(x)$ wartoœci sta³ej nie wp³ywa na wynik pochodnej, stosuje siê podzia³ na ca³ki nieoznaczone i oznaczone. Ca³kê nieoznaczon¹ funkcji $f(x)$ zapisuje siê wzorem:
+Je¿eli funckja $F(x)$ jest ca³k¹ funkcji $f(x)$, to $f(x) = \frac{F(x)}{dx}$. Poniewa¿ dodanie do funkcji $F(x)$ wartoœci sta³ej nie wp³ywa na wynik pochodnej, stosuje siê podzia³ na ca³ki nieoznaczone i oznaczone. Ca³kê nieoznaczon¹ funkcji $f(x)$ zapisuje siê wzorem:
 \begin{equation}
 F(x) = \int f(x) dx,
 \end{equation}
@@ -217,5 +240,56 @@ F(x) \approx \sum_{i=0}^{n - 2} (\frac{f(x_i) + f(x_{i+1})}{2} \cdot(x_{i+1} - x
 \end{equation}
 Dwa sposoby na obliczenie ca³ki metod¹ prostok¹tów wynikaj¹ z tego, ¿e wartoœæ jednej próbki sygna³u (pierwsza $f(x_0)$ lub ostatnia $f(x_{n-1})$) jest nieu¿ywana, a w metodzie trapezów wykorzystujemy zawsze wszystkie próbki.
 
-\subsubsection{przyk³ad}
-todo
+\begin{figure*}[!b]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/metoda_prostokatow1}
+    }
+    % opis obrazka
+    \caption[Ca³kowanie dyskretne metod¹ prostok¹tów]{metoda prostokatow - sposób pierwszy}
+    % etykieta
+    \label{Calkowanie dyskretne}
+  \end{center}
+\end{figure*}
+
+\begin{figure*}[!t]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/metoda_prostokatow2}
+    }
+    % opis obrazka
+    \caption[Ca³kowanie dyskretne metod¹ prostok¹tów]{metoda prostokatow - sposób drugi}
+    % etykieta
+    \label{Calkowanie dyskretne}
+  \end{center}
+\end{figure*}
+
+\begin{figure*}[!t]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/metoda_trapezow}
+    }
+    % opis obrazka
+    \caption[Ca³kowanie dyskretne metod¹ trapezów]{metoda trapezów - na wykresie mo¿na zauwa¿yæ, ¿e trapesy pokrywaj¹ siê idealnie z ca³¹ funkcj¹, jednak poniewa¿ sam wykres jest przybli¿eniem wartoœci pomiêdzy próbkami nie oznacza to, ¿e ca³ka jest liczona w sposób idealny.}
+    % etykieta
+    \label{Calkowanie dyskretne}
+  \end{center}
+\end{figure*}
