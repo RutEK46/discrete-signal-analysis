@@ -68,7 +68,6 @@ Ponad to, jak pokazano na rys. 4.3  narzêdzie zawiera ekran, w którym przedstawi
 \end{figure*}
 
 
-\newpage
 \section{MACD}
 \subsection{wprowadzenie}
 MACD to skrót od Moving Average Convergence Divergence co w polskim t³umaczeniu oznacza zbie¿noœæ i rozbie¿noœæ œredniej krocz¹cej.
@@ -124,7 +123,7 @@ Od odpowiedniej interpretacji sygna³ów zale¿y równie¿ fakt przeciêcia linii zero
 Interpretacjê wskaŸnika MACD mo¿na wzbogaciæ o analizê histogramu MACD. Dziêki tej funkcjonalnoœci mo¿na zaobserwowaæ lokalne szczyty cenowe dla wartoœci histogramu powy¿ej zera. Analogicznie dla wartoœci kszta³tuj¹cych siê poni¿ej zera obserwuje siê do³ki cenowe. Szersza interpretacja histogramu nie bêdzie omawiana, gdy¿ opisywana aplikacja nie uwzglêdnia tej funkcjonalnoœci. 
 
 Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika sygna³ kupna czy sprzeda¿y nie daje ¿adnej gwarancji, ¿e zyskamy na transakcji.
-\newpage
+
 \subsection{przyk³ady numeryczne}
 Zastosowanie i interpretacja wskaŸnika MACD w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
 \subsubsection{Analizowany wykres w przyk³adach 1 i 2}
@@ -176,14 +175,35 @@ Z kolei dla sygna³u sprzeda¿y oznaczonego na rys. 4.3 liter¹ "S" linia MACD (nie
 Pocz¹tkowo sygna³ sprzeda¿y wygenerowany dnia 30 stycznia jest wiarygodny, poniewa¿ znajduje siê wysoko ponad lini¹ 0. Z biegiem czasu wskazania spadaj¹ w kierunku linii 0. Gdy przekracza on tê liniê 19 lutego sygna³ staje siê niewiarygodny. Najwiêksz¹ wiarygodnoœæ w ca³ym analizowanym zakresie 4 miesiêcy wskaŸnik osi¹ga 30 stycznia.
 
 Drugi wygenerowany sygna³ z dnia 27 marca jest sygna³em niewiarygodnym, gdy¿ znajduje siê znacz¹co poni¿ej linii 0.
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/MACD_result1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/MACD_result2}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/MACD_result3}
+    }
+}
+\caption{Wynik wskaŸnika MACD - powy¿sze rysunki przedstawiaj¹ wyniki testu wskaŸnika MACD na akcjach 3 spó³ek z okresu 2018 - 2019 }
+\end{figure*}
 \subsection{podsumowanie}
 MACD s³u¿y do wszechstronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowaæ nie tylko sygna³y spadkowe i rosn¹ce, ale tak¿e umo¿liwia œledzenie potencjalnych do³ków lub szczytów cenowych.
 
 Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim terminie, poniewa¿ powsta³ w celu wykorzystania go do odczytywania sygna³ów w raz w ci¹gu dnia, czyli na tak zwanym wykresie dziennym. Przy mniejszych okresach mo¿e jednak powodowaæ opóŸnione sygna³y.
-\newpage
+
 \section{Wstêgi Bollingera}
 \subsection{wprowadzenie}
-Wstêgi Bollingera s¹ wskaŸnikiem opracowanym przez Johna Bollingera w latach 80. XX wieku. Wstêgi Bollintera sk³adaj¹ ciê w trzech wstêg - górnej wstêgi, œrodkowej wstêgi i dolnej wstêgi (ang. upper band, middle band, bottom band). S³u¿¹ one do wykrywania do³ków i szczytów cenowych. Je¿eli cena znajduje siê przy dolnej wstêdze, oznacza to do³ek cenowy, a je¿el znajduje siê przy górnej wstêdze, oznacza to szczyt cenowy.
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
   \begin{center}
@@ -202,6 +222,7 @@ Wstêgi Bollingera s¹ wskaŸnikiem opracowanym przez Johna Bollingera w latach 80.
     \label{Wykres wstêg Bollingera}
   \end{center}
 \end{figure*}
+Wstêgi Bollingera s¹ wskaŸnikiem opracowanym przez Johna Bollingera w latach 80. XX wieku. Wstêgi Bollintera sk³adaj¹ ciê w trzech wstêg - górnej wstêgi, œrodkowej wstêgi i dolnej wstêgi (ang. upper band, middle band, bottom band). S³u¿¹ one do wykrywania do³ków i szczytów cenowych. Je¿eli cena znajduje siê przy dolnej wstêdze, oznacza to do³ek cenowy, a je¿el znajduje siê przy górnej wstêdze, oznacza to szczyt cenowy.
 \subsection{zasady dzia³ania}
 \subsubsection{wzór}
 Œrodkowa wstêga jest zwyk³¹ œredni¹ krocz¹c¹ SMA z ostatnich $n$ próbek sygna³u $X$. Górna wstêga to suma œrodkowej wstêgi wraz z k-krotnoœci¹ odchylenia standardowego $\sigma^2$ z $n$ ostatnich próbek, natomiast dolna wstêga to ró¿nica œrodkowej wstêgi i k-krotnoœci odchylenia standardowego z $n$ ostatnich próbek.
@@ -230,7 +251,7 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a s
     %  pierwszy argument szerokoœæ, drugi wysokoœæ,
     %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{\textwidth}{!}{
+    \resizebox{0.75\textwidth}{!}{
       % wstawienie obrazka
       \includegraphics{rysunki/Bollinger Bands_l-u}
     }
@@ -241,6 +262,28 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a s
     \label{Wykres wstêg Bollingera}
   \end{center}
 \end{figure*}
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lu_result1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lu_result2}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lu_result3}
+    }
+}
+\caption{Wynik Wstêg Bollingera dla strategii kup w do³ku cenowym, sprzedaj w szczycie cenowym - powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019 }
+\end{figure*}
 \subsubsection{Przyk³ad 2: kupno w do³ku cenowym i sprzeda¿ po wyjœciu z do³ku cenowego}
 Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a sprzedaje sie, gdy bêdzie powy¿ej œrodkowej wstêgi.
 \begin{figure*}[!h]
@@ -250,7 +293,7 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a s
     %  pierwszy argument szerokoœæ, drugi wysokoœæ,
     %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{\textwidth}{!}{
+    \resizebox{0.75\textwidth}{!}{
       % wstawienie obrazka
       \includegraphics{rysunki/Bollinger Bands_l-m}
     }
@@ -261,6 +304,28 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a s
     \label{Wykres wstêg Bollingera}
   \end{center}
 \end{figure*}
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lm_result1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lm_result2}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lm_result3}
+    }
+}
+\caption{Wynik Wstêg Bollingera dla strategii kup w do³ku cenowym, sprzedaj po wyjœciu z do³ku cenowego  - powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019 }
+\end{figure*}
 \subsubsection{Przyk³ad 3: sprzeda¿ w szczycie cenowym i kupno po wyjœciu ze szczytu cenowego}
 Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej œrodkowej wstêgi, a sprzedaje sie, gdy bêdzie powy¿ej górnej wstêgi.
 \begin{figure*}[!h]
@@ -270,7 +335,7 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej œrodkowej wstêgi, 
     %  pierwszy argument szerokoœæ, drugi wysokoœæ,
     %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{\textwidth}{!}{
+    \resizebox{0.75\textwidth}{!}{
       % wstawienie obrazka
       \includegraphics{rysunki/Bollinger Bands_m-u}
     }
@@ -280,6 +345,28 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej œrodkowej wstêgi, 
     % etykieta
     \label{Wykres wstêg Bollingera}
   \end{center}
+\end{figure*}
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_mu_result1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_mu_result2}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_mu_result3}
+    }
+}
+\caption{Wynik Wstêg Bollingera dla strategii kup po wyjœciu ze szczytu cenowego, sprzedaj po wejœciu na szczyt cenowy- powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019 }
 \end{figure*}
 \subsection{podsumowanie}
 Wstêgi Bollingera pozwalaj¹ na wykrywanie potencjalnych do³ków cenowych oraz szczytów cenowych. Najlepiej sprawdzaj¹ siê w krótkich inwestycjach.
@@ -384,7 +471,7 @@ Po przekroczeniu powy¿ej poziomu 80\% wskaŸnik wszed³ w strefê "wyprzedania". Ta
 
 \subsection{podsumowanie}
 Oscylator stochastyczny jest ³atwy w u¿yciu i skuteczny po dostosowaniu odpowiednich parametrów do danego typu rynku, ze wzglêdu na mo¿liwoœæ dopasowania odpowiedniej wersji oscylatora. Najczêciej u¿ywany jest przez inwestorów do analizy interwa³u dziennego przy du¿ej iloœci wyraŸnych sygna³ów. 
-\newpage
+
 \section{WskaŸnik zagregowany}
 WskaŸnik zagregowany sk³ada siê z $N$ poprzednich wskaŸników. Jest on sum¹ odpowiednich wag przemno¿onych przez znormalizowan¹ wartoœæ wynikaj¹c¹ z wartoœci wyznaczonych przez poprzedni wskaŸnik (np. MACD). Dodatkow¹ wartoœci¹ pojawiaj¹c¹ siê we wzorze jest wartoœæ progowa $\omega_0$, któr¹ mo¿na interpretowaæ jako tendencjê do kupna lub sprzeda¿y. Je¿eli jest ona ujemna, nasz wskaŸnik bêdzie wykazywa³ mniejsz¹ tendencjê do kupna i pozosta³e wartoœci bêd¹ musia³y byæ wiêksze, ¿eby pokaza³ sygna³ do kupna. 
 \begin{equation}
@@ -397,7 +484,7 @@ Do normalizacji wskaŸników wykorzystujemy funckje aktywacyjne popularne w siecia
     \item Wartoœci zwracane s¹ w przedzia³ach $(-1, 1)$ albo $(0, 1)$
     \item S¹ ci¹g³e i rosn¹ce
 \end{itemize}
-W naszym przypadku wykorzystujemy funkcjê nazywaj¹c¹ siê sigmoid. Gdy zwrócona przez sigmoid wartoœæ bêdzie wiêksza od 0.5, jest to sygna³ do zakupu akcji dla danego wskaŸnika, a gdy wartoœæ jest mniejsza ni¿ 0.5 - sygna³ do sprzedania. Wagi pozwalaj¹ stwierdziæ jak wa¿na ma byæ decyzja danego wskaŸnika i w przypadku tego wskaŸnika, je¿eli wartoœæ naszego zagregowanego wskaŸnika jest wiêksza ni¿ 0, jest to sygna³ do kupna, a w przeciwnym wypadku do sprzeda¿y.
+W naszym przypadku wykorzystujemy funkcjê nazywaj¹c¹ siê sigmoid. Wagi pozwalaj¹ stwierdziæ jak wa¿na ma byæ decyzja danego wskaŸnika i w przypadku tego wskaŸnika, je¿eli wartoœæ naszego zagregowanego wskaŸnika jest wiêksza ni¿ 0.5, jest to sygna³ do kupna, a je¿eli jest mniejsza ni¿ 0, sygna³ do sprzeda¿y. W przeciwnym razie algorytm odczekuje.
 \subsubsection{Normalizacja MACD}
 Do znormalizowania wartoœci zwracanych wskaŸnik MACD wykorzystamy po prostu ro¿nicê pomiêdzy wartoœci¹ $MACD$ i $signal$.
 \begin{equation}
@@ -411,7 +498,11 @@ Do znormalizowania Wstêg Bollingera wykorzystamy opracowany przez samego Bolling
 \subsubsection{Normalizacja oscylatora stochastycznego}
 $<<<$ todo $>>>$
 \subsection{Algorytm Genetyczny}
-Algorytm genetyczny jest algorytmem heurystycznym do znajdowania prawie optymalych rozwi¹zañ w sytuacjach, gdy szukanie rozwi¹zania optymalnego jest trudne i samo rozwi¹zanie prawie optymalne nas satysfakcjonuje. Algorytm jest wzorowany na dzia³aniu ewolucji genetycznej u zwierz¹t w naturze. W algorytmie genetycznym wykorzystuje siê nastêpuj¹ce pojêcia:
+\subsubsection{Opis}
+Algorytm genetyczny jest algorytmem heurystycznym do znajdowania prawie optymalych rozwi¹zañ w sytuacjach, gdy szukanie rozwi¹zania optymalnego jest trudne i samo rozwi¹zanie prawie optymalne nas satysfakcjonuje. Algorytm jest wzorowany na dzia³aniu ewolucji genetycznej u zwierz¹t w naturze. 
+
+\subsubsection{S³owniczek pojêæ}
+W algorytmie genetycznym wykorzystuje siê nastêpuj¹ce pojêcia:
 \begin{itemize}
 	\item Chromosom - reprezentacja rozwi¹zania problemu
 	\item Osobnik - inne okreœlenie na chromosom
@@ -422,13 +513,29 @@ Algorytm genetyczny jest algorytmem heurystycznym do znajdowania prawie optymaly
 	\item Mutacja - zmiana genu na inny gen u któregoœ z osobników
 	\item Pokolenie - pula osobników w danej iteracji algorytmu
 \end{itemize}
+
+\subsubsection{Dzia³anie}
 Pierwszym krokiem algorytmu genetycznego jest wygenerowanie pierwszego pokolenia. Wykonuje siê to poprzez losow¹ generacjê genów dla ka¿dego nowego osobnika. Nastêpnymi krokami s¹: obliczenie wartoœci fitness dla ka¿dego z osobników oraz selekcja osobników na podstawie tej wartoœci. W tym momencie mo¿emy zapamiêtaæ najlepszego do tej pory osobnika. Wa¿ne, by zrobiæ to przed mutacj¹, gdy¿ w wyniku mutacji geny mog¹ siê zmieniæ. Gdy osobniki zostan¹ wybrane, ca³a reszta jest usuwana, a na ich miejsce tworzone s¹ nowe osobniki poprzez krzy¿owanie dwóch losowo wybieranych osobników. Powsta³e w ten sposób pokolenie mo¿e znacz¹co ró¿niæ pomiêdzy ró¿nymi uruchomieniami algorytmu, nawet jeœli pokolenie, z którego te osobniki s¹ generowane jest takie same, jednak krzy¿uj¹c tak osobniki ze sob¹ mamy du¿¹ szansê, ¿e któryœ z nowo powsta³ych osobników bêdzie jeszcze lepiej dopasowany do problemu (szukamy w ten sposób lokalnego najlepszego rozwi¹zania). Przedostatnim krokiem jest mutacja genów, która dla ka¿dego osobnika odbywa siê z losowym prawdopodobieñstwem (czêœæ osobników mo¿e nie zmutowaæ). Naszym celem jest znalezienie najlepszego rozwi¹zania globalnego, jednak krzy¿owanie zbli¿a nas jedynie do najlepszego lokalnego rozwi¹zania dla obecnego pokolenia. Mutacje s¹ rozwi¹zaniem tego problemu sprawiaj¹c, ¿e rozszerzamy spektrum poszukiwaæ. Wa¿nym parametrem tutaj jest prawdopodobieñstwo wystêpowania mutacji. Przy zbyt du¿ym algorytm bêdzie dzia³a³ w sposób zbyt przypadkowy, a przy zbyt ma³ym - przez bardzo d³ugie czasy bêdziemy pozostawaæ w lokalnym najlepszym rozwi¹zaniu. Najczêœciej stosowane prawdopodobieñstwo na mutacjê genu w algorytmach genetycznych to pomiêdzy 0.2\% a 0.5\%. Czasami sama mutacja to zama³o, poniewa¿ szansa na to, ¿e dany osobnik przetrwa w selekcji po mutacji jest ma³a, wiêc w bardziej z³o¿onych algorytmach genetycznym symuluje siê podzia³ na gatunki sprawiaj¹c, ¿e nawet najmniej dopasowany osobnik, je¿eli wyj¹tkowo ró¿ni siê od pozosta³ych, mo¿e przetrwaæ, daj¹c mu w ten sposób szansê do znalezienia lokalnego najlepszego rozwi¹zania dla tego osobnika. Po mutacji sprawdzamy warunek zakoñczenia algorytmu (np. liczbê iteracji, któr¹ mieliœmy wykonaæ) i wracamy do kroku drugiego kroku algorytmu (obliczania wartoœci fitness) , je¿eli warunek nie jest spe³niony.
 
 \subsection{Podsumowanie}
-TODO
+Uzyskany w ten sposób wskaŸnik w wiêkszoœci przypadków podejmowa³ tylko 2 decyzje, albo kupowa³ na samym pocz¹tku akcje i ich nie sprzedawa³ do koñca, albo w ogóle nie kupowa³ akcji, przez co nic nie traci³.
 
-tutaj zauwa¿ymy czy wyniki s¹ zgodne z naszymi oczekiwaniami, poka¿emy dane - kiedy s¹ zadowalaj¹ce wyniki 
-Uzyskalimy ciekawe efekty, gdy¿ algorytm genetyczny da³ ujemne wyniki. Byæ mo¿e jest to spowodowane...
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.5\textwidth}{!}{
+      \includegraphics{rysunki/wskaznik_zagregowany1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.5\textwidth}{!}{
+      \includegraphics{rysunki/wskaznik_zagregowany2}
+    }
+}
+\caption{Wynik wskaŸnika zagregowanego}
+\end{figure*}
 
 \section{Porównanie wskaŸników}
 TODO 
