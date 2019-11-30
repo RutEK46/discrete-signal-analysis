@@ -74,11 +74,11 @@ def cuda_eval_fitness(population, dataset, dataset_activations, fitness):
             for l in range(len(dataset_activations[j])):
                 act += population[i, l] * dataset_activations[j, l, k]
 
-            if act > 0:
+            if act > 0.5:
                 new_actions = int(current_money / dataset[j, k])
                 actions += new_actions
                 current_money -= new_actions * dataset[j, k]
-            else:
+            elif act < -0.5:
                 current_money += actions * dataset[j, k]
                 actions = 0
 

@@ -34,7 +34,8 @@ class DefaultModel(SignalData):
         if file_path and xkey and ykey:
             input_x = list(self.read_csv_file(file_path)[xkey])
             input_signal = list(self.read_csv_file(file_path)[ykey])
-            py.offline.iplot(dict(data=dict(data=self.get_traces(input_x, input_signal))))
+            data = dict(data=self.get_traces(input_x, input_signal))
+            py.offline.iplot(dict(data=data))
         else:
             print("")
 
@@ -49,7 +50,8 @@ class DefaultModel(SignalData):
                         self.kw[key_].value = value
                     output = self.call_transformation(transformation, input_x, input_signal, kwargs)
                     traces = self.get_traces(input_x, input_signal if ad_input_signal_to_plot else None, output, transformation)
-                    py.offline.iplot(dict(data=dict(data=traces)))
+                    data = dict(data=traces)
+                    py.offline.iplot(dict(data=data))
                 except Exception:
                     log.exception("")
 
@@ -74,6 +76,8 @@ class DefaultModel(SignalData):
                             x=input_x,
                             y=input_signal)] if input_signal is not None else []
 
+        if transformation == "FFT" and len(input_x) > 1:
+            input_x = [i * (1/input_x[1]/len(input_x)) for i, x in enumerate(input_x[::2])]
         if output_signal is None:
             return input_trace
         else:

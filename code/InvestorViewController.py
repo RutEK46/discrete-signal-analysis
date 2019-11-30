@@ -17,6 +17,8 @@ class InvestorViewController:
         self.view.date_menu.observe(self.on_date_or_price_menu_change, 'value')
         self.view.signal_price_menu.observe(self.on_date_or_price_menu_change, 'value')
 
+        self.view.full_indicators_decisions_func = lambda signal, key: self.model.print_full_indicators_decisions(
+            f"{self.folder_path}/{signal}", key)
 
     @property
     def file_names(self):

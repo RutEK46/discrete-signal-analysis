@@ -47,6 +47,16 @@ class SignalData:
         }
         self.input_signal_name = "Input"
 
+        self.buys_sells_funcs = {
+            "MACD": {"Standard": self.macd_buys_sells},
+            "Bollinger Bands": {
+                "buy: lower, sell: upper": self.bollinger_bands_buys_sells1,
+                "buy: lower, sell: middle": self.bollinger_bands_buys_sells2,
+                "buy: middle, sell: upper": self.bollinger_bands_buys_sells3,
+            },
+            "aggregated": {"Standard": self.aggregated_buys_sells}
+        }
+
         # Any transformation parameter other in than signal must be defined here
         # Parameters are returned by lambda function that takes signal as parameter,
         # what allows to adjust other parameters based on signal properties
@@ -100,11 +110,11 @@ class SignalData:
             return None
 
         elif file_path != self.csv_file_path:
-            with open(file_path, encoding='ansi') as file:
+            with open(file_path, encoding='ANSI') as file:
                 self.csv_file = read_csv(file)
                 self.csv_file_path = file_path
 
-        return self.csv_file
+        return self.csv_file.copy()
 
     @property
     def transformation_names(self):
@@ -115,3 +125,18 @@ class SignalData:
             return self.signal_transformations[name](Y, **kwargs)
         except KeyError:
             return self.signal_transformations_with_x_input[name](X, Y, **kwargs)
+
+    def macd_buys_sells(self, signal, macd, macd_signal):
+        return 1 if 0 > macd > macd_signal else -1 if 0 <  macd < macd_signal else 0
+
+    def bollinger_bands_buys_sells1(self, signal, upper, middle, lower):
+        return 1 if signal < lower else -1 if signal > upper else 0
+
+    def bollinger_bands_buys_sells2(self, signal, upper, middle, lower):
+        return 1 if signal < lower else -1 if signal > middle else 0
+
+    def bollinger_bands_buys_sells3(self, signal, upper, middle, lower):
+        return 1 if signal < middle else -1 if signal > upper else 0
+
+    def aggregated_buys_sells(self, signal, result):
+        return 1 if result > 0.5 else -1 if result < -0.5 else 0

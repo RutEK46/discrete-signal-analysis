@@ -2,6 +2,7 @@ from SignalData import SignalData
 from macd import macd
 from bollinger_bands import bollinger_bands
 from pandas import read_csv
+from itertools import islice
 import logging as log
 
 
@@ -30,6 +31,41 @@ class InvestorModel(SignalData):
         csv_file = self.read_csv_file(file_path)
         del csv_file["Data"]
         return csv_file.keys() if csv_file is not None else []
+
+    def print_full_indicators_decisions(self, signal_path, price_key):
+        try:
+            file = self.read_csv_file(signal_path)
+            dates = list(file['Data'])
+            prices = list(file[price_key])
+            for indicator, func_dict in self.buys_sells_funcs.items():
+                print(f"-----{indicator}-----")
+                result = self.signal_transformations[indicator](prices)
+                if result is not None:
+                    for name, func in func_dict.items():
+                        current_money = 2000
+                        actions = 0
+                        print(f"\t{name}:")
+                        print(f"\t\t[{dates[0]}]starting money: {current_money}")
+
+                        for (date, price, *args,) in islice(zip(dates, prices, *result), 5, None):
+                            act = func(price, *args)
+                            if act == 1:
+                                new_actions = int(current_money / price)
+                                if new_actions > 0:
+                                    actions += new_actions
+                                    current_money -= new_actions * price
+                                    print("\t\t[{0}]Buys: {1} actions for {2:.2f}.".format(date, new_actions, price))
+                            elif act == -1:
+                                if actions > 0:
+                                    current_money += actions * price
+                                    print("\t\t[{0}]Sells: {1} actions for {2:.2f}.".format(date, actions, price))
+                                    print("\t\t[{0}]Money: {1:.2f}.".format(date, current_money))
+                                    actions = 0
+
+                        end_sum = current_money + actions * prices[-1]
+                        print("\t\t[{0}]Money at the end: {1:.2f}".format(dates[-1], end_sum))
+        except Exception:
+            print("")
 
     def get_macd_decision(self, file_path, date, price):
         date_index = self.get_data_index(file_path, date)

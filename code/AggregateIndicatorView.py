@@ -25,6 +25,7 @@ class AggregateIndicatorView:
         ])
 
         self.name_label = widgets.Label()
+        self.progress = widgets.FloatProgress(value=0, min=0, max=1)
 
         self.top_level = widgets.VBox([
             self.name_label,
@@ -32,6 +33,7 @@ class AggregateIndicatorView:
             self.list_of_files_textarea,
             self.start_algorithm_button,
             self.result_layer,
+            self.progress,
         ], layout=widgets.Layout(width="100%"))
 
     def __on_list_of_files_change(self, **kwargs):

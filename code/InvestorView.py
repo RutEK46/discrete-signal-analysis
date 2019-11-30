@@ -3,6 +3,8 @@ import ipywidgets as widgets
 
 class InvestorView:
     def __init__(self):
+        self.full_indicators_decisions_func = lambda signal, key: None
+
         self.agregated_decision_name = widgets.Label("Agregated decision:")
         self.agregated_decision_answer = widgets.Label(value=None)
         self.agregated_decision = widgets.HBox(children=[
@@ -49,6 +51,11 @@ class InvestorView:
             self.decision3_answer,
         ])
 
+        self.full_indicators_decisions = widgets.interactive_output(self.__full_indicators_decisions_func, {
+            "signal": self.signal_file_menu,
+            "key": self.signal_price_menu,
+        })
+
         self.menu = widgets.VBox(children=[
             self.signal_file_menu,
             self.signal_price_menu,
@@ -63,5 +70,9 @@ class InvestorView:
             self.decision2,
             self.decision3,
             self.blank,
+            self.full_indicators_decisions,
             self.error_box,
         ])
+
+    def __full_indicators_decisions_func(self, *args, **kwargs):
+        return self.full_indicators_decisions_func(*args, **kwargs)
