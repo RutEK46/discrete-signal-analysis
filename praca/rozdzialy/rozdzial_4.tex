@@ -84,7 +84,7 @@ Do wyznaczenia linii MACD wykorzystywana jest ró¿nica dwóch œrednich ruchomych s
 
 Nastêpnie linia signal wyliczana jest na podstawie najczêœciej 9 okresowej œredniej wyk³adniczej z linii MACD. 
 \begin{equation}
-\begin{array}{lll}
+\begin{array}{rcl}
 MACD & = & EMA_{26}(X) - EMA_{12}(X) \\
 signal & = & EMA_{9}(MACD)
 \end{array}
@@ -206,17 +206,10 @@ Wstêgi Bollingera s¹ wskaŸnikiem opracowanym przez Johna Bollingera w latach 80.
 \subsubsection{wzór}
 Œrodkowa wstêga jest zwyk³¹ œredni¹ krocz¹c¹ SMA z ostatnich $n$ próbek sygna³u $X$. Górna wstêga to suma œrodkowej wstêgi wraz z k-krotnoœci¹ odchylenia standardowego $\sigma^2$ z $n$ ostatnich próbek, natomiast dolna wstêga to ró¿nica œrodkowej wstêgi i k-krotnoœci odchylenia standardowego z $n$ ostatnich próbek.
 \begin{equation}
-\begin{array}{lll}
-upper \: band_{(n, k)}(X) & = & SMA_{n}(X) + k\cdot\sigma^2_{n}(X) \\
+\begin{array}{rcl}
+upper \: band_{(n, k)}(X) & = & SMA_{n}(X) + k\cdot\sigma_{n}(X) \\
 middle \: band_{(n, k)}(X) & = & SMA_{n}(X) \\
-bottom \: band_{(n, k)}(X) & = & SMA_{n}(X) - k\cdot\sigma^2_{n}(X),
-\end{array}
-\end{equation}
-gdzie:
-\begin{equation}
-\begin{array}{lll}
-SMA_{n}(X) & = & \frac{1}{n}\sum_{i = 0}^n(X_i) \\
-\sigma^2_{n}(X) & = & \frac{1}{n}\sum_{i = 0}^n(X_i - SMA_n(X))^2
+bottom \: band_{(n, k)}(X) & = & SMA_{n}(X) - k\cdot\sigma_{n}(X),
 \end{array}
 \end{equation}
  Najczêœciej stosowane parametry to $n=20$ oraz $k=2$.
