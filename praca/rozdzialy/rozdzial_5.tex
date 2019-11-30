@@ -64,11 +64,71 @@ Po uruchomieniu œrodowiska zostaje wyœwietlony ekran g³ówny notatnika jupyter. N
 \subsubsection{Interfejs standardowy}
 
 to do
-
+\newpage
 \subsubsection{Interfejs inwestora}
 
-to do
+Interfejs inwestora s³u¿y do podsumowania i interpretacji wartoœci wskaŸników na dany wybrany dzieñ za pomoc¹ oceny ''buy / sell / neutral''.
 
+Do interfejsu inwestora mo¿na przejœæ klikaj¹c na zak³adkê w panelu górnym w aplikacji. Nastêpnie zostanie wyœwietlone okno przedstawione na rys. 5.2. Do wyboru pliku wejœciowego przeznaczona jest lista rozwijana ''Signals''. Po poprawnym wczytaniu pliku dostêpny jest wybór ceny, która ma byæ brana pod uwagê w interpretacji wskaŸników, domyœlnie jest to cena otwarcia. Nastêpnie mo¿na te¿ wybraæ, który dzieñ ma byæ analizowany. Domyœlnym wyborem jest najnowszy dzieñ z wczytanej bazy w pliku.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_decisions_30.10}
+    }
+    % opis obrazka
+    \caption[Menu jupyter]{Ekran wycinku interfejsu inwestora z decyzjami wskaŸników na dzieñ 30.10.2019.}
+    % etykieta
+    \label{Menu jupyter}
+  \end{center}
+\end{figure*}
+
+Dodatkowo poni¿ej interpretacji wskaŸników w interfejsie inwestora jest równie¿ przeprowadzana symulacja inwestycji. Przedzia³ czasowy jest wczytywany z pliku zadanego w ''Signals'', a decyzje o inwestycji s¹ podejmowane zgodnie z sugerowanymi decyzjami inwestycyjnymi przez poszczególne wskaŸniki. Pocz¹tkowy kapita³ to 2000 jednostek. Dodatkowo przyjête jest uproszczenie, za³o¿enie w postaci mo¿liwoœci kupna za ca³¹ kwotê oraz sprzeda¿y wszystkich akcji na raz.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.7\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_inwestycje_30.10}
+    }
+    % opis obrazka
+    \caption[Menu jupyter]{Ekran wycinku interfejsu inwestora z symulacj¹ inwestycji na dzieñ 30.10.2019.}
+    % etykieta
+    \label{Menu jupyter}
+  \end{center}
+\end{figure*}
+
+Poni¿ej zosta³ zamieszczony widok ca³ego interfejsu inwestora dla porównania z innego dnia. Mo¿na zauwa¿yæ, ¿e decyzje nieco siê ró¿ni¹, mimo ¿e jest to ró¿nica jednego dnia. Mianowicie wskaŸnik oscylator stochastyczny wkroczy³ w strefê wyprzedania.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{01\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_29.10}
+    }
+    % opis obrazka
+    \caption[Menu jupyter]{Ekran interfejsu inwestora z symulacj¹ inwestycji na dzieñ 29.10.2019.}
+    % etykieta
+    \label{Menu jupyter}
+  \end{center}
+\end{figure*}
+
+\newpage
 \subsubsection{Inerfejs zagragowanego wskaŸnika}
 
 to do
