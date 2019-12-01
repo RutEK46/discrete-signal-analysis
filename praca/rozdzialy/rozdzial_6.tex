@@ -9,6 +9,10 @@ Mimo, ¿e nie wszystkie aspekty nie daj¹ zadowalaj¹cych efektów praca pozwoli³a n
 
 
 \section{Kierunki rozwoju}
-Jedn¹ z oczywistrzych opcji jest poprawienie dzia³ania zagregowanego wskaŸnika. Bior¹c pod uwagê dotychczas uzyskane wyniki problemem w dzia³aniu mo¿e byæ brak wykrywania typu gie³dy. Algorytm genetyczny zazwyczaj dopasowywa³ siê tylko do paru wykresów, które dawa³y jakieœ wyniki, a dla pozosta³ych by³ zawsze na nie, wiêc jedn¹ z opcji jest wykorzystanie transformacji Fouriera do wykrywania typów wykresów i na podstawie wyniku transformacji dobieranie odpowiednich wag do wskaŸników.
+Bior¹c pod uwagê dotychczas uzyskane wyniki mo¿naby usprawniæ dzia³anie aplikacji na kilka sposobów. S¹ to miêdzy innymi:
 
-Inn¹ opcj¹ jest stworzenie mo¿liwoœci pobierania danych z internetu. Wiêkszoœæ naszych przyk³adów bazowa³a na danych z serwisu stooq.pl. Aby skorzystaæ z tego serwisu, musimy wejœæ na stronê internetow¹, nastêpnie pobraæ interesuj¹ce nas dane i wrzuciæ je do folderu z sygna³ami, i tak codziennie po ka¿dej aktualizacji na gie³dzie. O wiele wygodniej by³oby, gdyby po prostu pobraæ i wczytaæ te dane z aplikacji za pomoc¹ jednego klikniêcia muszki.
+\subsubsection{Wprowadzenie transformacji Fouriera do wykrywania cyklów na wykresie}
+Jedn¹ z oczywistrzych opcji jest poprawienie dzia³ania zagregowanego wskaŸnika. Bior¹c pod uwagê dotychczas uzyskane wyniki problemem w dzia³aniu mo¿e byæ brak wykrywania typu gie³dy. Algorytm genetyczny zazwyczaj dopasowywa³ siê tylko do paru wykresów, które dawa³y jakieœ wyniki, a dla pozosta³ych by³ zawsze na nie. Zatem jedn¹ z opcji by³oby wykorzystanie transformacji Fouriera do wykrywania typów wykresów i na podstawie wyniku transformacji dobieranie odpowiednich wag do wskaŸników.
+
+\subsubsection{Automatyczne pobieranie plików z danymi}
+Inn¹ opcj¹ jest stworzenie mo¿liwoœci pobierania danych z internetu. Wiêkszoœæ naszych przyk³adów bazowa³a na danych z serwisu stooq.pl. Aby skorzystaæ z tego serwisu, musimy wejœæ na stronê internetow¹, nastêpnie pobraæ interesuj¹ce nas dane i wrzuciæ je do folderu z sygna³ami, i tak codziennie po ka¿dej aktualizacji na gie³dzie. O wiele wygodniej by³oby, gdyby po prostu pobraæ i wczytaæ te dane z aplikacji za pomoc¹ jednego klikniêcia muszki. Aktualnie aby skorzystaæ z takiej opcji wymagana jest op³ata, co jest mo¿liw¹ przeszkod¹ do wprowadzenia tej propozycji.
