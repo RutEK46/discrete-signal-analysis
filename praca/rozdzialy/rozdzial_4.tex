@@ -1,5 +1,5 @@
 \chapter{Analiza techniczna}
-\section{Wprowadzenie}
+\autsection{Wprowadzenie}{Agnieszka Wojciechowska}
 Analiza techniczna to narzêdzie s³u¿¹ce do analizy wykresów gie³dowych, która ma na celu prognozê przysz³ych cen kursów na podstawie historycznych zmian cen. Modele analizy technicznej charakteryzuj¹ pewne powtarzalne schematy mo¿liwe do zaobserwowania w zmianach cen akcji. W zale¿noœci od danego modelu mo¿na zaobserwowaæ powtarzalne zachowanie wskaŸników statystycznych.
 
 Na wstêpie zostanie omówiony jeden z popularniejszych narzêdzi na polskim rynku pozwalaj¹cy na analizê techniczn¹ wybranych wykresów. W kolejnych rozdzia³ach zosta³y zaprezentowane zasady dzia³ania wskaŸników stosowanych w analizie technicznej i ich przyk³ady, które zosta³y zaimplementowane w projekcie. Do zdefiniowania narzêdzi analizy technicznej zostanie u¿yta wiedza przedstawiona w poprzednim rozdziale.
@@ -68,7 +68,7 @@ Ponad to, jak pokazano na rys. 4.3  narzêdzie zawiera ekran, w którym przedstawi
 \end{figure*}
 
 
-\section{MACD}
+\autsection{MACD}{Agnieszka Wojciechowska}
 \subsection{wprowadzenie}
 MACD to skrót od Moving Average Convergence Divergence co w polskim t³umaczeniu oznacza zbie¿noœæ i rozbie¿noœæ œredniej krocz¹cej.
 
@@ -202,7 +202,7 @@ MACD s³u¿y do wszechstronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowa
 
 Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim terminie, poniewa¿ powsta³ w celu wykorzystania go do odczytywania sygna³ów w raz w ci¹gu dnia, czyli na tak zwanym wykresie dziennym. Przy mniejszych okresach mo¿e jednak powodowaæ opóŸnione sygna³y.
 
-\section{Wstêgi Bollingera}
+\autsection{Wstêgi Bollingera}{Mateusz Rutkiewicz}
 \subsection{wprowadzenie}
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
@@ -371,7 +371,7 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej œrodkowej wstêgi, 
 \subsection{podsumowanie}
 Wstêgi Bollingera pozwalaj¹ na wykrywanie potencjalnych do³ków cenowych oraz szczytów cenowych. Najlepiej sprawdzaj¹ siê w krótkich inwestycjach.
 
-\section{Oscylator Stochastyczny}
+\autsection{Oscylator Stochastyczny}{Agnieszka Wojciechowska}
 \subsection{wprowadzenie}
 Oscylator stochastyczny jest wskaŸnikiem, który pozwala œledziæ ruchy cen i si³ê trendu momentum. 
 
@@ -472,7 +472,7 @@ Po przekroczeniu powy¿ej poziomu 80\% wskaŸnik wszed³ w strefê "wyprzedania". Ta
 \subsection{podsumowanie}
 Oscylator stochastyczny jest ³atwy w u¿yciu i skuteczny po dostosowaniu odpowiednich parametrów do danego typu rynku, ze wzglêdu na mo¿liwoœæ dopasowania odpowiedniej wersji oscylatora. Najczêciej u¿ywany jest przez inwestorów do analizy interwa³u dziennego przy du¿ej iloœci wyraŸnych sygna³ów. 
 
-\section{WskaŸnik zagregowany}
+\autsection{WskaŸnik zagregowany}{Mateusz Rutkiewicz}
 WskaŸnik zagregowany sk³ada siê z $N$ poprzednich wskaŸników. Jest on sum¹ odpowiednich wag przemno¿onych przez znormalizowan¹ wartoœæ wynikaj¹c¹ z wartoœci wyznaczonych przez poprzedni wskaŸnik (np. MACD). Dodatkow¹ wartoœci¹ pojawiaj¹c¹ siê we wzorze jest wartoœæ progowa $\omega_0$, któr¹ mo¿na interpretowaæ jako tendencjê do kupna lub sprzeda¿y. Je¿eli jest ona ujemna, nasz wskaŸnik bêdzie wykazywa³ mniejsz¹ tendencjê do kupna i pozosta³e wartoœci bêd¹ musia³y byæ wiêksze, ¿eby pokaza³ sygna³ do kupna. 
 \begin{equation}
 y = \omega_0 + \sum^N_{i = 1}(\alpha_i\cdot\omega_i)
@@ -537,7 +537,7 @@ Uzyskany w ten sposób wskaŸnik w wiêkszoœci przypadków podejmowa³ tylko 2 decyzj
 \caption{Wynik wskaŸnika zagregowanego}
 \end{figure*}
 
-\section{Porównanie wskaŸników}
+\autsection{Porównanie wskaŸników}{Mateusz Rutkiewicz}
 TODO 
 
 tutaj przedstawimy testy wskaŸników z zadanym na pocz¹tku kapita³em i iloci¹ akcji, nastêpnie porównamy wyniki i zauwa¿ymy, który wskaŸnik da³ najlepsze wyniki 
