@@ -1,9 +1,13 @@
 \autchapter{Zakoñczenie}{Agnieszka Wojciechowska}
+\section{Wnioski}
+Podsumowuj¹c, realizowany projekt in¿ynierski mia³ na celu sprawdzenie mo¿liwoœci metod analizy sygna³ów oraz stworzenie narzêdzia w pythonie, które u³atwi³oby ich analizê inwestorom. Jednoczeœnie za³o¿enia obejmowa³y umo¿liwienie analizy sygna³ów pochodz¹cych z innych Ÿróde³ ni¿ gie³da. Za pomoc¹ wybranych narzêdzi do analizy sygna³ów pochodz¹cych z ró¿nych Ÿróde³, wgrywanych przez u¿ytkownika, aplikacja mia³a za zadanie przedstawiæ czytelne i dynamicznie zarz¹dzane wykresy. Na podstawie wyliczonych wartoœci wskaŸników gie³dowych system mia³ równie¿ wspomagaæ decyzje u¿ytkownika w interpretacji wyników w postaci sugerowanych decyzji dla plików Ÿród³owych z danymi historycznymi indeksów gie³dowych. Ich realizacja procesu decyzyjnego mia³a siê odbywaæ na podstawie definicji danego wskaŸnika. Co wiêcej za³o¿ono zaimplementowanie zagregowanego wskaŸnika, który sprowadza³by decyzje wszystkich zastosowanych wskaŸników do jednej czytelnej. Mia³o to na celu usprawnienie procesu decyzyjnego inwestora ze wzglêdu na potrzebê szybkiego podejmowania dzia³ania, zw³aszcza przy inwestycjach krótkoterminowych. 
 
-kierunki rozwoju (np. to czego nie uda siê zrobiæ w pkt. 4)
+Wyniki dzia³ania aplikacji s¹ we wiêkszoœci zgodne z oczekiwaniami i przyjêtymi za³o¿eniami. Funkcjonalnoœæ analizy sygna³ów za pomoc¹ narzêdzia z zarz¹dzanymi przez u¿ytkownika wykresami zosta³a zrealizowana zgodnie z za³o¿onym celem. Modu³ decyzyjny dla ka¿dego wskaŸnika w aplikacji dzia³a w sposób prawid³owy i oczekiwany. Z kolei dla funkcjonalnoœci zagregowanego wskaŸnika uzyskaliœmy ciekawe efekty algorytmu genetycznego, które nie daj¹ zadowalaj¹cych efektów. Pomimo, ¿e same wskaŸniki daj¹ dobre efekty, algorytm genetyczny niestety za bardzo dopasowywuje siê do zbioru danych. Efektem tego jest ustawienie wag wskaŸników w taki sposób, ¿e w wiêkszoœci decyzja jest albo ca³y czas na tak, je¿eli w zbiorze danych dominuj¹ wiêksze ceny na pocz¹tku, ni¿ na koñcu, albo jest ca³y czas na nie, gdy w zbiorze danych jest na odwrót.
 
-wzbogacenie o dft
-
+Mimo, ¿e nie wszystkie aspekty nie daj¹ zadowalaj¹cych efektów praca pozwoli³a nam rozwin¹æ jêzyk programowania Python oraz uzyskaæ wiedzê z zagadnieñ algorytmu genetycznego. Du¿ym plusem jest to, ¿e eksplorowaliœmy temat analizy technicznej i zastosowañ analizy sygna³ów w ¿yciu codziennym.
 
 
 \section{Kierunki rozwoju}
+kierunki rozwoju (np. to czego nie uda siê zrobiæ w pkt. 4)
+
+wzbogacenie o dft
