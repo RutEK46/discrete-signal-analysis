@@ -95,7 +95,7 @@ Poni¿ej zaprezentowano ró¿nice w wyg³adzaniu wykresu EMA dla ró¿nych parametrów 
       \includegraphics{rysunki/ema_5}
     }
     % opis obrazka
-    \caption[Œrednia krocz¹ca]{$EMA_{5}$}
+    \caption[Œrednia krocz¹cadla parametru 5]{$EMA_{5}$}
     % etykieta
     \label{Œrednia krocz¹ca}
   \end{center}
@@ -114,7 +114,7 @@ Poni¿ej zaprezentowano ró¿nice w wyg³adzaniu wykresu EMA dla ró¿nych parametrów 
       \includegraphics{rysunki/ema_20}
     }
     % opis obrazka
-    \caption[Œrednia krocz¹ca]{$EMA_{20}$}
+    \caption[Œrednia krocz¹cadla parametru  20]{$EMA_{20}$}
     % etykieta
     \label{Œrednia krocz¹ca}
   \end{center}
@@ -132,7 +132,7 @@ Poni¿ej zaprezentowano ró¿nice w wyg³adzaniu wykresu EMA dla ró¿nych parametrów 
       \includegraphics{rysunki/ema_50}
     }
     % opis obrazka
-    \caption[Œrednia krocz¹ca]{$EMA_{50}$}
+    \caption[Œrednia krocz¹ca dla parametru 50]{$EMA_{50}$}
     % etykieta
     \label{Œrednia krocz¹ca}
   \end{center}
@@ -156,9 +156,6 @@ gdzie:
 
 Szybka œrednia krocz¹ca, jak sugeruje nazwa jest przeciwieñstwem wolnej œredniej krocz¹cej. EMA charakteryzuje siê szybkimi reakcjami na zmiany cen. Zdecydowanie do zalet nale¿y brak opóŸnienia w odczytywaniu sygna³ów, jednak wad¹ jest to, ¿e mog¹ byæ one fa³szywe. [10]
 
-\subsubsection{przyk³ad}
-todo - mo¿na daæ przyk³ad: œrednia krocz¹ca w MACD???
-
 
 \autsubsection{Odchylenie standardowe}{Mateusz Rutkiewicz}
 \subsubsection{opis}
@@ -171,8 +168,6 @@ Wzór na odchylenie standardowe to:
 W przypadku analizy technicznej, odchylenie standardowe mo¿e siê pojawiæ jako krocz¹ce odchylenie standardowe $\sigma_n$, które jest podobne do œredniej krocz¹cej. Wartoœæ krocz¹cego odchylenia standardowego w danym miejsu to odchylenie standardowe z $n$ ostatnich próbek.
 
 Dla sygna³u, który ma wszystkie próbki takie same, co oznacza, ¿e i œrednia tego sygna³u jest taka sama, kwadrat ró¿nicy we wzorze wyniesie $0$ dla ka¿dej próbki, co sprawi, ¿e odchylenie standardowe wyniesie $0$. Oznacza to kompletny brak rozrzucenia danych i jest to jedyny przypadek, dla którego odchylenie standardowe mo¿e wynieœæ $0$.
-\subsubsection{przyk³ad}
-$<<<$todo$>>>$
 
 
 \autsubsection{Pochodne}{Mateusz Rutkiewicz}
@@ -210,8 +205,6 @@ Wzory te mog¹ byæ tak¿e stosowane dla pochodnych cz¹stkowych, gdzie liczymy poch
 \begin{equation}
 \frac{\partial f(x_n, y_n)}{\partial y_n} = \frac{f(x_n, y_{n+1}) - f(x_n, y_{n-1})}{y_{n+1} - y_{n-1}}
 \end{equation}
-\subsubsection{przyk³ad}
-todo - mo¿na daæ przyk³ad: pochodne w badaniu trendu, predykcji
 
 
 \autsubsection{Ca³kowanie}{Mateusz Rutkiewicz}
@@ -240,43 +233,38 @@ F(x) \approx \sum_{i=0}^{n - 2} (\frac{f(x_i) + f(x_{i+1})}{2} \cdot(x_{i+1} - x
 \end{equation}
 Dwa sposoby na obliczenie ca³ki metod¹ prostok¹tów wynikaj¹ z tego, ¿e wartoœæ jednej próbki sygna³u (pierwsza $f(x_0)$ lub ostatnia $f(x_{n-1})$) jest nieu¿ywana, a w metodzie trapezów wykorzystujemy zawsze wszystkie próbki.
 
-\begin{figure*}[!b]
+\begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
   \begin{center}
     % okienko skaluj¹ce:
     %  pierwszy argument szerokoœæ, drugi wysokoœæ,
     %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{1\textwidth}{!}{
-      % wstawienie obrazka
+\subfloat[metoda prostokatow - sposób pierwszy]
+{
+    \resizebox{0.8\textwidth}{!}{
       \includegraphics{rysunki/metoda_prostokatow1}
     }
-    % opis obrazka
-    \caption[Ca³kowanie dyskretne metod¹ prostok¹tów]{metoda prostokatow - sposób pierwszy}
-    % etykieta
-    \label{Calkowanie dyskretne}
-  \end{center}
-\end{figure*}
-
-\begin{figure*}[!t]
-  % wyœrodkowanie zawartoœci pola obrazka
-  \begin{center}
-    % okienko skaluj¹ce:
-    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
-    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
-    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{1\textwidth}{!}{
-      % wstawienie obrazka
+}
+\newline
+\subfloat[metoda prostokatow - sposób drugi]
+{
+    \resizebox{0.8\textwidth}{!}{
       \includegraphics{rysunki/metoda_prostokatow2}
     }
+}
+\newline
+
     % opis obrazka
-    \caption[Ca³kowanie dyskretne metod¹ prostok¹tów]{metoda prostokatow - sposób drugi}
+    \caption[Calkowanie dyskretne metoda prostokatow]{Ca³kowanie dyskretne metod¹ prostok¹tów.}
+
     % etykieta
-    \label{Calkowanie dyskretne}
+    \label{Calkowanie dyskretne metoda prostokatow}
   \end{center}
 \end{figure*}
 
-\begin{figure*}[!t]
+
+\begin{figure*}[!htbp]
   % wyœrodkowanie zawartoœci pola obrazka
   \begin{center}
     % okienko skaluj¹ce:
@@ -288,7 +276,7 @@ Dwa sposoby na obliczenie ca³ki metod¹ prostok¹tów wynikaj¹ z tego, ¿e wartoœæ j
       \includegraphics{rysunki/metoda_trapezow}
     }
     % opis obrazka
-    \caption[Ca³kowanie dyskretne metod¹ trapezów]{metoda trapezów - na wykresie mo¿na zauwa¿yæ, ¿e trapesy pokrywaj¹ siê idealnie z ca³¹ funkcj¹, jednak poniewa¿ sam wykres jest przybli¿eniem wartoœci pomiêdzy próbkami nie oznacza to, ¿e ca³ka jest liczona w sposób idealny.}
+    \caption[Ca³kowanie dyskretne metod¹ trapezów]{metoda trapezów - na wykresie mo¿na zauwa¿yæ, ¿e trapezy pokrywaj¹ siê idealnie z ca³¹ funkcj¹, jednak poniewa¿ sam wykres jest przybli¿eniem wartoœci pomiêdzy próbkami nie oznacza to, ¿e ca³ka jest liczona w sposób idealny.}
     % etykieta
     \label{Calkowanie dyskretne}
   \end{center}

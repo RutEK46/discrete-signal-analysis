@@ -124,9 +124,26 @@ Interpretacjê wskaŸnika MACD mo¿na wzbogaciæ o analizê histogramu MACD. Dziêki t
 Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika sygna³ kupna czy sprzeda¿y nie daje ¿adnej gwarancji, ¿e zyskamy na transakcji.
 
 \subsection{przyk³ady numeryczne}
-Zastosowanie i interpretacja wskaŸnika MACD w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq [17].
-\subsubsection{Analizowany wykres w przyk³adach 1 i 2}
-todo przedstawienie wykresu input
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/input_MACD_stochastic}
+    }
+    % opis obrazka
+    \caption[MACD - sygnal wejsciowy]{Wykres przedstawia sygna³ wejœciowy do przedstawionych poni¿ej przyk³adów MACD.}
+    % etykieta
+    \label{MACD - sygnal wejsciowy}
+  \end{center}
+\end{figure*}
+
+Zastosowanie i interpretacja wskaŸnika MACD w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq [17]. Dane wejœciowe zosta³y przedstawione na rys. 4.5.
+
 \subsubsection{Przyk³ad 1: sygna³ kupna}
 Dla sygna³u kupna oznaczonego na rys. 4.2 liter¹ "K" linia MACD (niebieska) przecina liniê signal (zielona) od do³u. W tym przyk³adzie mo¿na zaobserwowaæ cztery wygenerowane przyk³ady sygna³ów kupna: 8 stycznia, 7 lutego, 18 marca i 2 kwietnia.
 \begin{figure*}[!h]
@@ -200,6 +217,7 @@ Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim t
   \end{center}
 \end{figure*}
 Wstêgi Bollingera s¹ wskaŸnikiem opracowanym przez Johna Bollingera w latach 80. XX wieku. Wstêgi Bollintera sk³adaj¹ ciê w trzech wstêg - górnej wstêgi, œrodkowej wstêgi i dolnej wstêgi (ang. upper band, middle band, bottom band). S³u¿¹ one do wykrywania do³ków i szczytów cenowych. Je¿eli cena znajduje siê przy dolnej wstêdze, oznacza to do³ek cenowy, a je¿el znajduje siê przy górnej wstêdze, oznacza to szczyt cenowy.
+\newpage
 \subsection{zasady dzia³ania}
 \subsubsection{wzór}
 Œrodkowa wstêga jest zwyk³¹ œredni¹ krocz¹c¹ SMA z ostatnich $n$ próbek sygna³u $X$. Górna wstêga to suma œrodkowej wstêgi wraz z k-krotnoœci¹ odchylenia standardowego $\sigma^2$ z $n$ ostatnich próbek, natomiast dolna wstêga to ró¿nica œrodkowej wstêgi i k-krotnoœci odchylenia standardowego z $n$ ostatnich próbek.
@@ -217,6 +235,7 @@ Wstêgi Bollingera interpretuje siê w nastêpuj¹cy sposób:
     \item Sygna³ na kupno akcji - sygna³ wejœciowy zbli¿a siê do dolnej wstêgi b¹dŸ jest pod ni¹ (wtedy jest du¿a szansa, ¿e cena akcji zacznie rosn¹æ)
     \item Sygna³ na sprzeda¿ akcji - sygna³ wejœciowy zbli¿a siê do górnej wstêgi b¹dŸ jest nad ni¹ (wtedy jest du¿a szansa, ¿e cena akcji zacznie spadaæ)
 \end{itemize}
+\newpage
 \subsection{przyk³ady numeryczne}
 Zastosowanie i interpretacja Wstêg Bollingera zostanie przedstawiona na trzech poni¿szych przyk³adach.
 \subsubsection{Przyk³ad 1: kupno w do³ku cenowym i sprzeda¿ w szczycie cenowym}
@@ -322,8 +341,6 @@ We wzorze:
   \end{center}
 \end{figure*}
 
-*********todo poprawienie wykresu - lepiej pokazaæ na przedziale <55,65>
-
 \subsubsection{strategia decyzyjna}
 Aby analizowaæ wskazania oscylatora najpierw nale¿y zaznaczyæ, ¿e jego wskazania znajduj¹ siê w zakresie od 0\% - 100\%. Zakres 0 jest w okolicach najmniejszej wartoœci sygna³ów oscylatora stochastycznego, a 100 jest dla najwy¿szej wartoœci. Do interpretacji wskazañ jako istotne momenty na wykresie przyjmuje siê standardowo poziom na wysokoœci 20\% i 80\% wykresu - nazywane poziom 20 i poziom 80. 
 \begin{itemize}
@@ -333,9 +350,25 @@ Aby analizowaæ wskazania oscylatora najpierw nale¿y zaznaczyæ, ¿e jego wskazania
 Poziom 20 nazywany jest te¿ poziomem wyprzedania, a z kolei poziom 80 to poziom wykupienia. [18]
 
 \subsection{przyk³ady numeryczne}
-Zastosowanie i interpretacja oscylatora stochastycznego w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
-\subsubsection{Analizowany wykres w przyk³adach 1 i 2}
-todo przedstawienie wykresu input
+Zastosowanie i interpretacja oscylatora stochastycznego w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq. Dane wejœciowe zosta³y przedstawione na rys. 4.13.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/input_MACD_stochastic}
+    }
+    % opis obrazka
+    \caption[oscylator stochastyczny - sygnal wejsciowy]{Wykres przedstawia sygna³ wejœciowy do przedstawionych poni¿ej przyk³adów.}
+    % etykieta
+    \label{oscylator stochastyczny - sygnal wejsciowy}
+  \end{center}
+\end{figure*}
+
 \subsubsection{Przyk³ad 1: sygna³ kupna}
 Dla sygna³u kupna linia \%K przecina w dó³ poziom 20\% swojego zakresu. Dla zastosowanego przedzia³u czasu, w tym przyk³adzie mo¿na zaobserwowaæ wygenerowane trzy przyk³ady sygna³ów kupna: 15 lutego, 5 marca oraz 26 marca. 
 \begin{figure*}[!h]
@@ -406,8 +439,6 @@ Do znormalizowania Wstêg Bollingera wykorzystamy opracowany przez samego Bolling
 \begin{equation}
 \alpha_{\%b}(X) = (X - lower \: band) / (upper \: band - lower \: band)
 \end{equation}
-\subsubsection{Normalizacja oscylatora stochastycznego}
-$<<<$ todo $>>>$
 \subsection{Algorytm Genetyczny}
 \subsubsection{Opis}
 Algorytm genetyczny jest algorytmem heurystycznym do znajdowania prawie optymalych rozwi¹zañ w sytuacjach, gdy szukanie rozwi¹zania optymalnego jest trudne i samo rozwi¹zanie prawie optymalne nas satysfakcjonuje. Algorytm jest wzorowany na dzia³aniu ewolucji genetycznej u zwierz¹t w naturze. 
@@ -449,7 +480,7 @@ Uzyskany w ten sposób wskaŸnik w wiêkszoœci przypadków podejmowa³ tylko 2 decyzj
 \end{figure*}
 
 \autsection{Porównanie wskaŸników}{Mateusz Rutkiewicz}
-Ka¿dy z poni¿szych przypadków jest testowany na tym samym zbiorze danych z okresu ok. roku. Pocz¹tkowa kwota to 2000 z³. Na podstawie wyników wskaŸnika podejmowane s¹ decyzje o kupnie lub sprzedarzy, po czym na samym koñcu wszystkie akcje s¹ sprzedawane za ostatni¹ cenê i liczona jest uzyskana kwota. Testowaliœmy tylko te wskaŸniki, dla których test zd¹rzyliœmy zaimplementowaæ.
+Ka¿dy z poni¿szych przypadków jest testowany na tym samym zbiorze danych z okresu ok. roku. Pocz¹tkowa kwota to 2000 z³. Na podstawie wyników wskaŸnika podejmowane s¹ decyzje o kupnie lub sprzedarzy, po czym na samym koñcu wszystkie akcje s¹ sprzedawane za ostatni¹ cenê i liczona jest uzyskana kwota. Przeprowadzono testy zaimplementowanych symulacji inwestycji wskaŸników, to jest symulacji MACD i wstêg Boillingera.
 \begin{figure*}[!h]
 \centering
 \subfloat[CD Project SA]
