@@ -1,5 +1,5 @@
 \chapter{Prezentacja aplikacji}
-\section{Wykorzystywane narzêdzia i biblioteki}
+\autsection{Wykorzystywane narzêdzia i biblioteki}{Mateusz Rutkiewicz}
 \subsection{Pycharm for Anaconda}
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
@@ -24,23 +24,6 @@ Jupyter Notebook jest narzêdziem dostarczaj¹cym swój w³asny format plików pozwal
 \subsection{Numpy}
 Numpy jest bibliotek¹ do obliczeñ numerycznych zawieraj¹c¹ wiele funkcjonalnoœci znanych ze œrodowiska Matlab. Pozwala na wygodne tworzenie wielowymiarowych macierzy wraz z mo¿liwoœcia wykonywania operacji na nich.
 \subsection{Numba}
-\begin{figure*}[!h]
-  % wyœrodkowanie zawartoœci pola obrazka
-  \begin{center}
-    % okienko skaluj¹ce:
-    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
-    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
-    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
-    \resizebox{1\textwidth}{!}{
-      % wstawienie obrazka
-      \includegraphics{rysunki/Numba}
-    }
-    % opis obrazka
-    \caption[Numba]{Grafika ze strony producenta.}
-    % etykieta
-    \label{Numba}
-  \end{center}
-\end{figure*}
 Numba jest bibliotek¹ dostêpn¹ w œrodowisku Anaconda pozwalaj¹c¹ na przyspieszenie kodu napisanego w Python porzez kompilatory JIT (Just-In-Time). Nie wspiera wszystkich funkcjonalnoœci jêzyka Python, zato w swoich funkcjonalnoœciach szczególnie uwglêdnia bibliotekê Numpy. Numba posiada te¿ specjalny JIT dla cuda (dla kart graficnych Nvidii) pozwalaj¹cy na skompilowanie kodu napisanego w Python kod wykonywalny na karcie graficznej.
 \subsection{Cudatoolkit}
 Cudatoolkit jest potrzebny do uruchomienia kompilatora JIT dla cudy w bibliotece Numba. Dostarcza tej bibliotece mo¿liwoœæ komunikowania siê z kart¹ graficzn¹. Z poziomu programisty jest nie wymaga nic poza zainstalowaniem przez œrodowisko Anacondy.
@@ -49,10 +32,10 @@ Pandas jest bibliotek¹ dostarczaj¹c¹ struktury danych pozwalaj¹c¹ w wygodny spos
 \subsection{Plotly}
 Plotly jest bibliotek¹ pozwalaj¹c¹ na tworzenie wykresów w aplikacjach w œrodowisku internetowym (takim jak Jupyter).
 \section{Instrukcja}
-\subsection{Wymagania sprzêtowe}
+\autsubsection{Wymagania sprzêtowe}{Agnieszka Wojciechowska}
 \subsubsection{Minimalne wymagania sprzêtowe producenta modu³u cuda w bibliotece Numba:}
 \begin{itemize}
-\item karta graficzna: NVIDIA z mo¿liwoœciami obliczeniowymi 2.0 lub wiêksze
+\item karta graficzna: NVIDIA z mo¿liwoœciami obliczeniowymi 2.0 lub wiêksze [22]
 \end{itemize}
 
 \vspace{0.3cm}
@@ -64,9 +47,9 @@ Plotly jest bibliotek¹ pozwalaj¹c¹ na tworzenie wykresów w aplikacjach w œrodowi
 \item karta graficzna: NVIDIA GeForce GTX 860M
 \end{itemize}
 
-\subsection{Instalacja i konfiguracja}
+\autsubsection{Instalacja i konfiguracja}{Agnieszka Wojciechowska}
 \subsubsection{Instalacja}
-Dla prawid³owego dzia³ania aplikacji nale¿y zainstalowaæ œrodowisko Anaconda, jeœli nie ma go na danym urz¹dzeniu. W tym celu nale¿y:
+Dla prawid³owego dzia³ania aplikacji nale¿y zainstalowaæ œrodowisko Anaconda, jeœli nie ma go na danym urz¹dzeniu. W tym celu nale¿y [23]:
 \begin{itemize}
 \item Instalator mo¿na pobraæ na przyk³ad ze strony Anaconda.
 \item Nastepnie nale¿y wybraæ odpowiedni¹ wersjê instalatora odpowiedni¹ dla systemu operacyjnego na u¿ywanym komputerze.
@@ -75,7 +58,7 @@ Dla prawid³owego dzia³ania aplikacji nale¿y zainstalowaæ œrodowisko Anaconda, je
 \vspace{0.3cm}
 
 \subsubsection{Konfiguracja}
-Po zainstalowaniu œrodowiska Anaconda, nale¿y skonfigurowaæ œrodowisko Anaconda za pomoc¹ narzêdzia ''Anaconda Prompt'' dostarczanego w instalatorze Anaconda:
+Po zainstalowaniu œrodowiska Anaconda, nale¿y skonfigurowaæ œrodowisko Anaconda za pomoc¹ narzêdzia ''Anaconda Prompt'' dostarczanego w instalatorze Anacond [23]:
 \begin{itemize}
 \item Nale¿y najpierw zaktualizowaæ narzêdzie conda za pomoc¹ polecenia: \\ ''conda update conda''.
 \item Nale¿y najpierw zaktualizowaæ narzêdzie jupyter za pomoc¹ polecenia: \\ ''conda update jupyter''.
@@ -83,7 +66,7 @@ Po zainstalowaniu œrodowiska Anaconda, nale¿y skonfigurowaæ œrodowisko Anaconda 
 \item Nale¿y tak¿e zainstalowaæ cudatoolkit. W tym celu nale¿y u¿yæ polecenia \\ ''conda install -c anaconda cudatoolkit''.
 \end{itemize}
 
-\subsection{Instrukcja obs³ugi}
+\autsubsection{Instrukcja obs³ugi}{Agnieszka Wojciechowska, Mateusz Rutkiewicz}
 \subsubsection{Uruchomienie}
 Gdy œrodowisko bêdzie ju¿ przygotowane, nastêpnym krokiem bêdzie uruchomienie narzêdzia jupyter notebook. W tym celu nale¿y w narzêdziu ''Anaconda Prompt'' wpisaæ polecenie ''jupyter notebook''. Efektem jest uruchomienie notatnika w domyœlnej przegl¹darce internetowej.
 
@@ -110,10 +93,71 @@ Po uruchomieniu œrodowiska zostaje wyœwietlony ekran g³ówny notatnika jupyter. N
 
 to do
 
+\newpage
 \subsubsection{Interfejs inwestora}
 
-to do
+Interfejs inwestora s³u¿y do podsumowania i interpretacji wartoœci wskaŸników na dany wybrany dzieñ za pomoc¹ oceny ''buy / sell / neutral''.
 
+Do interfejsu inwestora mo¿na przejœæ klikaj¹c na zak³adkê w panelu górnym w aplikacji. Nastêpnie zostanie wyœwietlone okno przedstawione na rys. 5.2. Do wyboru pliku wejœciowego przeznaczona jest lista rozwijana ''Signals''. Po poprawnym wczytaniu pliku dostêpny jest wybór ceny, która ma byæ brana pod uwagê w interpretacji wskaŸników, domyœlnie jest to cena otwarcia. Nastêpnie mo¿na te¿ wybraæ, który dzieñ ma byæ analizowany. Domyœlnym wyborem jest najnowszy dzieñ z wczytanej bazy w pliku.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_decisions_30.10}
+    }
+    % opis obrazka
+    \caption[Menu jupyter]{Ekran wycinku interfejsu inwestora z decyzjami wskaŸników na dzieñ 30.10.2019.}
+    % etykieta
+    \label{Menu jupyter}
+  \end{center}
+\end{figure*}
+
+Dodatkowo poni¿ej interpretacji wskaŸników w interfejsie inwestora jest równie¿ przeprowadzana symulacja inwestycji. Przedzia³ czasowy jest wczytywany z pliku zadanego w ''Signals'', a decyzje o inwestycji s¹ podejmowane zgodnie z sugerowanymi decyzjami inwestycyjnymi przez poszczególne wskaŸniki. Pocz¹tkowy kapita³ to 2000 jednostek. Dodatkowo przyjête jest uproszczenie, za³o¿enie w postaci mo¿liwoœci kupna za ca³¹ kwotê oraz sprzeda¿y wszystkich akcji na raz.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.7\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_inwestycje_30.10}
+    }
+    % opis obrazka
+    \caption[Menu jupyter]{Ekran wycinku interfejsu inwestora z symulacj¹ inwestycji na dzieñ 30.10.2019.}
+    % etykieta
+    \label{Menu jupyter}
+  \end{center}
+\end{figure*}
+
+Poni¿ej zosta³ zamieszczony widok ca³ego interfejsu inwestora dla porównania z innego dnia. Mo¿na zauwa¿yæ, ¿e decyzje nieco siê ró¿ni¹, mimo ¿e jest to ró¿nica jednego dnia. Mianowicie wskaŸnik oscylator stochastyczny wkroczy³ w strefê wyprzedania.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{01\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_29.10}
+    }
+    % opis obrazka
+    \caption[Menu jupyter]{Ekran interfejsu inwestora z symulacj¹ inwestycji na dzieñ 29.10.2019.}
+    % etykieta
+    \label{Menu jupyter}
+  \end{center}
+\end{figure*}
+
+\newpage
 \subsubsection{Inerfejs zagragowanego wskaŸnika}
 
 to do
