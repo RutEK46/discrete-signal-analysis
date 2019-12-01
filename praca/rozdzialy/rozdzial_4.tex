@@ -1,11 +1,11 @@
 \chapter{Analiza techniczna}
-\section{Wprowadzenie}
-Analiza techniczna to narzêdzie s³u¿¹ce do analizy wykresów gie³dowych, która ma na celu prognozê przysz³ych cen kursów na podstawie historycznych zmian cen. Modele analizy technicznej charakteryzuj¹ pewne powtarzalne schematy mo¿liwe do zaobserwowania w zmianach cen akcji. W zale¿noœci od danego modelu mo¿na zaobserwowaæ powtarzalne zachowanie wskaŸników statystycznych.
+\autsection{Wprowadzenie}{Agnieszka Wojciechowska}
+Analiza techniczna to narzêdzie s³u¿¹ce do analizy wykresów gie³dowych, która ma na celu prognozê przysz³ych cen kursów na podstawie historycznych zmian cen. Modele analizy technicznej charakteryzuj¹ pewne powtarzalne schematy mo¿liwe do zaobserwowania w zmianach cen akcji. W zale¿noœci od danego modelu mo¿na zaobserwowaæ powtarzalne zachowanie wskaŸników statystycznych. [11]
 
 Na wstêpie zostanie omówiony jeden z popularniejszych narzêdzi na polskim rynku pozwalaj¹cy na analizê techniczn¹ wybranych wykresów. W kolejnych rozdzia³ach zosta³y zaprezentowane zasady dzia³ania wskaŸników stosowanych w analizie technicznej i ich przyk³ady, które zosta³y zaimplementowane w projekcie. Do zdefiniowania narzêdzi analizy technicznej zostanie u¿yta wiedza przedstawiona w poprzednim rozdziale.
 
 \subsection{Analiza rynkowa}
-Istnieje bardzo du¿o narzêdzi w obszarze analizy technicznej wykorzystywanych na rynku finansowym. Na polskim rynku jednym z bardziej popularnych jest aplikacja ''BiznesRadar'' dostêpna w mobilnej wersji oraz online. Ma ona pomagaæ inwestorom w podejmowaniu decyzji o transakcji, wspieraæ ich strategiê inwestycyjn¹ lub s³u¿yæ do analizowania notowañ na rynku na podstawie przesz³ych danych.
+Istnieje bardzo du¿o narzêdzi w obszarze analizy technicznej wykorzystywanych na rynku finansowym. Na polskim rynku jednym z bardziej popularnych jest aplikacja ''BiznesRadar'' dostêpna w mobilnej wersji oraz online. Ma ona pomagaæ inwestorom w podejmowaniu decyzji o transakcji, wspieraæ ich strategiê inwestycyjn¹ lub s³u¿yæ do analizowania notowañ na rynku na podstawie przesz³ych danych. 
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
   \begin{center}
@@ -18,7 +18,7 @@ Istnieje bardzo du¿o narzêdzi w obszarze analizy technicznej wykorzystywanych na
       \includegraphics{rysunki/Biznes_Radar}
     }
     % opis obrazka
-    \caption[aplikacja BiznesRadar - logo]{Logo aplikacji BiznesRadar dostêpnej w sklepie Google.}
+    \caption[aplikacja BiznesRadar - logo {[12]}]{Logo aplikacji BiznesRadar dostêpnej w sklepie Google.}
     % etykieta
     \label{BiznesRadar}
   \end{center}
@@ -41,7 +41,7 @@ Jest to narzêdzie skierowane do inwestorów, g³ównie doœwiadczonych. Doœwiadczony
       \includegraphics{rysunki/Biznes_Radar_wykres}
     }
     % opis obrazka
-    \caption[aplikacja BiznesRadar - indeksy i wykres]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej przedstawione s¹ dostêpne indeksy do analizy notowañ. Po lewej przedstawiony jest wygenerowany wykres cen dla spó³ki KGH Polska MiedŸ.}
+    \caption[aplikacja BiznesRadar - indeksy i wykres {[12]}]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej przedstawione s¹ dostêpne indeksy do analizy notowañ. Po lewej przedstawiony jest wygenerowany wykres cen dla spó³ki KGH Polska MiedŸ. [12]}
     % etykieta
     \label{BiznesRadar}
   \end{center}
@@ -61,27 +61,27 @@ Ponad to, jak pokazano na rys. 4.3  narzêdzie zawiera ekran, w którym przedstawi
       \includegraphics{rysunki/Biznes_Radar_zysk}
     }
     % opis obrazka
-    \caption[aplikacja BiznesRadar - decyzje i sprawozdania]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej znajduje siê lista wzkaŸników oraz ich wartoœæ i ocena. Po lewej znajduje siê ekran ze sprawozdaniem z portfela inwestycyjnego danego u¿ytkownika z podsumowaniem zysków.}
+    \caption[aplikacja BiznesRadar - decyzje i sprawozdania {[12]}]{Rysunek przedstawia dwa ekrany wewn¹trz aplikacji BiznesRadar. Po prawej znajduje siê lista wzkaŸników oraz ich wartoœæ i ocena. Po lewej znajduje siê ekran ze sprawozdaniem z portfela inwestycyjnego danego u¿ytkownika z podsumowaniem zysków.[12]}
     % etykieta
     \label{BiznesRadar}
   \end{center}
 \end{figure*}
 
 
-\section{MACD}
+\autsection{MACD}{Agnieszka Wojciechowska}
 \subsection{wprowadzenie}
 MACD to skrót od Moving Average Convergence Divergence co w polskim t³umaczeniu oznacza zbie¿noœæ i rozbie¿noœæ œredniej krocz¹cej.
 
-WskaŸnik ten zosta³ opracowany przez Geralda Appel'a w roku 1970. Opracowa³ on fundamentaln¹ w³aciwoœæ tego wskaŸnika, czyli interpretacjê i przewidywanie przeciêæ linii MACD. Nastêpnie w roku 1986 dodany zosta³ histogram przez Thomasa Aspray'a, które umo¿liwi³o obserwacjê impetu ceny.
+WskaŸnik ten zosta³ opracowany przez Geralda Appel'a w roku 1970. Opracowa³ on fundamentaln¹ w³aciwoœæ tego wskaŸnika, czyli interpretacjê i przewidywanie przeciêæ linii MACD. Nastêpnie w roku 1986 dodany zosta³ histogram przez Thomasa Aspray'a, które umo¿liwi³o obserwacjê impetu ceny. [15]
 
 Aktualnie MACD jest jednym z najpoplarniejszych wskaŸników stosowanych w analizie technicznej. Zawdziêcza to dziêki temu, ¿e jest ³atwy w interpretacji sygna³ów oraz dziêki mo¿liwoœci zastosowania go w ró¿nych warunkach rynkowych - zarówno stablilnej, jak i w trakcie nag³ych wzrostów, b¹dŸ spadków cen.
 \subsection{zasady dzia³ania}
 \subsubsection{wzór}
 Tym co wyró¿nia wskaŸnik MACD jest po³¹czenie dwóch ró¿nych typów wskaŸników. Wzór wskaŸnika wyznacza sygna³y kupna, b¹dŸ sprzeda¿y na podstawie dwóch linii zwanych lini¹ macd i lini¹ sygna³ow¹.
 
-Do wyznaczenia linii MACD wykorzystywana jest ró¿nica dwóch œrednich ruchomych sygna³u wejciowego X, o ró¿nych okresach. Standardowo przyjmowane s¹ 26 i 12 okresowe przedzia³y œredniej wyk³adniczej, jest to ustawienie domylne. Linia MACD s³u¿y do identyfikacji kierunku i czasu trwania trendu.
+Do wyznaczenia linii MACD wykorzystywana jest ró¿nica dwóch œrednich ruchomych sygna³u wejciowego X, o ró¿nych okresach. Standardowo przyjmowane s¹ 26 i 12 okresowe przedzia³y œredniej wyk³adniczej, jest to ustawienie domylne. Linia MACD s³u¿y do identyfikacji kierunku i czasu trwania trendu. 
 
-Nastêpnie linia signal wyliczana jest na podstawie najczêœciej 9 okresowej œredniej wyk³adniczej z linii MACD. 
+Nastêpnie linia signal wyliczana jest na podstawie najczêœciej 9 okresowej œredniej wyk³adniczej z linii MACD.  [13] [15] [16]
 \begin{equation}
 \begin{array}{rcl}
 MACD & = & EMA_{26}(X) - EMA_{12}(X) \\
@@ -98,7 +98,7 @@ Strategia MACD opiera siê g³ównie o interpretacjê przeciêæ linii sygna³u z lini¹
     \item Sygna³ na kupno akcji - linia MACD przecina liniê signal od do³u
     \item Sygna³ na sprzeda¿ akcji - linia MACD przecina liniê signal od góry
 \end{itemize}
-Na poni¿szym wykresie zosta³y zaznaczone omawiane linie wskaŸnika MACD. Mo¿na zauwa¿yæ wyraŸne momenty przecinania siê sygna³ów.
+Na poni¿szym wykresie (rys. 4.4) zosta³y zaznaczone omawiane linie wskaŸnika MACD. Mo¿na zauwa¿yæ wyraŸne momenty przecinania siê sygna³ów.
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
   \begin{center}
@@ -117,15 +117,14 @@ Na poni¿szym wykresie zosta³y zaznaczone omawiane linie wskaŸnika MACD. Mo¿na za
   \end{center}
 \end{figure*}
 
-Od odpowiedniej interpretacji sygna³ów zale¿y równie¿ fakt przeciêcia linii zero oraz odleg³oæ od tej linii. W momencie gdy sygna³ kupna jest generowany znacz¹co poni¿ej linii zero to jest on interpretowany jako bardziej wiarygodny. Czym wiêksza jest w³aœnie odleg³oœæ od linii zera, tym wiêksza wiarygodnoœæ. Równie¿ tym wiêksze jest prawdopodobieñstwo kontynuowania ruchu spadkowego. Analogicznie dzieje siê dla sygna³u sprzeda¿y gdy sygna³ ten jest generowany znacz¹co powy¿ej linii zero.
+Od odpowiedniej interpretacji sygna³ów zale¿y równie¿ fakt przeciêcia linii zero oraz odleg³oœæ od tej linii. W momencie gdy sygna³ kupna jest generowany znacz¹co poni¿ej linii zero to jest on interpretowany jako bardziej wiarygodny. Czym wiêksza jest w³aœnie odleg³oœæ od linii zera, tym wiêksza wiarygodnoœæ. Równie¿ tym wiêksze jest prawdopodobieñstwo kontynuowania ruchu spadkowego. Analogicznie dzieje siê dla sygna³u sprzeda¿y gdy sygna³ ten jest generowany znacz¹co powy¿ej linii zero. [13] [15]
 
-
-Interpretacjê wskaŸnika MACD mo¿na wzbogaciæ o analizê histogramu MACD. Dziêki tej funkcjonalnoœci mo¿na zaobserwowaæ lokalne szczyty cenowe dla wartoœci histogramu powy¿ej zera. Analogicznie dla wartoœci kszta³tuj¹cych siê poni¿ej zera obserwuje siê do³ki cenowe. Szersza interpretacja histogramu nie bêdzie omawiana, gdy¿ opisywana aplikacja nie uwzglêdnia tej funkcjonalnoœci. 
+Interpretacjê wskaŸnika MACD mo¿na wzbogaciæ o analizê histogramu MACD. Dziêki tej funkcjonalnoœci mo¿na zaobserwowaæ lokalne szczyty cenowe dla wartoœci histogramu powy¿ej zera. Analogicznie dla wartoœci kszta³tuj¹cych siê poni¿ej zera obserwuje siê do³ki cenowe. Szersza interpretacja histogramu nie bêdzie omawiana, gdy¿ opisywana aplikacja nie uwzglêdnia tej funkcjonalnoœci. [13]
 
 Oczywiœcie tak jak w przypadku ka¿dego innego wskaŸnika sygna³ kupna czy sprzeda¿y nie daje ¿adnej gwarancji, ¿e zyskamy na transakcji.
 
 \subsection{przyk³ady numeryczne}
-Zastosowanie i interpretacja wskaŸnika MACD w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
+Zastosowanie i interpretacja wskaŸnika MACD w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq [17].
 \subsubsection{Analizowany wykres w przyk³adach 1 i 2}
 todo przedstawienie wykresu input
 \subsubsection{Przyk³ad 1: sygna³ kupna}
@@ -150,7 +149,7 @@ Dla sygna³u kupna oznaczonego na rys. 4.2 liter¹ "K" linia MACD (niebieska) prze
 
 Jednym z d³u¿szych okresów, gdy linia MACD znajdowa³a siê nad lini¹ signal jest pierwszy przypadek, to jest od 8 stycznia. Niestety jest to niewiarygodny sygna³, poniewa¿ znajduje siê powy¿ej linii 0. Tak samo jest dla wskazania z 7 lutego.
 
-Dla porównania sygna³y kupna po prawej stronie wykresu, to jest z dnia 18 marca i 2 kwietnia zosta³y wygenerowane poni¿ej linii 0. Oznacza to, ¿e sygna³ ten jest wiarygodny. Najbardziej wiarygodny sygna³ kupna w tym przypadku zosta³ wygenerowany w³aœnie 18 marca. W kolejnych dniach ta wiarygodnoœæ maleje, bo do 20 marca wzrasta w kierunku linii 0. Podobnie dzieje siê po 2 kwietnia. W momencie gdy sygna³ przekroczy liniê 0 sygna³ kupna staje siê niewiarygodny.
+Dla porównania sygna³y kupna po prawej stronie wykresu, to jest z dnia 18 marca i 2 kwietnia zosta³y wygenerowane poni¿ej linii 0. Oznacza to, ¿e sygna³ ten jest wiarygodny. Najbardziej wiarygodny sygna³ kupna w tym przypadku zosta³ wygenerowany w³aœnie 18 marca. W kolejnych dniach ta wiarygodnoœæ maleje, bo do 20 marca wzrasta w kierunku linii 0. Podobnie dzieje siê po 2 kwietnia. W momencie gdy sygna³ przekroczy liniê 0 sygna³ kupna staje siê niewiarygodny. [14]
 
 \subsubsection{Przyk³ad 2: sygna³ sprzeda¿y}
 Z kolei dla sygna³u sprzeda¿y oznaczonego na rys. 4.3 liter¹ "S" linia MACD (niebieska) przecina liniê signal (zielona) od góry. W tym przyk³adzie mo¿na zaobserwowaæ dwa wygenerowane przyk³ady sygna³ów sprzeda¿y: 30 stycznia i 27 marca.
@@ -174,35 +173,13 @@ Z kolei dla sygna³u sprzeda¿y oznaczonego na rys. 4.3 liter¹ "S" linia MACD (nie
 
 Pocz¹tkowo sygna³ sprzeda¿y wygenerowany dnia 30 stycznia jest wiarygodny, poniewa¿ znajduje siê wysoko ponad lini¹ 0. Z biegiem czasu wskazania spadaj¹ w kierunku linii 0. Gdy przekracza on tê liniê 19 lutego sygna³ staje siê niewiarygodny. Najwiêksz¹ wiarygodnoœæ w ca³ym analizowanym zakresie 4 miesiêcy wskaŸnik osi¹ga 30 stycznia.
 
-Drugi wygenerowany sygna³ z dnia 27 marca jest sygna³em niewiarygodnym, gdy¿ znajduje siê znacz¹co poni¿ej linii 0.
-\begin{figure*}[!h]
-\centering
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/MACD_result1}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/MACD_result2}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/MACD_result3}
-    }
-}
-\caption{Wynik wskaŸnika MACD - powy¿sze rysunki przedstawiaj¹ wyniki testu wskaŸnika MACD na akcjach 3 spó³ek z okresu 2018 - 2019 }
-\end{figure*}
+Drugi wygenerowany sygna³ z dnia 27 marca jest sygna³em niewiarygodnym, gdy¿ znajduje siê znacz¹co poni¿ej linii 0. [14]
 \subsection{podsumowanie}
 MACD s³u¿y do wszechstronnej analizy, poniewa¿ za jego pomoc¹ mo¿na interpretowaæ nie tylko sygna³y spadkowe i rosn¹ce, ale tak¿e umo¿liwia œledzenie potencjalnych do³ków lub szczytów cenowych.
 
 Generalnie wskaŸnik MACD znajduje najlepsze zastosowanie w œrednim oraz d³ugim terminie, poniewa¿ powsta³ w celu wykorzystania go do odczytywania sygna³ów w raz w ci¹gu dnia, czyli na tak zwanym wykresie dziennym. Przy mniejszych okresach mo¿e jednak powodowaæ opóŸnione sygna³y.
 
-\section{Wstêgi Bollingera}
+\autsection{Wstêgi Bollingera}{Mateusz Rutkiewicz}
 \subsection{wprowadzenie}
 \begin{figure*}[!h]
   % wyœrodkowanie zawartoœci pola obrazka
@@ -262,28 +239,6 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a s
     \label{Wykres wstêg Bollingera}
   \end{center}
 \end{figure*}
-\begin{figure*}[!h]
-\centering
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_lu_result1}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_lu_result2}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_lu_result3}
-    }
-}
-\caption{Wynik Wstêg Bollingera dla strategii kup w do³ku cenowym, sprzedaj w szczycie cenowym - powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019 }
-\end{figure*}
 \subsubsection{Przyk³ad 2: kupno w do³ku cenowym i sprzeda¿ po wyjœciu z do³ku cenowego}
 Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a sprzedaje sie, gdy bêdzie powy¿ej œrodkowej wstêgi.
 \begin{figure*}[!h]
@@ -303,28 +258,6 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej dolnej wstêgi, a s
     % etykieta
     \label{Wykres wstêg Bollingera}
   \end{center}
-\end{figure*}
-\begin{figure*}[!h]
-\centering
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_lm_result1}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_lm_result2}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_lm_result3}
-    }
-}
-\caption{Wynik Wstêg Bollingera dla strategii kup w do³ku cenowym, sprzedaj po wyjœciu z do³ku cenowego  - powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019 }
 \end{figure*}
 \subsubsection{Przyk³ad 3: sprzeda¿ w szczycie cenowym i kupno po wyjœciu ze szczytu cenowego}
 Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej œrodkowej wstêgi, a sprzedaje sie, gdy bêdzie powy¿ej górnej wstêgi.
@@ -346,40 +279,18 @@ Przy tej strategii akcje kupuje siê, gdy cena spadnie poni¿ej œrodkowej wstêgi, 
     \label{Wykres wstêg Bollingera}
   \end{center}
 \end{figure*}
-\begin{figure*}[!h]
-\centering
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_mu_result1}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_mu_result2}
-    }
-}
-\subfloat
-{
-    \resizebox{0.33\textwidth}{!}{
-      \includegraphics{rysunki/BB_mu_result3}
-    }
-}
-\caption{Wynik Wstêg Bollingera dla strategii kup po wyjœciu ze szczytu cenowego, sprzedaj po wejœciu na szczyt cenowy- powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019 }
-\end{figure*}
 \subsection{podsumowanie}
 Wstêgi Bollingera pozwalaj¹ na wykrywanie potencjalnych do³ków cenowych oraz szczytów cenowych. Najlepiej sprawdzaj¹ siê w krótkich inwestycjach.
 
-\section{Oscylator Stochastyczny}
+\autsection{Oscylator Stochastyczny}{Agnieszka Wojciechowska}
 \subsection{wprowadzenie}
 Oscylator stochastyczny jest wskaŸnikiem, który pozwala œledziæ ruchy cen i si³ê trendu momentum. 
 
-Omawiany wskaŸnik zosta³ wprowadzony w 1950 r. przez George'a Lana w celu porównywania cen zamkniêcia do wszystkich w danym okresie. Oscylator wystêpuje w trzech wersjach: szybkiej, wolnej i pe³nej. Wersja szybka jest najlepsza w zastosowaniu przy analizach krótkoterminowych, a wolna do analiz d³ugoterminowych. Pe³na wersja - Stochastic Full czyli STS jest najbardziej uniwersalna ze wszystkich wersji. W³aœnie ta wersja zosta³a zaimplementowana.
+Omawiany wskaŸnik zosta³ wprowadzony w 1950 r. przez George'a Lana w celu porównywania cen zamkniêcia do wszystkich w danym okresie [19]. Oscylator wystêpuje w trzech wersjach: szybkiej, wolnej i pe³nej. Wersja szybka jest najlepsza w zastosowaniu przy analizach krótkoterminowych, a wolna do analiz d³ugoterminowych. Pe³na wersja - Stochastic Full czyli STS jest najbardziej uniwersalna ze wszystkich wersji. W³aœnie ta wersja zosta³a zaimplementowana.
 
 \subsection{zasady dzia³ania}
 \subsubsection{wzór}
-WskaŸnik sk³ada siê z dwóch linii: linii wolno oscyluj¹cej zwanej \%K oraz linii \%D, która jest 3 okresow¹ œredni¹ krocz¹c¹ z \%K. Linia \%K wyznaczana jest na podstawie znajomoœci ceny zamkniêcia z danego dnia oraz cen najni¿szej i najwy¿szej z domyœlnie przyjêtych 14 poprzednich sesji zamkniêcia. Z kolei otrzymane wartoœci s¹ uœredniane i zobrazowane za pomoc¹ linii \%D. Wyznaczana jest na podstawie œredniej krocz¹cej 3 poprzednich sesji z wyznaczonego \%K na dany moment. Okres 3 dniowy jest równie¿ standardowo przyjêt¹ wartoœci¹ u¿ywan¹ dla tego wskaŸnika.
+WskaŸnik sk³ada siê z dwóch linii: linii wolno oscyluj¹cej zwanej \%K oraz linii \%D, która jest 3 okresow¹ œredni¹ krocz¹c¹ z \%K. Linia \%K wyznaczana jest na podstawie znajomoœci ceny zamkniêcia z danego dnia oraz cen najni¿szej i najwy¿szej z domyœlnie przyjêtych 14 poprzednich sesji zamkniêcia. Z kolei otrzymane wartoœci s¹ uœredniane i zobrazowane za pomoc¹ linii \%D. Wyznaczana jest na podstawie œredniej krocz¹cej 3 poprzednich sesji z wyznaczonego \%K na dany moment. Okres 3 dniowy jest równie¿ standardowo przyjêt¹ wartoœci¹ u¿ywan¹ dla tego wskaŸnika. [20]
 \begin{equation}
 \begin{array}{lll}
 \%K & = & 100 \times \frac{C - L_{14}}{H_{14} - L_{14}} \\
@@ -414,12 +325,12 @@ We wzorze:
 *********todo poprawienie wykresu - lepiej pokazaæ na przedziale <55,65>
 
 \subsubsection{strategia decyzyjna}
-Aby analizowaæ wskazania oscylatora najpierw nale¿y zaznaczyæ, ¿e jego wskazania znajduj¹ siê w zakresie od 0\% - 100\%. Zakres 0 jest w okolicach najmniejszej wartoœci sygna³ów oscylatora stochastycznego, a 100 jest dla najwy¿szej wartoœci. Do interpretacji wskazañ jako istotne momenty na wykresie przyjmuje siê standardowo poziom na wysokoœci 20\% i 80\% wykresu - nazywane poziom 20 i poziom 80.
+Aby analizowaæ wskazania oscylatora najpierw nale¿y zaznaczyæ, ¿e jego wskazania znajduj¹ siê w zakresie od 0\% - 100\%. Zakres 0 jest w okolicach najmniejszej wartoœci sygna³ów oscylatora stochastycznego, a 100 jest dla najwy¿szej wartoœci. Do interpretacji wskazañ jako istotne momenty na wykresie przyjmuje siê standardowo poziom na wysokoœci 20\% i 80\% wykresu - nazywane poziom 20 i poziom 80. 
 \begin{itemize}
     \item Sygna³ na kupno akcji - linia \%K przecina w dó³ poziom 20 
     \item Sygna³ na sprzeda¿ akcji - linia \%K przecina w górê poziom 80
 \end{itemize}
-Poziom 20 nazywany jest te¿ poziomem wyprzedania, a z kolei poziom 80 to poziom wykupienia.
+Poziom 20 nazywany jest te¿ poziomem wyprzedania, a z kolei poziom 80 to poziom wykupienia. [18]
 
 \subsection{przyk³ady numeryczne}
 Zastosowanie i interpretacja oscylatora stochastycznego w praktyce zostanie przedstawiona na dwóch poni¿szych przyk³adach. Do przyk³adu, dla wiêkszej czytelnoœci wykresu zosta³o wybrane przybli¿enie wartoœci do zakresu 4 miesiêcy, od stycznia do kwietnia 2019. Ponadto u¿yte dane pochodz¹ z serwisu Stooq.
@@ -472,7 +383,7 @@ Po przekroczeniu powy¿ej poziomu 80\% wskaŸnik wszed³ w strefê "wyprzedania". Ta
 \subsection{podsumowanie}
 Oscylator stochastyczny jest ³atwy w u¿yciu i skuteczny po dostosowaniu odpowiednich parametrów do danego typu rynku, ze wzglêdu na mo¿liwoœæ dopasowania odpowiedniej wersji oscylatora. Najczêciej u¿ywany jest przez inwestorów do analizy interwa³u dziennego przy du¿ej iloœci wyraŸnych sygna³ów. 
 
-\section{WskaŸnik zagregowany}
+\autsection{WskaŸnik zagregowany}{Mateusz Rutkiewicz}
 WskaŸnik zagregowany sk³ada siê z $N$ poprzednich wskaŸników. Jest on sum¹ odpowiednich wag przemno¿onych przez znormalizowan¹ wartoœæ wynikaj¹c¹ z wartoœci wyznaczonych przez poprzedni wskaŸnik (np. MACD). Dodatkow¹ wartoœci¹ pojawiaj¹c¹ siê we wzorze jest wartoœæ progowa $\omega_0$, któr¹ mo¿na interpretowaæ jako tendencjê do kupna lub sprzeda¿y. Je¿eli jest ona ujemna, nasz wskaŸnik bêdzie wykazywa³ mniejsz¹ tendencjê do kupna i pozosta³e wartoœci bêd¹ musia³y byæ wiêksze, ¿eby pokaza³ sygna³ do kupna. 
 \begin{equation}
 y = \omega_0 + \sum^N_{i = 1}(\alpha_i\cdot\omega_i)
@@ -537,7 +448,98 @@ Uzyskany w ten sposób wskaŸnik w wiêkszoœci przypadków podejmowa³ tylko 2 decyzj
 \caption{Wynik wskaŸnika zagregowanego}
 \end{figure*}
 
-\section{Porównanie wskaŸników}
-TODO 
+\autsection{Porównanie wskaŸników}{Mateusz Rutkiewicz}
+Ka¿dy z poni¿szych przypadków jest testowany na tym samym zbiorze danych z okresu ok. roku. Pocz¹tkowa kwota to 2000 z³. Na podstawie wyników wskaŸnika podejmowane s¹ decyzje o kupnie lub sprzedarzy, po czym na samym koñcu wszystkie akcje s¹ sprzedawane za ostatni¹ cenê i liczona jest uzyskana kwota. Testowaliœmy tylko te wskaŸniki, dla których test zd¹rzyliœmy zaimplementowaæ.
+\begin{figure*}[!h]
+\centering
+\subfloat[CD Project SA]
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/MACD_result1}
+    }
+}
+\subfloat[AmRest Holdings SE]
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/MACD_result2}
+    }
+}
+\subfloat[Grupo Santander]
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/MACD_result3}
+    }
+}
+\caption{Wynik wskaŸnika MACD - powy¿sze rysunki przedstawiaj¹ wyniki testu wskaŸnika MACD na akcjach 3 spó³ek z okresu jednego roku. Dla CD Project SA wskaŸnik wykaza³ siê ma³¹ strat¹, dla Amrest Holdings SE pod koniec uda³o mu siê odbiæ i zarobiæ 175.95 z³, natomiast dla Grupo Santander znowu na koniec zyska³ bardzo ma³o.}
+\end{figure*}
 
-tutaj przedstawimy testy wskaŸników z zadanym na pocz¹tku kapita³em i iloci¹ akcji, nastêpnie porównamy wyniki i zauwa¿ymy, który wskaŸnik da³ najlepsze wyniki 
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lu_result1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lu_result2}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lu_result3}
+    }
+}
+\caption{Wynik Wstêg Bollingera dla strategii kup w do³ku cenowym, sprzedaj w szczycie cenowym - powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019. Tutaj widaæ, ¿e dla podanych przyk³adów wskaŸnik daje pozytywne efekty.}
+\end{figure*}
+
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lm_result1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lm_result2}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_lm_result3}
+    }
+}
+\caption{Wynik Wstêg Bollingera dla strategii kup w do³ku cenowym, sprzedaj po wyjœciu z do³ku cenowego  - powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019. WskaŸnik wypad³ podobnie jak poprzednio, tylko zarobki by³o o ok. 50\% mniejsze.}
+\end{figure*}
+
+\begin{figure*}[!h]
+\centering
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_mu_result1}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_mu_result2}
+    }
+}
+\subfloat
+{
+    \resizebox{0.33\textwidth}{!}{
+      \includegraphics{rysunki/BB_mu_result3}
+    }
+}
+\caption{Wynik Wstêg Bollingera dla strategii kup po wyjœciu ze szczytu cenowego, sprzedaj po wejœciu na szczyt cenowy- powy¿sze rysunki przedstawiaj¹ wyniki testu Wstêg Bollingera na akcjach 3 spó³ek z okresu 2018 - 2019. Dla akcji CD Project SA strategia ta da³a zaskakuj¹co dobry wynik. Uda³o siê powiêkszyæ kapita³ o 75\%. Dla AmRest Holdings SE natomiast zyskano niewiele, a dla Grupo Santander uda³o siê nawet straciæ.}
+\end{figure*}
+
+Dla podanych przyk³adów Wstêgi Bollingera da³y o wiele lepszy efekt ni¿ MACD. W szczególnoœci strategia kup w do³ku cenowym i sprzedaj w szczycie cenowym. Du¿ym zaskoczeniem jest tutaj strategia kup po wyjœciu ze szczytu cenowego i sprzedaj w szczycie cenowym dla CD Project SA. Byæ mo¿e akcje tej spó³ki kr¹¿¹ g³ównie pomiêdzy w³aœnie tymi dwoma strategicznymi punktami, a Wstêgi Bollingera akurat dobrze to wykrywaj¹.
