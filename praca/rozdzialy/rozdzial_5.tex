@@ -91,7 +91,47 @@ Po uruchomieniu œrodowiska zostaje wyœwietlony ekran g³ówny notatnika jupyter. N
 
 \subsubsection{Interfejs standardowy}
 
-to do
+Interfejs standardowy s³u¿y do analizowania sygna³ów poprzez dostêpne w interfejsie metody.
+
+Interfejs standardowy bêdzie uruchomiony od razu po w³¹czeniu aplikacji, a w nawigowania pomiêdzy innymi interfejsami mo¿na do niego wróciæ klikaj¹c na zak³adjê w panelu górnym w aplikacji. W panelu dostêpne s¹ 4 zak³adki (Signals, X, Y, Transformation). Signals s³u¿y do wybrania analizowanego sygna³u, X pozwala na wybranie wartoœci X dla danego sygna³u, Y dla wartoœci Y, a Transformation na wybranie narzêdzia do analizy. Po dokonaniu wyboru na dole powinien pojawiæ siê wykres sygna³u oraz wybranej transformacji.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Standard_interfejs1}
+    }
+    % opis obrazka
+    \caption[Interejs standardowy 1]{Wygl¹d interfejsu standardowego po wybraniu dostêpnego sygna³u oraz transformacji.}
+    % etykieta
+    \label{Interejs standardowy 1}
+  \end{center}
+\end{figure*}
+
+Dla sygna³ów, do których analizy wygodniej jest mieæ sygna³ i transformacjê na oddzielnym wykresie istnieje mo¿liwoœæ odznaczenia opcji One Plot, która jest domyœlnie zaznaczona. W ten sposób zostan¹ wyœwietlone 2 oddzielne wykresy.
+\newpage
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Standard_interfejs2}
+    }
+    % opis obrazka
+    \caption[Interejs standardowy 2]{Wygl¹d interfejsu standardowego po wybraniu dostêpnego sygna³u oraz transformacji po odznaczeniu opcji One Plot.}
+    % etykieta
+    \label{Interejs standardowy 2}
+  \end{center}
+\end{figure*}
 
 \newpage
 \subsubsection{Interfejs inwestora}
@@ -109,7 +149,7 @@ Do interfejsu inwestora mo¿na przejœæ klikaj¹c na zak³adkê w panelu górnym w apl
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
     \resizebox{0.8\textwidth}{!}{
       % wstawienie obrazka
-      \includegraphics{rysunki/interfejs_inwestora_decisions_30.10}
+      \includegraphics{rysunki/interfejs_inwestora_decisions_30_10}
     }
     % opis obrazka
     \caption[Menu jupyter]{Ekran wycinku interfejsu inwestora z decyzjami wskaŸników na dzieñ 30.10.2019.}
@@ -129,7 +169,7 @@ Dodatkowo poni¿ej interpretacji wskaŸników w interfejsie inwestora jest równie¿ 
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
     \resizebox{0.7\textwidth}{!}{
       % wstawienie obrazka
-      \includegraphics{rysunki/interfejs_inwestora_inwestycje_30.10}
+      \includegraphics{rysunki/interfejs_inwestora_inwestycje_30_10}
     }
     % opis obrazka
     \caption[Menu jupyter]{Ekran wycinku interfejsu inwestora z symulacj¹ inwestycji na dzieñ 30.10.2019.}
@@ -148,7 +188,7 @@ Poni¿ej zosta³ zamieszczony widok ca³ego interfejsu inwestora dla porównania z i
     %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
     \resizebox{01\textwidth}{!}{
       % wstawienie obrazka
-      \includegraphics{rysunki/interfejs_inwestora_29.10}
+      \includegraphics{rysunki/interfejs_inwestora_29_10}
     }
     % opis obrazka
     \caption[Menu jupyter]{Ekran interfejsu inwestora z symulacj¹ inwestycji na dzieñ 29.10.2019.}
@@ -158,9 +198,29 @@ Poni¿ej zosta³ zamieszczony widok ca³ego interfejsu inwestora dla porównania z i
 \end{figure*}
 
 \newpage
-\subsubsection{Inerfejs zagragowanego wskaŸnika}
+\subsubsection{Interfejs zagragowanego wskaŸnika}
 
-to do
+Interfejs zagregowanego wskaŸnika pozwala na œledzenie wykonywania algorytmu genetycznego.
+
+Mo¿na do niego przejœæ wlikaj¹c na zak³adkê na górze. W interfejsie mamy do wpisania nazwê datasetu, z której bêdziemy korzystaæ. Po wpisaniu poprawnej zostanie wypisany znajduj¹cy siê w niej zbior danych. Poni¿ej znajduje siê przycisk do uruchomienia algorytmu, który po krótkim przygotowaniu po wciœnieciu zacznie wykonywaæ algorytm. Poni¿ej znajduje siê lista wag wyliczonych przez algorytm, dla których wskaŸnik da³ najlepszy wynik na danym datasecie.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.7\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Zagregowany_interfejs}
+    }
+    % opis obrazka
+    \caption[Interfejs wskaŸnika zagregowanego]{Widok interfejsu wskaŸnika zagregowanego w trakcie wykonywania algorytmu genetycznego.}
+    % etykieta
+    \label{Interfejs wskaŸnika zagregowanego}
+  \end{center}
+\end{figure*}
 
 
 
