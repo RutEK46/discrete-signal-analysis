@@ -55,36 +55,38 @@ Poni¿ej zosta³y zaprezentowane wybrane uniwersalne narzêdzia do analizy sygna³ów
 
 \autsubsection{Odchylenie standardowe}{Mateusz Rutkiewicz}
 \subsubsection{opis}
-Odchylenie standardowe jest miar¹ rozrzucenia próbek. Informuje nas, jak bardzo próbki s¹ oddalone od œredniej. Im bli¿ej wartoœci $0$, tym bli¿ej wszystkim próbk¹ do œredniej. Odchylenie standardowe jest bardzo czêsto stosowane w probabilistyce, gdzie pozwala obliczyæ oczekiwany b³¹d wynikaj¹cy z losowoœci danych. Samo odchylenie standardowe wraz ze œredni¹ jest wystarczaj¹ce do jednoznacznego opisania dowolnego rozk³adu Gaussa prawdopodobieñstwa, chocia¿ zazwyczaj stosuje siê œredni¹ oraz wariancjê (kwadrat odchylenia standardowego). W analizie technicznej znajduje swoje zastosowanie we Wstêgach Bollingera, gdzie jest u¿ywane jako krocz¹ce odchylenie standardowe (podobnie jak krocz¹ca œrednia wy¿ej) i pomaga wykrywaæ szczyty i do³ki cenowe.
+Odchylenie standardowe jest miar¹ rozrzucenia próbek. Informuje nas, jak bardzo próbki s¹ oddalone od œredniej. Im bli¿ej wartoœci $0$, tym bli¿ej wszystkim próbkom do œredniej. Odchylenie standardowe jest bardzo czêsto stosowane w probabilistyce, gdzie pozwala obliczyæ oczekiwany b³¹d wynikaj¹cy z losowoœci danych. Samo odchylenie standardowe wraz z wartoœci¹ œredni¹ jest wystarczaj¹ce do jednoznacznego okreœlenia funkcji gêstoœci prawdopodobieñstwa dla rozk³adu Gaussa, chocia¿ zazwyczaj stosuje siê œredni¹ oraz wariancjê (kwadrat odchylenia standardowego). W analizie technicznej znajduje swoje zastosowanie np. we Wstêgach Bollingera, gdzie jest u¿ywane jako krocz¹ce odchylenie standardowe (podobnie jak krocz¹ca œrednia opisana wy¿ej) i pomaga wykrywaæ szczyty i do³ki cenowe.
 \subsubsection{zasady dzia³ania}
 Wzór na odchylenie standardowe to:
 \begin{equation}
 \sigma = \sqrt{\frac{1}{n}\sum_{i = 0}^{n - 1}(X_i - SMA)^2}
 \end{equation}
-W przypadku analizy technicznej, odchylenie standardowe mo¿e siê pojawiæ jako krocz¹ce odchylenie standardowe $\sigma_n$, które jest podobne do œredniej krocz¹cej. Wartoœæ krocz¹cego odchylenia standardowego w danym miejsu to odchylenie standardowe z $n$ ostatnich próbek.
+W przypadku analizy technicznej, odchylenie standardowe mo¿e siê pojawiæ jako krocz¹ce odchylenie standardowe $\sigma_n$, które jest zbli¿one do definicji œredniej krocz¹cej. Wartoœæ krocz¹cego odchylenia standardowego w danym miejsu to odchylenie standardowe z $n$ ostatnich próbek.
 
-Dla sygna³u, który ma wszystkie próbki takie same, co oznacza, ¿e i œrednia tego sygna³u jest taka sama, kwadrat ró¿nicy we wzorze wyniesie $0$ dla ka¿dej próbki, co sprawi, ¿e odchylenie standardowe wyniesie $0$. Oznacza to kompletny brak rozrzucenia danych i jest to jedyny przypadek, dla którego odchylenie standardowe mo¿e wynieœæ $0$.
+Dla sygna³u, który ma wszystkie próbki takie same, co oznacza, ¿e i œrednia tego sygna³u jest taka sama, kwadrat ró¿nicy we wzorze wyniesie $0$ dla ka¿dej próbki, co sprawi, ¿e odchylenie standardowe wyniesie $0$. Oznacza to brak rozrzucenia danych i jest to jedyny przypadek, dla którego odchylenie standardowe mo¿e wynieœæ $0$.
 
 
 \autsubsection{Pochodne}{Mateusz Rutkiewicz}
 \subsubsection{opis}
-Pochodna funkcji jest podstawowych pojêæ w analizie matematycznej opisuj¹ce szybkoœci wzrostu funkcji w danym momencie. Ma swoje zastosowanie nawet w najbardziej podstawowych pojêciach fizycznych, np. prêdkoœæ jest pochodn¹ po³o¿enia, czyli opisuje zmianê po³o¿enia, przyspieszenie jest pochodn¹ prêdkoœci, czyli opisuje zmianê prêdkoœci, itp.
+Pochodna funkcji jest jednym z podstawowych pojêæ w analizie matematycznej. Opisuje ona szybkoœci wzrostu funkcji w danym momencie. Ma swoje zastosowanie nawet w najbardziej podstawowych pojêciach fizycznych, np. prêdkoœæ jest pochodn¹ po³o¿enia, czyli opisuje zmianê po³o¿enia, przyspieszenie jest pochodn¹ prêdkoœci, czyli opisuje zmianê prêdkoœci, itp.
 
 \subsubsection{zasady dzia³ania}
-Pochodna $f^\prime(x)$ jest liczona jako ró¿nica pomiêdzy wartoœci¹ $f(x)$ w dwóch ró¿nych punktach podzelon¹ przez odleg³oœæ miêdzy tymi punktami $h$ dla $h$ d¹rz¹cego do $0$.
+Pochodna $f^\prime(x)$ jest liczona jako ró¿nica pomiêdzy wartoœci¹ $f(x)$ w dwóch ró¿nych punktach podzelona przez odleg³oœæ miêdzy tymi punktami $h$ dla $h$ d¹¿¹cego do $0$.
 \begin{equation}
 f^\prime(x) = \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}
 \end{equation}
-Innym sposobem na zapisanie pochodnej jest postaæ $\frac{df(x)}{dx}$, która pozwala na przeprowadzanie bardziej z³o¿onych operacji na pochodnych (np. w równaniach ró¿niczkowych). $dx$ pozwala nas ³atwo poinformowaæ, która zmienna jest operatorem w pochodnej. T¹ postaæ mo¿na bardzo ³atwo wykorzystaæ do udowodnienia pochodnej na funkcje z³o¿on¹, które mówi, ¿e pochodna funkcji z³o¿onej to pochodna funkcji razy pochodna wnêtrza tej funkcji. WeŸmy np. funkcjê z³o¿on¹ $g(f(x))$. Pochodn¹ tej funkcji $\frac{dg(f(x))}{dx}$ mo¿na rozbiæ w nastêpuj¹cy sposób:
+W praktyce stosuje siê bardziej zwiêz³y zapis w postaci $\frac{df(x)}{dx}$, która umo¿liwia przeprowadzanie bardziej z³o¿onych operacji na pochodnych (np. w równaniach ró¿niczkowych). $dx$ informuje nas, która zmienna jest operatorem w pochodnej. 
+
+Wzór na pochodn¹ funkcji z³o¿onej mo¿na sformu³owaæ korzystaj¹c z powy¿ej opisanej postaci pochodnej. Pochodna funkcji z³o¿onej to pochodna funkcji razy pochodna wnêtrza tej funkcji. WeŸmy np. funkcjê z³o¿on¹ $g(f(x))$. Pochodn¹ tej funkcji $\frac{dg(f(x))}{dx}$ wara¿a siê wzorem:
 \begin{equation}
 \frac{dg(f(x))}{dx} = \frac{dg(f(x))}{df(x)} \cdot \frac{df(x)}{dx}
 \end{equation}
-Wracaj¹c do sposobu w jaki zapisujemy pochodn¹, drugi sposób pozwala te¿ na rozró¿nianie zmiennych w pochodnych funkcji wielu zmiennych, np. $f(x, y)$. Tego typu pochodne nazywa siê pochodnymi cz¹stkowymi i zamiast $d$ we wzorze u¿ywa siê $\partial$. Pochodne cz¹stkowe funkcji $f(x, y)$ zapisuje siê w nastêpuj¹cy sposób:
+Wracaj¹c do sposobu w jaki zapisujemy pochodn¹, drugi sposób pozwala te¿ na rozró¿nianie zmiennych w pochodnych funkcji wielu zmiennych, np. $f(x, y)$. Tego typu pochodne nazywa siê pochodnymi cz¹stkowymi. Pochodne cz¹stkowe funkcji $f(x, y)$ zapisuje siê w nastêpuj¹cy sposób:
 \begin{equation}
 \frac{\partial f(x, y)}{\partial x}, \frac{\partial f(x, y)}{\partial y}.
 \end{equation}
 
-W przypadku pochodnych dyskretnych nie mo¿emy liczyæ tak poprostu granicy. Zamiast tego liczymi pochodn¹ jako ró¿nicê miêdzy próbkami, które mamy, podzielon¹ przez odleg³oœæ miêdzy tymi próbkami. Najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹, jako ¿e jest on bardzo prosty do zaimplementowania, w którym to sprawdzamy ró¿nicê pomiêdzy próbk¹ odrobinê z ty³u oraz próbk¹ odrobinê z przodu oraz dzielimy przez odleg³oœæ pomiêdzy tymi próbkami. W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹, gdzie jako ¿e niedysponujemy próbk¹ z lewej strony, u¿ywamy próbki, dla której liczymy pochodn¹. Analogicznie dla pochodnej na koñcu sygna³u stosujemy pochodn¹ lewostronn¹, gdzie prawa próbka jest zastêpowana aktualn¹ próbk¹. Wzory:
+W przypadku pochodnych dyskretnych nie mo¿na tak ³atwo policzyæ pochodnej przy $dx$ zmierzaj¹cym do $0$. Zamiast tego liczy siê pochodn¹ jako ró¿nicê miêdzy próbkami, które mamy, podzielon¹ przez odleg³oœæ miêdzy tymi próbkami. Najczêœciej stosuje siê wzór na pochodn¹ œrodkow¹, jako ¿e jest on bardzo prosty do zaimplementowania. Sprawdzamy w nim ró¿nicê pomiêdzy próbk¹ odrobinê z ty³u oraz próbk¹ odrobinê z przodu oraz dzielimy przez odleg³oœæ pomiêdzy tymi próbkami. W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹, czyli zastêpujemy próbkê z lewej strony próbk¹, dla której liczymy pochodn¹. Analogicznie dla pochodnej na koñcu sygna³u stosujemy pochodn¹ lewostronn¹, gdzie prawa próbka jest zastêpowana aktualn¹ próbk¹. Wyra¿a siê to we wzorach:
 \begin{equation}
 f^\prime(x_n) = \frac{f(x_{n+1}) - f(x_{n-1})}{x_{n+1} - x_{n-1}}
 \end{equation}
@@ -105,19 +107,19 @@ Wzory te mog¹ byæ tak¿e stosowane dla pochodnych cz¹stkowych, gdzie liczymy poch
 
 \autsubsection{Ca³kowanie}{Mateusz Rutkiewicz}
 \subsubsection{opis}
-Ca³kowanie funkcji najczêœciej jest przedstawiane po prostu jako odwrotnoœæ pochodnej. Jako, ¿e jedn¹ z jego interpretacji jest pole pod wykresem, mog¹ byæ stosowane w matematyce do obliczania pól figur opisanych za pomoc¹ funkcji matematycznych.
+Ca³kowanie funkcji najczêœciej jest przedstawiane po prostu jako operacja odwrotna do ró¿niczkowania. Jako, ¿e jedn¹ z interpretacji ca³ki jest pole pod wykresem funkcji, mo¿e ona byæ stosowana w matematyce do obliczania pól figur opisanych za pomoc¹ funkcji matematycznych.
 \subsubsection{zasady dzia³ania}
-Je¿eli funckja $F(x)$ jest ca³k¹ funkcji $f(x)$, to $f(x) = \frac{F(x)}{dx}$. Poniewa¿ dodanie do funkcji $F(x)$ wartoœci sta³ej nie wp³ywa na wynik pochodnej, stosuje siê podzia³ na ca³ki nieoznaczone i oznaczone. Ca³kê nieoznaczon¹ funkcji $f(x)$ zapisuje siê wzorem:
+Je¿eli funkcja $F(x)$ jest ca³k¹ funkcji $f(x)$, to $f(x) = \frac{dF(x)}{dx}$. Poniewa¿ dodanie do funkcji $F(x)$ wartoœci sta³ej nie wp³ywa na wynik pochodnej, stosuje siê podzia³ na ca³ki nieoznaczone i oznaczone. Ca³kê nieoznaczon¹ funkcji $f(x)$ zapisuje siê wzorem:
 \begin{equation}
 F(x) = \int f(x) dx,
 \end{equation}
-gdzie do wyniku ca³ki dopisuje siê sta³¹ zapisan¹ czêsto symbolem $c$, poniewa¿ jak ju¿ wczeœniej wspomniano sta³a wartoœæ nie ma wp³ywu operacjê odwrotn¹ do ca³kowania, czyli prawd¹ jest, ¿e $f(x) = \frac{F(x) + c}{dx}$. Drugi rodzaj ca³ki to ca³ka oznaczona, która jest ró¿nic¹ ca³ek nieoznaczonych pomiêdzy wartoœciami wartoœciami $a$ oraz $b$. Ca³kê oznaczon¹ zapiuje siê wzorem:
+gdzie do wyniku ca³ki dopisuje siê sta³¹ oznaczon¹ czêsto symbolem $c$, poniewa¿ jak ju¿ wczeœniej wspomniano sta³a wartoœæ nie ma wp³ywu operacjê odwrotn¹ do ca³kowania, czyli prawd¹ jest, ¿e $f(x) = \frac{F(x) + c}{dx}$. Drugi rodzaj ca³ki to ca³ka oznaczona, która jest ró¿nic¹ ca³ek nieoznaczonych pomiêdzy wartoœciami wartoœciami $a$ oraz $b$. Ca³kê oznaczon¹ zapisuje siê wzorem:
 \begin{equation}
 \int_a^b f(x) dx = F(b) - F(a)
 \end{equation}
-W przypadku ca³ki oznaczonej niestosuje siê ju¿ sta³ej $c$, poniewa¿ jest taka sama dla $F(b)$ oraz $F(a)$, a przez odejmowanie we wzorze skraca siê. Mo¿na tutaj zauwa¿yæ, ¿e wynikiem ca³ki oznaczonej jest jakaœ wartoœæ bêd¹ca wynikiem odejmowania, a w ca³ce nieoznaczonej by³a to funkcja $F(x)$.
+W przypadku ca³ki oznaczonej nie stosuje siê ju¿ sta³ej $c$, poniewa¿ jest taka sama dla $F(b)$ oraz $F(a)$, a przez odejmowanie we wzorze skraca siê. Mo¿na tutaj zauwa¿yæ, ¿e wynikiem ca³ki oznaczonej jest wartoœæ bêd¹ca wynikiem odejmowania, a w ca³ce nieoznaczonej by³a to funkcja $F(x)$.
 
-W ca³kowaniu dyskretnym mo¿emy mówiæ jedynie o ca³kach oznaczonych, gdzie bardzo czêsto wykorzystuje siê interpretacjê ca³ki oznaczonej jako pola pod wykresem funkcji $f(x)$ pomiêdzy wartoœciami $a$ oraz $b$. Tutaj proponowane s¹ 2 proste sposoby na obliczanie przybli¿enia ca³ki: metoda prostok¹tów oraz metoda trapezów. Metoda prostok¹tów polega na obliczaniu pola prostok¹tów pomiêdzy próbkami i zsumowania tych pól, co daje w przybli¿eniu wynik ca³ki. Z tego powodu bardzo czêsto mówi siê, ¿e sumowanie zastêpuje ca³kowanie w obliczeniach na wartoœciach dyskretnych. Drugi sposób, to wyznaczanie pól trapezów pomiêdzy wartoœciami dyskretnymi, co daje zazwyczaj jeszcze lepsze przybli¿enie ni¿ metoda prostok¹tów. Poni¿ej s¹ wzory na ca³kê dyskretn¹ dla sygna³u $f(x)$ o $n$ próbkach, gdzie 2 pierwsze to metoda prostok¹tów, a trzeci to metoda trapezów:
+W ca³kowaniu dyskretnym mo¿emy mówiæ jedynie o ca³kach oznaczonych, gdzie bardzo czêsto wykorzystuje siê interpretacjê ca³ki oznaczonej jako pole powierzchni pod wykresem funkcji $f(x)$ pomiêdzy wartoœciami $a$ oraz $b$. Tutaj proponowane s¹ 2 proste sposoby na obliczanie przybli¿enia ca³ki: metoda prostok¹tów oraz metoda trapezów. Metoda prostok¹tów polega na obliczaniu pola prostok¹tów pomiêdzy próbkami i zsumowania tych pól, co daje w przybli¿eniu wynik ca³ki. Z tego powodu bardzo czêsto mówi siê, ¿e sumowanie zastêpuje ca³kowanie w obliczeniach na wartoœciach dyskretnych. Drugi sposób, to wyznaczanie pól trapezów pomiêdzy wartoœciami dyskretnymi, co daje zazwyczaj lepsze przybli¿enie ni¿ metoda prostok¹tów. Poni¿ej s¹ wzory na ca³kê dyskretn¹ dla sygna³u $f(x)$ o $n$ próbkach, gdzie 2 pierwsze to metoda prostok¹tów, a trzeci to metoda trapezów:
 \begin{equation}
 F(x) \approx \sum_{i=0}^{n - 2} (f(x_i) \cdot(x_{i+1} - x_i))
 \end{equation}
@@ -177,7 +179,7 @@ Dwa sposoby na obliczenie ca³ki metod¹ prostok¹tów wynikaj¹ z tego, ¿e wartoœæ j
       \includegraphics{rysunki/metoda_trapezow}
     }
     % opis obrazka
-    \caption[Ca³kowanie dyskretne metod¹ trapezów]{metoda trapezów - na wykresie mo¿na zauwa¿yæ, ¿e trapezy pokrywaj¹ siê idealnie z ca³¹ funkcj¹, jednak poniewa¿ sam wykres jest przybli¿eniem wartoœci pomiêdzy próbkami nie oznacza to, ¿e ca³ka jest liczona w sposób idealny.}
+    \caption[Ca³kowanie dyskretne metod¹ trapezów]{metoda trapezów - na wykresie mo¿na zauwa¿yæ, ¿e trapezy pokrywaj¹ siê z du¿¹ dok³¹dnoœci¹ z ca³¹ funkcj¹, jednak sam wykres jest przybli¿eniem wartoœci pomiêdzy próbkami. Oznacza to, ¿e wynik ca³kowania obarczony jest pewnym b³êdem.}
     % etykieta
     \label{Calkowanie dyskretne}
   \end{center}
