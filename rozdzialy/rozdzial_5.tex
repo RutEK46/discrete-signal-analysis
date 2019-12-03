@@ -1,0 +1,226 @@
+\chapter{Prezentacja aplikacji}
+\autsection{Wykorzystywane narzêdzia i biblioteki}{Mateusz Rutkiewicz}
+\subsection{Pycharm for Anaconda}
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/PyCharm_for_Anaconda}
+    }
+    % opis obrazka
+    \caption[PyCharm for Anaconda]{Grafika ze strony producenta.}
+    % etykieta
+    \label{PyCharm for Anaconda}
+  \end{center}
+\end{figure*}
+PyCharm jest IDE stworzonym dla deweloperów Python. Pozwala na analizowanie kodu Pythona na bierz¹co w celu pomagania programiœcie w pisaniu kodu oraz, je¿eli jest w stanie to wykryæ, informuje go o potencjalnych b³êdach, które móg³ pope³niæ. Jest dostêpne w wersji Professional oraz Community, z których druga jest darmowa.
+\subsection{Jupyter Notebook}
+Jupyter Notebook jest narzêdziem dostarczaj¹cym swój w³asny format plików pozwalaj¹ce na tworzenie tych plików, ich edycjê oraz uruchamianie w œrodowisku internetowym. Jupyter Notebook jest czêsto stosowany do prototypowania kodu napisanego w Python oraz testowania tego kodu oraz jako oddzielne GUI dla aplikacji. Plik posiada strukturê komórkow¹, gdzie ka¿da komórka zawiera kod napisany w Python, który mo¿na uruchomiæ i zobaczyæ wyniki. Komórki po uruchomieniu zapamiêtuj¹ u¿ywane zmienne, przez co nastêpne komórki mog¹ je wykorzystaæ. W ten sposób mo¿na ³atwo napisaæ prototyp kodu z dziel¹c poszczególne komponenty na komórki, a nastêpnie testowaæ pojedyncz¹ komórkê bez koniecznoœci uruchamiania ca³ego kodu.
+\subsection{Numpy}
+Numpy jest bibliotek¹ do obliczeñ numerycznych zawieraj¹c¹ wiele funkcjonalnoœci znanych ze œrodowiska Matlab. Pozwala na wygodne tworzenie wielowymiarowych macierzy wraz z mo¿liwoœcia wykonywania operacji na nich.
+\subsection{Numba}
+Numba jest bibliotek¹ dostêpn¹ w œrodowisku Anaconda pozwalaj¹c¹ na przyspieszenie kodu napisanego w Python porzez kompilatory JIT (Just-In-Time). Nie wspiera wszystkich funkcjonalnoœci jêzyka Python, zato w swoich funkcjonalnoœciach szczególnie uwglêdnia bibliotekê Numpy. Numba posiada te¿ specjalny JIT dla cuda (dla kart graficnych Nvidii) pozwalaj¹cy na skompilowanie kodu napisanego w Python kod wykonywalny na karcie graficznej.
+\subsection{Cudatoolkit}
+Cudatoolkit jest potrzebny do uruchomienia kompilatora JIT dla cudy w bibliotece Numba. Dostarcza tej bibliotece mo¿liwoœæ komunikowania siê z kart¹ graficzn¹. Z poziomu programisty jest nie wymaga nic poza zainstalowaniem przez œrodowisko Anacondy.
+\subsection{Pandas}
+Pandas jest bibliotek¹ dostarczaj¹c¹ struktury danych pozwalaj¹c¹ w wygodny sposób operowaæ na danych. Jej g³ówn¹ zalet¹ jest obs³uga plików z wartoœciami oddzielonymi przecinkami, czyli plików csv (comma-separeted values).
+\subsection{Plotly}
+Plotly jest bibliotek¹ pozwalaj¹c¹ na tworzenie wykresów w aplikacjach w œrodowisku internetowym (takim jak Jupyter).
+\section{Instrukcja}
+\autsubsection{Wymagania sprzêtowe}{Agnieszka Wojciechowska}
+\subsubsection{Minimalne wymagania sprzêtowe producenta modu³u cuda w bibliotece Numba:}
+\begin{itemize}
+\item karta graficzna: NVIDIA z mo¿liwoœciami obliczeniowymi 2.0 lub wiêksze [22]
+\end{itemize}
+
+\vspace{0.3cm}
+\subsubsection{Konfiguracja sprzêtowa, na której by³y wykonywane testy:}
+\begin{itemize}
+\item system operacyjny: Windows 8.1
+\item procesor: Intel Core i5-4200H
+\item 8 GB RAM
+\item karta graficzna: NVIDIA GeForce GTX 860M
+\end{itemize}
+
+\autsubsection{Instalacja i konfiguracja}{Agnieszka Wojciechowska}
+\subsubsection{Instalacja}
+Dla prawid³owego dzia³ania aplikacji nale¿y zainstalowaæ œrodowisko Anaconda, jeœli nie ma go na danym urz¹dzeniu. W tym celu nale¿y [23]:
+\begin{itemize}
+\item Instalator mo¿na pobraæ na przyk³ad ze strony Anaconda.
+\item Nastepnie nale¿y wybraæ odpowiedni¹ wersjê instalatora odpowiedni¹ dla systemu operacyjnego na u¿ywanym komputerze.
+\item Nale¿y pobraæ wersjê Python 3.5 lub nowsz¹.
+\end{itemize}
+\vspace{0.3cm}
+
+\subsubsection{Konfiguracja}
+Po zainstalowaniu œrodowiska Anaconda, nale¿y skonfigurowaæ œrodowisko Anaconda za pomoc¹ narzêdzia ''Anaconda Prompt'' dostarczanego w instalatorze Anacond [23]:
+\begin{itemize}
+\item Nale¿y najpierw zaktualizowaæ narzêdzie conda za pomoc¹ polecenia: \\ ''conda update conda''.
+\item Nale¿y najpierw zaktualizowaæ narzêdzie jupyter za pomoc¹ polecenia: \\ ''conda update jupyter''.
+\item Nastepnie nale¿y zainstalowaæ wymagane biblioteki. Miêdzy innymi numpy, pandas, \\ matplotlib za pomoc¹ polecenia przyk³adowo ''conda install numpy''.
+\item Nale¿y tak¿e zainstalowaæ cudatoolkit. W tym celu nale¿y u¿yæ polecenia \\ ''conda install -c anaconda cudatoolkit''.
+\end{itemize}
+
+\autsubsection{Instrukcja obs³ugi}{Agnieszka Wojciechowska, Mateusz Rutkiewicz}
+\subsubsection{Uruchomienie}
+Gdy œrodowisko bêdzie ju¿ przygotowane, nastêpnym krokiem bêdzie uruchomienie narzêdzia jupyter notebook. W tym celu nale¿y w narzêdziu ''Anaconda Prompt'' wpisaæ polecenie ''jupyter notebook''. Efektem jest uruchomienie notatnika w domyœlnej przegl¹darce internetowej.
+
+Po uruchomieniu œrodowiska zostaje wyœwietlony ekran g³ówny notatnika jupyter. Nale¿y przejœæ do lokalizacji katalogu, w którym znajduje siê projekt. Nastêpnie nale¿y wybraæ plik ''main.ipynb''. Efektem tego dzia³ania powinno byæ uruchomienie aplikacji w drugiej karcie przegl¹darki. Domyœlnie aplikacja jest otwierana na pierwszej karcie aplikacji, czyli na interfejsie standardowym.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/menu_jupyter}
+    }
+    % opis obrazka
+    \caption[Menu jupyter]{Ekran notatnika jupyter z katalogiem projektu, w którym znajduje siê plik uruchomieniowy main.ipynb.}
+    % etykieta
+    \label{Menu jupyter}
+  \end{center}
+\end{figure*}
+\newpage
+\subsubsection{Interfejs standardowy}
+
+Interfejs standardowy s³u¿y do analizowania sygna³ów poprzez dostêpne w interfejsie metody.
+
+Interfejs standardowy bêdzie uruchomiony od razu po w³¹czeniu aplikacji, a w nawigowania pomiêdzy innymi interfejsami mo¿na do niego wróciæ klikaj¹c na zak³adjê w panelu górnym w aplikacji. W panelu dostêpne s¹ 4 zak³adki (Signals, X, Y, Transformation). Signals s³u¿y do wybrania analizowanego sygna³u, X pozwala na wybranie wartoœci X dla danego sygna³u, Y dla wartoœci Y, a Transformation na wybranie narzêdzia do analizy. Po dokonaniu wyboru na dole powinien pojawiæ siê wykres sygna³u oraz wybranej transformacji.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Standard_interfejs1}
+    }
+    % opis obrazka
+    \caption[Interejs standardowy 1]{Wygl¹d interfejsu standardowego po wybraniu dostêpnego sygna³u oraz transformacji.}
+    % etykieta
+    \label{Interejs standardowy 1}
+  \end{center}
+\end{figure*}
+
+Dla sygna³ów, do których analizy wygodniej jest mieæ sygna³ i transformacjê na oddzielnym wykresie istnieje mo¿liwoœæ odznaczenia opcji One Plot, która jest domyœlnie zaznaczona. W ten sposób zostan¹ wyœwietlone 2 oddzielne wykresy.
+\newpage
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{1\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Standard_interfejs2}
+    }
+    % opis obrazka
+    \caption[Interejs standardowy 2]{Wygl¹d interfejsu standardowego po wybraniu dostêpnego sygna³u oraz transformacji po odznaczeniu opcji One Plot.}
+    % etykieta
+    \label{Interejs standardowy 2}
+  \end{center}
+\end{figure*}
+
+\newpage
+\subsubsection{Interfejs inwestora}
+
+Interfejs inwestora s³u¿y do podsumowania i interpretacji wartoœci wskaŸników na dany wybrany dzieñ za pomoc¹ oceny ''buy / sell / neutral''.
+
+Do interfejsu inwestora mo¿na przejœæ klikaj¹c na zak³adkê w panelu górnym w aplikacji. Nastêpnie zostanie wyœwietlone okno przedstawione na rys. 5.2. Do wyboru pliku wejœciowego przeznaczona jest lista rozwijana ''Signals''. Po poprawnym wczytaniu pliku dostêpny jest wybór ceny, która ma byæ brana pod uwagê w interpretacji wskaŸników, domyœlnie jest to cena otwarcia. Nastêpnie mo¿na te¿ wybraæ, który dzieñ ma byæ analizowany. Domyœlnym wyborem jest najnowszy dzieñ z wczytanej bazy w pliku.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.8\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_decisions_30_10}
+    }
+    % opis obrazka
+    \caption[Interfejs inwestora - decyzje]{Ekran wycinku interfejsu inwestora z decyzjami wskaŸników na dzieñ 30.10.2019.}
+    % etykieta
+    \label{Interfejs inwestora - decyzje}
+  \end{center}
+\end{figure*}
+
+Dodatkowo poni¿ej interpretacji wskaŸników w interfejsie inwestora jest równie¿ przeprowadzana symulacja inwestycji. Przedzia³ czasowy jest wczytywany z pliku zadanego w ''Signals'', a decyzje o inwestycji s¹ podejmowane zgodnie z sugerowanymi decyzjami inwestycyjnymi przez poszczególne wskaŸniki. Pocz¹tkowy kapita³ to 2000 jednostek. Dodatkowo przyjête jest uproszczenie, za³o¿enie w postaci mo¿liwoœci kupna za ca³¹ kwotê oraz sprzeda¿y wszystkich akcji na raz.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.7\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_inwestycje_30_10}
+    }
+    % opis obrazka
+    \caption[Interfejs inwestora - symulacja inwestycji]{Ekran wycinku interfejsu inwestora z symulacj¹ inwestycji na dzieñ 30.10.2019.}
+    % etykieta
+    \label{Interfejs inwestora 2}
+  \end{center}
+\end{figure*}
+
+Poni¿ej zosta³ zamieszczony widok ca³ego interfejsu inwestora dla porównania z innego dnia. Mo¿na zauwa¿yæ, ¿e decyzje nieco siê ró¿ni¹, mimo ¿e jest to ró¿nica jednego dnia. Mianowicie wskaŸnik oscylator stochastyczny wkroczy³ w strefê wyprzedania.
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{01\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/interfejs_inwestora_29_10}
+    }
+    % opis obrazka
+    \caption[Interfejs inwestora]{Ekran interfejsu inwestora z symulacj¹ inwestycji na dzieñ 29.10.2019.}
+    % etykieta
+    \label{Interfejs inwestora}
+  \end{center}
+\end{figure*}
+
+\newpage
+\subsubsection{Interfejs zagragowanego wskaŸnika}
+
+Interfejs zagregowanego wskaŸnika pozwala na œledzenie wykonywania algorytmu genetycznego.
+
+Mo¿na do niego przejœæ wlikaj¹c na zak³adkê na górze. W interfejsie mamy do wpisania nazwê datasetu, z której bêdziemy korzystaæ. Po wpisaniu poprawnej zostanie wypisany znajduj¹cy siê w niej zbior danych. Poni¿ej znajduje siê przycisk do uruchomienia algorytmu, który po krótkim przygotowaniu po wciœnieciu zacznie wykonywaæ algorytm. Poni¿ej znajduje siê lista wag wyliczonych przez algorytm, dla których wskaŸnik da³ najlepszy wynik na danym datasecie.
+
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+    \resizebox{0.7\textwidth}{!}{
+      % wstawienie obrazka
+      \includegraphics{rysunki/Zagregowany_interfejs}
+    }
+    % opis obrazka
+    \caption[Interfejs wskaŸnika zagregowanego]{Widok interfejsu wskaŸnika zagregowanego w trakcie wykonywania algorytmu genetycznego.}
+    % etykieta
+    \label{Interfejs wskaŸnika zagregowanego}
+  \end{center}
+\end{figure*}
+
+
+

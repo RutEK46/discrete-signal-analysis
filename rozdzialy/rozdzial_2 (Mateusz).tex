@@ -1,0 +1,90 @@
+\chapter{Sygna³y cyfrowe}
+\section{Wprowadzenie}
+W tym rozdziale trochê teorii - czym s¹ sygna³y cyfrowe (w ogólnoœci - dyskretne). 
+
+\section{Narzêdzia}
+Poni¿ej zosta³y zaprezentowane podstawowe narzêdzia do analizy sygna³ów cyfrowych.
+\subsection{Œrednia krocz¹ca}
+\begin{figure*}[!h]
+  % wyœrodkowanie zawartoœci pola obrazka
+  \begin{center}
+    % okienko skaluj¹ce:
+    %  pierwszy argument szerokoœæ, drugi wysokoœæ,
+    %  jeden z nich mo¿e byæ zast¹piony ! - zachowanie proporcji obrazka
+    %  w taki sposób mo¿emy skalowaæ tak¿e inne obiekty np. tekst
+\subfloat[$EMA_5$]
+{
+    \resizebox{0.7\textwidth}{!}{
+      \includegraphics{rysunki/ema_5}
+    }
+}
+\newline
+\subfloat[$EMA_{20}$]
+{
+    \resizebox{0.7\textwidth}{!}{
+      \includegraphics{rysunki/ema_20}
+    }
+}
+\newline
+\subfloat[$EMA_{50}$]
+{
+    \resizebox{0.7\textwidth}{!}{
+      \includegraphics{Rysunki/ema_50}
+    }
+}
+\newline
+
+    % opis obrazka
+    \caption[Œrednia krocz¹ca]{Trzy powy¿sze wykres przedstawiaj¹ œredni¹ krocz¹c¹ $EMA_n$ dla parametrów 3, 20 oraz 50. Mo¿na zauwa¿yæ, ¿e im wiêkszy jest parametr $n$, tym wykres staje siê g³adszy.}
+
+    % etykieta
+    \label{Œrednia krocz¹ca}
+  \end{center}
+\end{figure*}
+Œrednia krocz¹ca jest jednym z czêœciej stosowanych narzêdzi w analizie technicznej, gdzie jej celem jest pokazanie trendu poprzez wyg³adzenie wykresu pozbywaj¹c siê krótkookresowych zmian i uwidaczniaj¹c bardziej te d³ugookresowe. Jej dzia³anie polega "kroczeniu" po wykresie i obliczaniu dla danego punktu na wykresie œredniej z ostatnich $n$ próbek.  W przypadku, gdy $n$ jest wiêksze ni¿ iloœæ ostatnich próbek, któr¹ dysponujemy, parametr $n$ jest zmniejszany w danym miejscu do iloœci dysponowanych ostatnich próbek. Oznacza to, ¿e np. dla pierwszej próbki liczymy œredni¹ ruchom¹ z jednej próbki, dla dwóch pierwszych próbek z dwóch, itd. a¿ do $n$-tej próbki, sk¹d liczymy ju¿ tylko dla $n$ ostatnich próbek. Dwie najbardziej popularne œrednie ruchome to prosta œrednia ruchoma SMA oraz wyk³adnicza œrednia ruchoma EMA. Wzory na nie to:
+\begin{equation}
+SMA_n(X) = \frac{1}{n}\sum_{i = 0}^{n - 1}X_i
+\end{equation}
+\begin{equation}
+EMA_n(X) = \sum_{i = 0}^{n - 1}((1 - \alpha)^iX_i) / \sum_{i = 0}^{n-1}(1 - \alpha)^i,
+\end{equation}
+gdzie: $n$ to liczba okresów, $\alpha = \frac{2}{n}$, a $X_i$ to wartoœæ z sprzed $i$ okresów.
+\subsection{Odchylenie standardowe}
+Odchylenie standardowe jest miar¹ rozrzucenia danych. Ma³a wartoœæ odchylenia standardowego oznacza, ¿e dane s¹ blisko œredniej. Wzór na odchylenie standardowe to:
+\begin{equation}
+\sigma = \sqrt{\frac{1}{n}\sum_{i = 0}^{n - 1}(X_i - SMA)^2}
+\end{equation}
+W przypadku analizy technicznej,  odchylenie standardowe mo¿e siê pojawiæ jako krocz¹ce odchylenie standardowe $\sigma_n$, które jest podobne do œredniej krocz¹cej. Wartoœæ krocz¹cego odchylenia standardowego w danym miejsu to odchylenie standardowe z $n$ ostatnich próbek.
+\subsection{Pochodne}
+Pochodna funkcji jest miar¹ szybkoœci wzrostu funkcji w danym momencie. Pochodn¹ funkcji $f(x)$ zapisuje siê jako $f^\prime(x)$ albo $\frac{f(x)}{dx}$. W przypadku pochodnych dyskretnych najczêœciej stotuje siê wzór na pochodn¹ œrodkow¹, jako ¿e jest on bardzo prosty do zaimplementowania, w którym to sprawdzamy ró¿nicê pomiêdzy próbk¹ odrobinê z ty³u oraz próbk¹ odrobinê z przodu oraz dzielimy przez odleg³oœæ pomiêdzy tymi próbkami. W przypadku pochodnej na pocz¹tku sygna³u stosuje siê pochodn¹ prawostronn¹, gdzie jako ¿e niedysponujemy próbk¹ z lewej strony, u¿ywamy próbki, dla której liczymy pochodn¹. Analogicznie dla pochodnej na koñcu sygna³u stosujemy pochodn¹ lewostronn¹, gdzie prawa próbka jest zastêpowana aktualn¹ próbk¹. Wzory:
+\begin{equation}
+f^\prime(x) = \frac{f(x + h) - f(x - h)}{2h}
+\end{equation}
+\begin{equation}
+f^\prime(x) = \frac{f(x + h) - f(x)}{h}
+\end{equation}
+\begin{equation}
+f^\prime(x) = \frac{f(x) - f(x - h)}{h}
+\end{equation}
+\subsection{Ca³kowanie}
+Ca³kowanie funkcji jest operacj¹ odwrotn¹ do pochodnej. Oznacza to, ¿e je¿eli funckja $F(x)$ jest ca³k¹ funkcji $f(x)$, to $f(x) = \frac{F(x)}{dx}$. Poniewa¿ dodanie do funkcji $F(x)$ wartoœci sta³ej nie wp³ywa na wynik pochodnej, stosuje siê podzia³ na ca³ki nieoznaczone i oznaczone. Ca³kê nieoznaczon¹ funkcji $f(x)$ zapisuje siê wzorem:
+\begin{equation}
+F(x) = \int f(x) dx,
+\end{equation}
+gdzie do wyniku ca³ki dopisuje siê sta³¹ zapisan¹ czêsto symbolem $c$, poniewa¿ jak ju¿ wczeœniej wspomniano sta³a wartoœæ nie ma wp³ywu operacjê odwrotn¹ do ca³kowania, czyli prawd¹ jest, ¿e $f(x) = \frac{F(x) + c}{dx}$. Drugi rodzaj ca³ki to ca³ka oznaczona, która jest ró¿nic¹ ca³ek nieoznaczonych pomiêdzy wartoœciami wartoœciami $a$ oraz $b$. Ca³kê oznaczon¹ zapiuje siê wzorem:
+\begin{equation}
+\int_a^b f(x) dx = F(b) - F(a)
+\end{equation}
+W przypadku ca³ki oznaczonej niestosuje siê ju¿ sta³ej $c$, poniewa¿ jest taka sama dla $F(b)$ oraz $F(a)$, a przez odejmowanie we wzorze skraca siê. Mo¿na tutaj zauwa¿yæ, ¿e wynikiem ca³ki oznaczonej jest jakaœ wartoœæ bêd¹ca wynikiem odejmowania, a w ca³ce nieoznaczonej by³a to funkcja $F(x)$.
+
+W ca³kowaniu dyskretnym mo¿emy mówiæ jedynie o ca³kach oznaczonych, gdzie bardzo czêsto wykorzystuje siê interpretacjê ca³ki oznaczonej jako pola pod wykresem funkcji $f(x)$ pomiêdzy wartoœciami $a$ oraz $b$. Tutaj proponowane s¹ 2 proste sposoby na obliczanie przybli¿enia ca³ki: metoda prostok¹tów oraz metoda trapezów. Metoda prostok¹tów polega na obliczaniu pola prostok¹tów pomiêdzy próbkami i zsumowania tych pól, co daje w przybli¿eniu wynik ca³ki. Z tego powodu bardzo czêsto mówi siê, ¿e sumowanie zastêpuje ca³kowanie w obliczeniach na wartoœciach dyskretnych. Drugi sposób, to wyznaczanie pól trapezów pomiêdzy wartoœciami dyskretnymi, co daje zazwyczaj jeszcze lepsze przybli¿enie ni¿ metoda prostok¹tów. Poni¿ej s¹ wzory na ca³kê dyskretn¹ dla sygna³u $f(x)$ o $n$ próbkach, gdzie 2 pierwsze to metoda prostok¹tów, a trzeci to metoda trapezów:
+\begin{equation}
+F(x) \approx \sum_{i=0}^{n - 2} (f(x_i) \cdot(x_{i+1} - x_i))
+\end{equation}
+\begin{equation}
+F(x) \approx \sum_{i=0}^{n - 2} (f(x_{i+1}) \cdot(x_{i+1} - x_i))
+\end{equation}
+\begin{equation}
+F(x) \approx \sum_{i=0}^{n - 2} (\frac{f(x_i) + f(x_{i+1})}{2} \cdot(x_{i+1} - x_i))
+\end{equation}
+Dwa sposoby na obliczenie ca³ki metod¹ prostok¹tów wynikaj¹ z tego, ¿e wartoœæ jednej próbki sygna³u (pierwsza $f(x_0)$ lub ostatnia $f(x_{n-1})$) jest nieu¿ywana, a w metodzie trapezów wykorzystujemy zawsze wszystkie próbki.

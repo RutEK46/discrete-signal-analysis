@@ -1,0 +1,54 @@
+\autchapter{Wstêp i cel pracy}{Agnieszka Wojciechowska}
+\section{Wprowadzenie do sygna³ów}
+
+Sygna³em nazywamy zmiennoœæ dowolnej mierzalnej wielkoœci w funkcji argumentu, którym najczêœciej jest czas. 
+
+Sygna³y mo¿na spotkaæ wszêdzie. Znajduj¹ one zastosowanie we wielu dziedzinach ¿ycia, od telekomunikacji, muzyki, elektryki a¿ po medycynê i astronomiê. Przyk³adowo w telekomunikacji sygna³y s¹ noœnikiem informacji systemach takich jak 5G, czy Wi-fi w centralach telefonicznych. Z kolei w medycynie s³u¿¹ do oceny stanu rytmu serca i wykrycia ewentualnych zaburzeñ za pomoc¹ badania elektrokardiografii. Wynikiem odczytu sygna³u jest krzywa, która odpowiada pe³nemu cyklowi serca, której interpretacji dokonuje lekarz. W podobny sposób w medycynie s¹ odczytywane tak¿e inne czynnoœci ¿yciowe, takie jak puls czy czynnoœci uk³adu nerwowego. Z kolei w elektronice sygna³y s¹ wykorzystywane do mierzenia wartoœci napiêcia elektrycznego w uk³adach elektronicznych. W motoryzacji sygna³y s¹ wykorzystywane do sterowania systemem wytrysku paliwa, a w ekonomii do badania zjawisk ekonomicznych, takich jak popyt czy poda¿. Sygna³y mo¿na te¿ spotkaæ na rynku gie³dowym, gdy inwestor analizuje wykresy kursu akcji. Wysy³ane i odbierane s¹ wtedy sygna³y kupna i sprzeda¿y. W przemyœle sygna³y s¹ u¿ywane przenosz¹ informacje o stanie urz¹dzeniami jak piece i roboty, ponadto s³u¿¹ te¿ do sterowania nimi. Sygna³y s³u¿¹ te¿ do ochrony przed wstrz¹sami sejsmologicznymi poprzez badanie energii masy. Podobnie w astronomii za pomoc¹ sygna³u przenoszone s¹ informacje o impulsach emitowanych przez obiekty pozaziemskie. Mo¿liwy jest wtedy miêdzy innymi odczyt jak szybko lub w jakim kierunku obiekt siê porusza. Co wiêcej, sygna³y s¹ równie¿ wykorzystywane w wojsku w systemach bezpieczeñstwa, nawigacji i ³¹cznoœci, a nawet w zdalnym sterowaniu maszynami bezza³ogowymi [3] [4].
+
+Istnieje bardzo du¿o narzêdzi do analizy danych. Systemy te zawieraj¹ ró¿ne wskaŸniki czyli narzêdzia, które s³u¿¹ do identyfikacji kierunku rozwoju cen akcji, tak zwanego trendu. W dostêpnych systemach najczêœciej u¿ywane s¹ te najbardziej popularne wœród inwestorów, gdzie mo¿na odczytaæ ich wykresy. Wreszcie mo¿na tak¿e znaleŸæ zak³adki z odpowiedni¹ interpretacj¹ wartoœci wskaŸników i ocen¹ o kupnie, b¹dŸ sprzeda¿y generowanej przez dany wskaŸnik. S¹ to jednak prezentowane pojedyncze decyzje w postaci listy wskaŸników wraz z ich ocen¹.
+
+Bior¹c pod uwagê powy¿sze fakty, mo¿na stwierdziæ, ¿e analiza sygna³ów jest tematem kluczowym we wspó³czesnej nauce i in¿ynierii.
+
+\section{Cel pracy, za³o¿enia}
+Celem projektu jest stworzenie uniwersalnego, zaawansowanego narzêdzia w œrodowisku python do analizy sygna³ów dyskretnych za pomoc¹ szerokiego spektrum narzêdzi numerycznych. Narzêdzia te mog¹ byæ stosowane do analizy sygna³ów we wszystkich wymienionych wczeniej obszarach nauki i in¿ynierii.
+
+System umo¿liwia wczytywanie plku z rozszerzeniem csv z danymi opisuj¹cymi sygna³. Do ich analizy mo¿liwy jest wybór odpowiedniego narzêdzia takiego jak szybka transformacja Fouriera, pochodne, ca³kowanie, czy te¿ odchylenie standardowe. Osoba obs³uguj¹ca system ma mo¿liwoœæ odczytania wyników analizy na wykresie. W narzêdziu mo¿liwe jest dynamiczne zarz¹dzanie takim wykresem przez u¿ytkownika poprzez dowolne przybli¿anie oraz dodawanie/ usuwanie wybranych parametrów wykresu. 
+
+Stworzone œrodowisko zawiera równie¿ narzêdzia przeznaczone do analizy wykresów gie³dowych. Na podstawie notowañ indeksów gie³dowych, czyli wycen akcji wybranych spó³ek gie³dowych wyliczane s¹ wartoœci wskaŸników, które s¹ wizualizowane na dynamicznie zarz¹dzanym przez u¿ytkownika wykresie. Osoba obs³uguj¹ca system ma mo¿liwoœæ odczytania interpretacji wskaŸników, równie¿ zagregowanej decyzji z dowolnego dnia z przesz³oœci, a¿ do najnowszego. Mo¿liwe jest równie¿ przeprowadzenie symulacji inwestycji z decyzjami sugerowanymi przez system na wczytanych danych historycznych. Ta funkcjonalnoœæ mo¿e byæ przydatna przyk³adowo w poznawaniu nowego indeksu gie³dowego. 
+
+W trakcie gry gie³dowej liczy siê czas, zw³aszcza przy inwestycjach krótkoterminowych od inwestora wymagane jest podjêcie szybkiej decyzji. Cech¹ która wyró¿nia ten projekt, sporód innych systemów w analizie technicznej jest wprowadzenie usprawnienia w postaci zaregowanego wskaŸnika do komponentu zwi¹zanego z analiz¹ techniczn¹. System wspomaga decyzjê u¿ytkownika w postaci podsumowania ocen wszystkich u¿ytych wskaŸników do jednej czytelnej oceny, co znacznie usprawnia podjêcie decyzji.
+
+Istotnymi za³o¿eniami projektu jest przeznaczenie systemu dla zaawansowanych inwestorów. W trakcie inwestycji istotna jest znajomoœæ podstawowej wiedzy na temat dostêpnych narzêdzi i umiejêtnoœæ odczytania przedstawionych wykresów. Warto nadmieniæ, ¿e wspomniane narzêdzia pochodz¹ z obszaru analizy technicznej. Do skutecznego inwestowania, oprócz narzêdzi z tego obszaru zaleca siê równie¿ u¿ywania wiedzy i informacji o sytuacji gospodarczej.
+
+\section {Podzia³ pracy}
+\subsubsection{Agnieszka Wojciechowska}
+\begin{itemize}
+\item Aplikacja: 
+\subitem interfejs inwestora, 
+\subitem wskaŸnik: oscylator stochastyczny, 
+\subitem modu³ interpretacji wskaŸników: MACD, wstêgi Boillingera, oscylator stochastyczny \\
+
+\item Tekst pracy: streszczenie, abstract, rozdzia³ 1, punkty 2.1, 2.2.1, 4.1, 4.2, 4.4, 5.2.1, 5.2.2, 5.2.3 - uruchomienie i interfejs inwestora, 6.1
+\end{itemize}
+\subsubsection{Mateusz Rutkiewicz}
+\begin{itemize}
+\item Aplikacja:
+\subitem interfejs podstawowy, 
+\subitem wskaŸnik: MACD, wstegi Boillingera, zagregowany wskaŸnik, 
+\subitem operacje matematyczne \\
+
+\item Tekst pracy: rozdzia³ 3, punkty 2.2.1 - 4, 4.3, 4.5, 4.6, 5.1, 5.2.3 - interfejs standardowy i zagregowanego wskaŸnika, 6.2
+\end{itemize}
+\newpage
+\section{Struktura pracy}
+Omawiana praca dyplomowa zosta³a podzielona na szeœæ rozdzia³ów, które poni¿ej zostan¹ krótko przybli¿one.
+
+Drugi rozdzia³ zawiera omówienie teorii sygna³ów cyfrowych, która jest u¿ywana w projekcie. Przybli¿one zosta³y podstawowe narzêdzia takie jak œrednia krocz¹ca i odchylenie standardowe.
+
+Trzeci rozdzia³ zosta³ w ca³oœci poœwiêcony transformacji Fouriera, która jest jedn¹ z najpowszechniejszych metod analizy sygna³ów i znajduje zastosowanie miêdzy innymi w interpretacji czêstotliwoœci dŸwiêku.
+
+Kolejny rozdzia³ omawia szczegó³owo pojêcie analizy technicznej poprzez prezentacjê zasad dzia³ania zastosowanych w projekcie wskaŸników wraz z omówieniem zaproponowanego wskaŸnika i jego wyników. Na zakoñczenie przedstawiono testy symulacji inwestycji z udzia³em omówionych wskaŸników oraz wnioski z otrzymanych wyników.
+
+Pi¹ty rozdzia³, pi¹ta przedstawia prezentacjê interfejsu stworzonego narzêdzia. Rozdzia³ omawia wykorzystywane narzêdzia i biblioteki. Podane s¹ wymagania sprzêtowe, opis instalacji wymaganego œrodowiska oraz instrukcja obs³ugi narzêdzia.
+
+Ostatnia czêœæ zawiera podsumowanie i prezentacjê wniosków z usyskanych efektów w pracy. Zaproponowane zosta³y równie¿ dalsze kierunki rozwoju.
